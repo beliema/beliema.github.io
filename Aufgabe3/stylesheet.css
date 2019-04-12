@@ -26,4 +26,46 @@ h2 {
     text-align: left
 }
 
+section {
+    background-color: #F7A99A;
+    width: 85%;
+}
 
+article {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    text-align: center;
+    padding: 1px;
+    width: 85%;
+}    
+
+.Schneee {
+    border: white;
+    border-radius: 10%;
+    height: 250px;
+    width: 300px;
+}  
+
+
+footer {
+    text-align: right;
+    color: black;
+}     
+
+
+h3 {
+    color: white
+}    
+
+.Herbscht {
+    border: white;
+    border-radius: 20%;
+    height: 250px;
+    width: 300px;
+} 
+
+.Macarena {
+    border: white;
+    border-radius: 50%;
+
+} 
