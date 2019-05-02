@@ -1,0 +1,85 @@
+
+body {
+    background-color: #D8CEF6;
+}
+header {
+    width: 100%;
+    background-color: #8181F7;
+}
+
+main {
+    width: 60%;
+    float: center;
+}
+
+
+
+
+h1 {
+    font-family: 'Mantinia', sans-serif;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 35px;
+}
+
+li {
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    width: 30%;
+    float: left;
+    text-align: center;
+    padding: 15px 0;
+}
+
+h2 {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 30px;
+    font-stretch: ultra-expanded;
+    text-align: left
+}
+
+section {
+    background-color: #F7A99A;
+    width: 85%;
+}
+
+article {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    text-align: center;
+    padding: 1px;
+    width: 85%;
+    background-color: #F7ECAD;
+}    
+
+.Schneee {
+    border: white;
+    border-radius: 10%;
+    height: 250px;
+    width: 300px;
+}  
+
+
+footer {
+    text-align: right;
+    color: black;
+    width: 100%;
+}     
+
+
+h3 {
+    color: white
+}    
+
+.Herbscht {
+    border: white;
+    border-radius: 20%;
+    height: 250px;
+    width: 300px;
+} 
+
+.Macarena {
+    border: white;
+    border-radius: 50%;
+
+} 
