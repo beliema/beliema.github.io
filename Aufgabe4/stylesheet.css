@@ -4,29 +4,37 @@ body {
 }
 header {
     width: 100%;
+    background-color: #8181F7;
+    margin-inline-end: 43px;
+    height: 5em;
   
+}
+
+ul {
+    overflow: hidden;
+    font-family: 'Times New Roman', Times, serif;
+    list-style: none;
 }
 
 main {
     width: 60%;
-    float: center;
+    float: left;
 }
 
-ul {
-    background-color: #8181F7;
-}   
 
 aside {
     text-align: right;
-    position: relative;
     width: 35%;
+    float: left;
+    position: absolute
 }    
 
 h1 {
-    font-family: 'Mantinia', sans-serif;
     text-align: center;
     text-transform: uppercase;
-    font-size: 35px;
+    font-size: 40px;
+    background-color: beige;
+    font-family: 'Times New Roman', Times, serif;
 }
 
 li {
