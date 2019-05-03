@@ -25,7 +25,6 @@ main {
 
 aside {
     width: 30%;
-    position: right;
     margin-top: 4em;
     float: right;
 }    
@@ -94,7 +93,9 @@ article {
 footer {
     color: black;
     width: 100%;
-    
+    position: static;
+    overflow: auto;
+    background-color: #8181F7;
 }     
 
 
