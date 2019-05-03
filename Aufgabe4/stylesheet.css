@@ -28,14 +28,14 @@ main {
 }
 
 aside {
-    width: 40%;
+    width: 35%;
     margin-top: 4em;
     float: right;
     background-color: #8181F7;
     font-size: 25px;
     
 }    
-aside:hover {text: ultra-expanded}
+aside:hover {text-anchor: middle}
 
 h1 {
     text-align: center;
