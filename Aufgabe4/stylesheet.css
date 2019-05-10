@@ -6,7 +6,7 @@ header {
     width: 100%;
     background-color: #8181F7;
     margin-inline-end: 43px;
-    height: 5em;
+    height: 7em;
   
 }
 
@@ -15,7 +15,6 @@ ul {
     height: 2,5em;
     background-color: #8181F7;
     font-family: 'Times New Roman', Times, serif;
-    list-style: none;
 }
 
 main {
@@ -23,10 +22,7 @@ main {
     float: left;
 }
 
-:hover {
-    background-color: #D8CEF6;
     
-}
 
 aside {
     width: 35%;
@@ -36,21 +32,27 @@ aside {
     font-size: 25px;
     
 }    
-aside:hover {background-color: beige}
+
 
 h1 {
     text-align: center;
-    text-transform: uppercase;
+    text-transform: lowercase;
     font-size: 40px;
     background-color: beige;
     font-family: 'Times New Roman', Times, serif;
 }
 
-li {
+nav {
+    text-align: inherit;
+
+}
+
+
+
+nav li {
     font-family: 'Roboto', sans-serif;
     font-size: 20px;
-    width: 30%;
-    float: left;
+    width: 100%;
     text-align: center;
     padding: 15px 0;
 }
@@ -129,9 +131,3 @@ h3 {
 
 } 
 
-#Burger:hover+ul {
-    display: block;
-}
-
-ul:hover {
-    display: block;
