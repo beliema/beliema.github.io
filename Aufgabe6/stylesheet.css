@@ -12,7 +12,6 @@ header {
 
 ul {
     overflow: hidden;
-    height: 2,5em;
     background-color: #8181F7;
     font-family: 'Times New Roman', Times, serif;
     list-style: none;
@@ -128,10 +127,3 @@ h3 {
     width: 200px;
 
 } 
-
-#Burger:hover+ul {
-    display: block;
-}
-
-ul:hover {
-    display: block;
