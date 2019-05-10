@@ -11,10 +11,11 @@ header {
 }
 
 ul {
-    overflow: hidden;
-    height: 2,5em;
+   
     background-color: #8181F7;
     font-family: 'Times New Roman', Times, serif;
+
+
 }
 
 main {
@@ -42,20 +43,19 @@ h1 {
     font-family: 'Times New Roman', Times, serif;
 }
 
-nav {
-    text-align: inherit;
-
-}
 
 
 
 nav li {
     font-family: 'Roboto', sans-serif;
     font-size: 20px;
-    width: 100%;
     text-align: center;
-    padding: 15px 0;
+    padding: 10px 0;
+    overflow: hidden;
+    height: 2,5em;
 }
+
+
 
 h2 {
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
@@ -130,4 +130,5 @@ h3 {
     width: 200px;
 
 } 
+
 
