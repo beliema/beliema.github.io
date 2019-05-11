@@ -14,7 +14,7 @@ header {
 
 ul {
     overflow: hidden;
-    height: 32px;
+    height: 28px;
     background-color: #8181F7;
     font-family: 'Times New Roman', Times, serif;
     list-style: none;
@@ -141,3 +141,72 @@ h3 {
     width: 200px;
 
 } 
+
+/* Mobile Style */ 
+
+@media screen and (min-width: 36em) {
+    header :after {
+        content: "- Mode: Smartphone Landscape und größer-";
+    } 
+
+    main {
+        float: left;
+        width: 65%;
+        height: 40em;
+    } 
+
+    aside {
+        float: left;
+        width: 35%;
+    }
+
+    footer {
+        clear: both;
+    }
+    
+}
+
+        /* Tablet Version */
+        
+        @media screen and (min-width: 60em){
+
+            div {
+            
+                 width: 45%;
+                    
+            }
+                    
+            .Site {       
+                    
+                width: 100%;
+            }
+                    
+            }
+
+
+/* Desktop Version*/
+
+@media screen and (min-width: 80em){
+
+    .Haupt {
+    
+        width: 80%;
+        float: right;
+        
+    }
+        
+    div {
+    
+        width: 23%;
+        height:25%;
+            
+    }
+        
+    .Site {
+        
+        width: 15%;
+        clear: left;
+    
+    }
+      
+    }
