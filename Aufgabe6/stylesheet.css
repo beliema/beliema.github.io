@@ -1,20 +1,28 @@
 
+/* Mobile Design // Standart */ 
+
 body {
     background-color: #D8CEF6;
 }
+
 header {
     width: 100%;
     background-color: #8181F7;
     margin-inline-end: 43px;
     height: 5em;
+}
 
-
-  
+h1 {
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 40px;
+    background-color: beige;
+    font-family: 'Times New Roman', Times, serif;
 }
 
 ul {
     overflow: hidden;
-    height: 28px;
+    height: 26px;
     background-color: #8181F7;
     font-family: 'Times New Roman', Times, serif;
     list-style: none;
@@ -55,17 +63,6 @@ aside {
     font-size: 25px;
     
 }    
-
-h1 {
-    text-align: center;
-    text-transform: uppercase;
-    font-size: 40px;
-    background-color: beige;
-    font-family: 'Times New Roman', Times, serif;
-}
-
-
-
 
 
 h2 {
@@ -142,3 +139,87 @@ h3 {
 
 } 
 
+/* Tablet Version */
+
+@media (min-width: 62em) {
+
+    main {
+        width: 60%
+    }
+    
+    li {
+        margin-left: 7em;
+    }
+    
+    section {
+        width: 17em;
+        height: 10em;
+    }
+    
+    section:nth-child(2n+1) {
+        clear: right;
+    }
+    
+    aside {
+        width: 20%;
+        height: 40em;
+        padding: 1.5em;
+        border: 1em;
+    }
+    
+    
+    
+    h1 {
+        width: 800px;
+    }
+    
+    
+    }
+    
+
+
+/* DESKTOP Version */
+
+
+@media (min-width: 90em) {
+
+
+    main {
+        width: 75%;
+    }
+    
+    section {
+        width: 20em;
+        height: 15em;
+    }
+    
+    section:nth-child(2n+1) {
+        clear: unset;
+    }
+    
+    section:nth-child(3n+1) {
+        clear: right;
+    }
+    
+    
+    aside {
+        width: 10%;
+        height: 40em;
+        padding: 1.5em;
+        border: 1em;
+    }
+    
+    
+    li {
+        margin-left: 10em;
+    }
+    
+  
+    
+    h1 {
+        width: 1000px;
+        height: 200px;
+    }
+    
+    
+    }
