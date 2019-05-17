@@ -1,17 +1,16 @@
 {
 	"folders": [
 		{
-			"path": "Aufgabe1"
+			"path": "Aufgabe4"
 		},
 		{
 			"path": "steckbrief"
 		},
 		{
-			"path": "Aufgabe2"
+			"path": "Aufgabe6"
 		},
 		{
-			"path": "Aufgabe3"
+			"path": "Typescript"
 		}
-	],
-	"settings": {}
+	]
 }
