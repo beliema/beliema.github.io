@@ -1,3 +1,8 @@
 console.log("Hallo");
 console.log("Was geht");
-//hello
+
+
+
+function add(x: number, y: number): number {
+    return x + y;
+}

@@ -1,4 +1,6 @@
 console.log("Hallo");
 console.log("Was geht");
-//hello
+function add(x, y) {
+    return x + y;
+}
 //# sourceMappingURL=script.js.map
