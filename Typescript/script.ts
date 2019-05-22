@@ -1,16 +1,45 @@
+
+//Ausgabe//
 console.log("Hallo");
 console.log("Was geht");
 
+window.onload = function () {
+}   
+    
+   
 
-string summand1;
-string summand2;
-string SVGAnimatedEnumeration;
+let name: string ="Ja"; //Typ String// 
+let name: string ="Ja2";
+let number1: number="1"; //Typ Number//
+let number2: number="2";
+let number3: number="3";
+number2 = 3; //neuer Wert an deklarierte Varbiable// 
+console.log(name+name);
+console.log(number1+number2);
+console.log(number1+name);
 
-string summand1 = 23;
-string summand2 = 55;
+}
 
-string summe = summand1 + summand2;
 
-MediaKeySystemAccess.out.printIn("Die Summe der Zahlen ist");
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
