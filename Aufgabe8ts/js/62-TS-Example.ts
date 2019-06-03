@@ -50,7 +50,7 @@ let monsterModifers: string[] = ["Ist nervig", "Linkshänder", "Bier-Connoisseur
 
 let Items: string[] = ["Stock", "Käse", "Pfanne", "Baked Beanz", "Schnitzel", "Zigarettenstummel", "Pantoffel", "Türklinke", "Aschenbecher"];                       //Was das jeweilige Monster für ein Utensil bei sich trägt
 
-let Bildquellen: string[] = ["elefant.png", "loewe.png", "Monster1.png", "monster2.jpg", "pinguin.png"]
+let Bildquellen: string[] = ["elefant.png", "loewe.png", "Monster1.png", "monster2.jpg", "pinguin.png", "Dieter.jpg"]
 
 let PushArray: number[]=[];
 
