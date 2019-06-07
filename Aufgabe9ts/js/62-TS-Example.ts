@@ -111,7 +111,7 @@ function updateHTML() {
     clearMonsterCell();
     monsterGenerateHTMLAll();
 
-    console.log("Gerade sind es so viele Monster: " + getMonsterCount();
+    console.log("Gerade sind es so viele Monster: " + getMonsterCount);
 }                  
 
 function clearMonsterCell() {
@@ -279,6 +279,11 @@ function fightMonster(_index: number) {
 
     updateHTML();
 }
+
+function getMonsterCount(): number {
+    return monsterArray.length;
+}
+
 
 // Aufgerufen, um das HTML-Element, welches das Spieler-Level darstellt, zu erneuern.
 function updatePlayerLevel(neuesItem: string) {
