@@ -73,7 +73,7 @@ function clearMonsterCell() {
     while (monsterHoldingDiv.firstChild) {
         monsterHoldingDiv.removeChild(monsterHoldingDiv.firstChild);
     }
-    console.log("alles geleert");
+    console.log("nada, niente, es ist alles weg");
 }
 function monsterGenerateHTMLAll() {
     for (let i = 1; i <= monsterArray.length; i++) {
@@ -114,6 +114,11 @@ function monsterGenerateHTML(count) {
 // Wird für den Zugriff auf eine zufällige Stelle in einem Array aufgerufen.
 // [ ] Optionale Aufgabe: verkleinere diesen Code auf eine Zeile mit nur einem Semikolon!
 // Muss mit einer Zahl aufgerufen werden: getRNGNumber(5); // Liefert eine ganze Zahl zwischen 0 bis 4 zurück.
+let monsterCount = count;
+monsterBtn.addEventListener(// Füge dem Monster eine Funktion hinzu.
+'click', function () {
+    fightMonster(monsterCount); // Wenn das Monster erstellt wird erhält die Funktion einen Parameter, welcher der aktuellen Anzahl entspricht.
+}, false); // Ignoriert das false.
 function getRNGNumber(_maxNumber) {
     /*let rngNumber: number = Math.random();                             // Macht folgendes: Generiere eine zufällige Komma-Zahl zwischen 0 - 1.
     rngNumber = rngNumber * _maxNumber;                                 // Multipliziere diese Zahl mit der Länge des entsprechenden Array (hier: _maxNumber, ein Parameter, siehe in der runden Klammer der Funktion).
@@ -179,13 +184,13 @@ function generateNewImageSource(MonsterName) {
 // Aufgerufen, wenn man auf den Button klickt.
 // Der Spieler kämpft gegen das entsprechende Monster. Er erhält dann Erfahrungspunkte.
 function fightMonster(_index) {
-    console.log("Spieler kämpft gegen Monster und gewinnt!"); // Ohne Logik mit if/else ist so etwas wie ein Kampf nicht leicht umzusetzen.
-    console.log("Das Monster und alle Anderen Monster die sehen was passiert verschwinden"); // Wird nächste Stunde erweitert.
-    console.log("Du bekommst des Monsters ITEM! -> " + monsterArray[_index - 1].Item);
+    console.log("Das Item gehört jetzt dir! -> " + monsterArray[_index - 1].Item);
     playerXP += monsterArray[_index - 1].monsterExperience; // _index ist in diesem Fall die Länge des Arrays - allerdings zählt der Computer beginnend von null, nicht eins! Deshalb _index-1.
     updatePlayerItems(monsterArray[_index - 1].Item);
     updatePlayerLevel(monsterArray[_index - 1].Item);
     removeMonsters(_index);
+    monsterArray.splice(_index - 1, 1);
+    updateHTML();
 }
 // Aufgerufen, um das HTML-Element, welches das Spieler-Level darstellt, zu erneuern.
 function updatePlayerLevel(neuesItem) {
