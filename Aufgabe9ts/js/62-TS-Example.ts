@@ -178,8 +178,8 @@ let monsterCount: number = count;
 
 monsterBtn.addEventListener(                                        // Füge dem Monster eine Funktion hinzu.
     'click', function () {                                           // Wird bei Maus-Click ausgelöst.
-        fightMonster(monsterCount);                                 // Wenn das Monster erstellt wird erhält die Funktion einen Parameter, welcher der aktuellen Anzahl entspricht.
-    }, false);                                                      // Ignoriert das false.
+        fightMonster(monsterCount);                                 //Beim Erstellen eines neuen Monsters wird der Funktion einen Parameter, welcher der aktuellen Anzahl entspricht.
+    }, false);                                                       // Ignoriert das false.
 }
 
 

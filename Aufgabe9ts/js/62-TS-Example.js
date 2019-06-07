@@ -117,7 +117,7 @@ function monsterGenerateHTML(count) {
 let monsterCount = count;
 monsterBtn.addEventListener(// Füge dem Monster eine Funktion hinzu.
 'click', function () {
-    fightMonster(monsterCount); // Wenn das Monster erstellt wird erhält die Funktion einen Parameter, welcher der aktuellen Anzahl entspricht.
+    fightMonster(monsterCount); //Beim Erstellen eines neuen Monsters wird der Funktion einen Parameter, welcher der aktuellen Anzahl entspricht.
 }, false); // Ignoriert das false.
 function getRNGNumber(_maxNumber) {
     /*let rngNumber: number = Math.random();                             // Macht folgendes: Generiere eine zufällige Komma-Zahl zwischen 0 - 1.
