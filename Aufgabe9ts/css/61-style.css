@@ -19,16 +19,20 @@ h1 {
 
 .monster {
 	width: 20em;
+	margin-top: 10pt;
+	margin-bottom: 10pt;
 }
 
 .monster img {
-	width: 100%;
+	width: 60%;
+	margin-left: 80pt;
 }
 
 .monster button {
 	text-align: center;
 	display: block;
 	margin: auto;
+	background-color: chartreuse;
 }
 
 .monster p {
