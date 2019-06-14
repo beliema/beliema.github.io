@@ -17,7 +17,7 @@ let monsterName = ["Ratte", "Ed von Schleck", "Ungeziefer", "Kommulitonin", "Beu
 let suffix = [" des Verderbens", " aus der Hölle", " der Lethalität", " mit Rheuma", " der Redundanz", " der Zerberstung", " der Apokalypse", " des Todes", " aus Baden", " des Rolandus", " aus der Truhe"]; // length = 6, da hier 6 Einträge sind. Von 0-5.
 let monsterModifers = ["Ist nervig", "Linkshänder", "Bier-Connoisseur", "Verfehlt häufig", "Prokrastiniert", "Müde", "Verwirrt", "Wasserscheu", "Bipolar", "Hat Schnupfen", "Verläuft sich oft"]; // Eine Reihe von zufälligen "Verstärkern" für das Monster.
 let Items = ["Stock", "Käse", "Pfanne", "Baked Beanz", "Schnitzel", "Zigarettenstummel", "Pantoffel", "Türklinke", "Aschenbecher"]; //Was das jeweilige Monster für ein Utensil bei sich trägt
-let Bildquellen = ["elefant.png", "loewe.png", "Monster1.png", "monster2.jpg", "pinguin.png", "Dieter.jpg"];
+let Bildquellen = ["elefant.png", "loewe.png", "Monster1.png", "Monster3.png", "pinguin.png", "Dieter.jpg"];
 let PushArray = [];
 // -- Initialisierung für viele/variable Anzahl an Monster --
 let monsterArray = []; // Das Haupt-Array wurde erstellt und initialisiert!
