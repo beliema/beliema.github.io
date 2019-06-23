@@ -23,6 +23,12 @@ h1 {
 	margin-bottom: 10pt;
 }
 
+.imgHolder {
+	width: 100%;
+	height: 20em;
+	overflow: hidden;
+}	
+
 .monster img {
 	width: 60%;
 	margin-left: 80pt;
@@ -50,11 +56,6 @@ main div {
 	display: inline-block;
 }
 
-/*
-main > div > img {
-	width: 100%;
-}
-*/
 
 button {
 
@@ -63,7 +64,7 @@ button {
   padding: 1em;
   overflow: hidden;
 
-	display: inline-block;
+  display: inline-block;
   width:10em; 	
 
   border-width: 0;
@@ -71,7 +72,7 @@ button {
   border-radius: 2px;
   box-shadow: 0 1px 4px rgba(0, 0, 0, .6);
   
-  background-color: #2ecc71;
+  background-color: #FF0040;
   color: #ecf0f1;
   
   margin: auto;
