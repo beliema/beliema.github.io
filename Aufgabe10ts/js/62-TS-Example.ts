@@ -342,7 +342,7 @@ function getMonsterCount(): number {
     return monsterArray.length;
 }
 
-let count = number = 0; 
+let count: number = 0; 
 
 function pusher() {
     PushArray.push(Math.random());

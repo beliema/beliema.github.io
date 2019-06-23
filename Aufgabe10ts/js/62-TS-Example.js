@@ -267,7 +267,7 @@ function updatePlayerLevel(monsterLvl, neuesItem) {
     function getMonsterCount() {
         return monsterArray.length;
     }
-    let count = number = 0;
+    let count = 0;
     function pusher() {
         PushArray.push(Math.random());
         console.log(PushArray);
