@@ -28,7 +28,6 @@ window.onload = function () {
     document.getElementById("fightWeakest").addEventListener("click", fightWeakestMonster);
     updatePlayerLevel("nichts");
     document.getElementById("fightSame").addEventListener("click", fightSame);
-    document.getElementById("Arraypusher").addEventListener("click", pusher);
 };
 // Funktion, um neue Monster zu generieren
 function generateMonster() {
@@ -210,8 +209,8 @@ function fightMonster(_index) {
     if (monsterArray.length > 0) {
         if (playerLvl > monsterArray[_index - 1].monsterLvl) {
             console.log("Das Item gehört jetzt dir! -> " + monsterArray[_index - 1].Item);
-            updatePlayerXP += monsterArray[_index - 1].monsterExperience; // _index ist in diesem Fall die Länge des Arrays - allerdings zählt der Computer beginnend von null, nicht eins! Deshalb _index-1.
-            updatePlayerItems(monsterArray[_index - 1].Item);
+            updateplayerXP += monsterArray[_index - 1].monsterExperience; // _index ist in diesem Fall die Länge des Arrays - allerdings zählt der Computer beginnend von null, nicht eins! Deshalb _index-1.
+            updateplayerItems(monsterArray[_index - 1].Item);
             updatePlayerLevel(monsterArray[_index - 1].Item);
             monsterArray.splice(_index - 1, 1);
             updateHTML();
@@ -221,21 +220,21 @@ function fightMonster(_index) {
             if (Math.random() > 0.4) {
                 console.log("grade so gewonnen! Geh feiern!");
                 console.log("Die Sachen des Monsters gehören dir!" + monsterArray[_index - 1].Item);
-                updatePlayerXP(monsterArray[_index - 1].monsterExperience);
-                updatePlayerItems(monsterArray[_index - 1].Item);
+                updateplayerXP(monsterArray[_index - 1].monsterExperience);
+                updateplayerItems(monsterArray[_index - 1].Item);
                 updatePlayerLevel(monsterArray[_index - 1].Item);
                 monsterArray.splice(_index - 1, 1);
                 updateHTML();
             }
             else {
                 console.log("Loser, aber Loser mit Items!");
-                updatePlayerXP((monsterArray[_index - 1].monsterExperience) * (-1));
+                updateplayerXP((monsterArray[_index - 1].monsterExperience) * (-1));
                 updatePlayerLevel("nichts");
             }
         }
         else {
             console.log("Mist ... verloren ");
-            updatePlayerXP((monsterArray[_index - 1].monsterExperience) * (-1));
+            updateplayerXP((monsterArray[_index - 1].monsterExperience) * (-1));
             updatePlayerLevel("nichts");
         }
     }
@@ -244,7 +243,7 @@ function getMonsterCount() {
     return monsterArray.length;
 }
 // Aufgerufen, um das HTML-Element, welches das Spieler-Level darstellt, zu erneuern.
-function updatePlayerLevel(monsterLvl, neuesItem) {
+function updatePlayerLevel(neuesItem) {
     playerLvl = (Math.floor(playerXP / playerXPperLevel)) + 1;
     if (playerLvl >= 20 && schonGewonnen == false) {
         alert("Gewonnen!");
@@ -252,7 +251,7 @@ function updatePlayerLevel(monsterLvl, neuesItem) {
     } // Spieler-Level = XP / XPproLevel
     document.getElementById("xpCounter").innerHTML = "Player-Level: " + playerLvl + " (XP: " + playerXP + " / " + playerXPperLevel * (playerLvl + 1) + ")     Items: " + playerItems; // Baue den String für die Spieler-Info zusammen          //////////////////////////zeigt jetzt nicht mehr an, wieviel XP benötigt werden für einen Level aufstieg, sondern, bei wieviel XP der Level erreicht wird\\\\\\\\\\\\\\\\
     console.log("Spieler " + playerName + " hat nun Level " + playerLvl + " mit " + playerXP + " (" + playerXPperLevel + " pro Level)    außerdem hat er ein(e) " + neuesItem + " bekommen!"); // Spieler-Level in der Konsole.
-    function updatePlayerXP(tempXP) {
+    function updateplayerXP(tempXP) {
         if (playerXP + tempXP > 0) {
             playerXP += tempXP;
         }
@@ -261,16 +260,12 @@ function updatePlayerLevel(monsterLvl, neuesItem) {
         }
     }
     //fügt demn Spieler neue Items hinzu
-    function updatePlayerItems(neuesItem) {
+    function updateplayerItems(neuesItem) {
         playerItems += ", " + neuesItem;
     }
     function getMonsterCount() {
         return monsterArray.length;
     }
     let count = 0;
-    function pusher() {
-        PushArray.push(Math.random());
-        console.log(PushArray);
-    }
 }
 //# sourceMappingURL=62-TS-Example.js.map
