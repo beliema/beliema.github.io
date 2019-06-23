@@ -5,13 +5,12 @@
 // ------- Variablen -------- //
 let saveImageSrc;
 let monsterHolder = "monsterHoldingCell"; // ID für das Haupt-Element, in welchem die Monster sich befinden werden. Wird vielleicht mehrfach in dem Skript gebraucht, deshalb einmalig definitiert.
-let playerName = "Spielername"; // Ein paar globale Variablen, welche den Spieler darstellen.
-let playerXP = 0;
+let playerName = "Der Rächer für unordentliche Jugendzimmer nach einem Nervenzusammenbruch "; // Ein paar globale Variablen, welche den Spieler darstellen.
+let playerXP = 722 * 2;
 let playerLvl = 1; // Stellt die gesammelte Erfahrung des Spielers dar.                                                                     ////////////////////////////////wichtig, die playerXp darf nicht null sein... sonst kann man nicht den neuen wert aufaddieren
 let playerXPperLevel = 722; // Da es nur einen Spieler gibt, ergibt sich noch nicht viel Sinn darin, für den Spieler ein interface (im Sinne der Programmierung) zu erstellen.
 let playerItems = "Macarena";
 let schonGewonnen = false;
-let pusher;
 // Mehrere Arrays, welche jeweils Bauteile für Namen oder Eigenschaften der Monster beinhalten.
 let prefix = ["Wald-", "Seuchen-", "Uralte(s) ", "Gift-", "Brennende(s) ", "Kniescheibenzertrümmernde(s) ", "furchtlose(s)", "blutrünstige(s)", "Schlangen-", "hopsende(s)", "Eisverkaufende(s)"]; // length = 6, da 6 Einträge. Von 0-5.
 let monsterName = ["Ratte", "Ed von Schleck", "Ungeziefer", "Kommulitonin", "Beuteltier", "Eichhörnchen"]; // length = 3, da 3 Einträge. Von 0-2.
@@ -31,9 +30,9 @@ window.onload = function () {
     document.getElementById("fightSame").addEventListener("click", fightSame);
     document.getElementById("Arraypusher").addEventListener("click", pusher);
 };
-// Funktion, um neue Monsterzu generieren
+// Funktion, um neue Monster zu generieren
 function generateMonster() {
-    let tempRandom = getRNGNumber(3) + 1;
+    let tempRandom = getRNGNumber(3) + 1; //Monsterschleifen bis 3 generierbar
     if (tempRandom == 1) {
         console.log("");
         console.log("Neuer Gegner!");
@@ -58,7 +57,8 @@ function generateMonster() {
             Item: newMonsterItem,
             Bildpfad: newImageSource,
         };
-        monsterArray.push(newMonster); // Monster wird erst in diesem Schritt zu dem Array hinzugefügt 
+        monsterArray.push(newMonster);
+        console.log(monsterArray[monsterArray.length - 1].monsterExperience); // Monster wird erst in diesem Schritt zu dem Array hinzugefügt 
     }
     updateHTML();
 }
@@ -122,11 +122,6 @@ function monsterGenerateHTML(count) {
         fightMonster(monsterCount); // Wenn das Monster erstellt wird erhält die Funktion einen Parameter, welcher der aktuellen Anzahl entspricht.
     }, false); // Ignoriert das false.
 }
-let monsterCount = count;
-monsterBtn.addEventListener(// Füge dem Monster eine Funktion hinzu.
-'click', function () {
-    fightMonster(monsterCount); //Beim Erstellen eines neuen Monsters wird der Funktion einen Parameter, welcher der aktuellen Anzahl entspricht.
-}, false); // Ignoriert das false.
 function getRNGNumber(_maxNumber) {
     return Math.floor(Math.random() * _maxNumber);
 }
@@ -249,7 +244,7 @@ function getMonsterCount() {
     return monsterArray.length;
 }
 // Aufgerufen, um das HTML-Element, welches das Spieler-Level darstellt, zu erneuern.
-function updatePlayerLevel(neuesItem) {
+function updatePlayerLevel(monsterLvl, neuesItem) {
     playerLvl = (Math.floor(playerXP / playerXPperLevel)) + 1;
     if (playerLvl >= 20 && schonGewonnen == false) {
         alert("Gewonnen!");
@@ -272,7 +267,7 @@ function updatePlayerLevel(neuesItem) {
     function getMonsterCount() {
         return monsterArray.length;
     }
-    // pusht das Array
+    let count = number = 0;
     function pusher() {
         PushArray.push(Math.random());
         console.log(PushArray);
