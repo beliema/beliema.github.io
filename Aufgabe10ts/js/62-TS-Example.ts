@@ -58,6 +58,7 @@ function generateMonster() {
 
     let tempRandom: number = getRNGNumber(3) + 1; //Monsterschleifen bis 3 generierbar
 
+
     if (tempRandom == 1) {
         console.log("")
         console.log("Neuer Gegner!");
@@ -65,6 +66,7 @@ function generateMonster() {
         console.log("Oh-Oh!" + tempRandom + " neue Monster gespawnt!");
     }
 
+    
     for (let i: number = 0; i < tempRandom; i++) {
         let newMonsterName: string = generateMonsterName();                // Eigens-gebaute Funktion, welche einen string zurück gibt.
         let newMonsterHP: number = generateMonsterHitPoints();             // Eigens-gebaute Funktion, welche eine Zahl zurück gibt.
