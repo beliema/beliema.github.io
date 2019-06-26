@@ -209,7 +209,7 @@ function fightMonster(_index) {
     if (monsterArray.length > 0) {
         if (playerLvl > monsterArray[_index - 1].monsterLvl) {
             console.log("Das Item gehört jetzt dir! -> " + monsterArray[_index - 1].Item);
-            updateplayerXP += monsterArray[_index - 1].monsterExperience; // _index ist in diesem Fall die Länge des Arrays - allerdings zählt der Computer beginnend von null, nicht eins! Deshalb _index-1.
+            updateplayerXP(monsterArray[_index - 1].monsterExperience);
             updateplayerItems(monsterArray[_index - 1].Item);
             updatePlayerLevel(monsterArray[_index - 1].Item);
             monsterArray.splice(_index - 1, 1);
