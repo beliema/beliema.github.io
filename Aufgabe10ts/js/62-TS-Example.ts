@@ -275,46 +275,42 @@ function fightSame () {
 function fightMonster(_index: number) {
     if (monsterArray.length > 0) {
         if (playerLvl > monsterArray[_index - 1].monsterLvl) {
-        console.log("Das Item gehört jetzt dir! -> " + monsterArray[_index - 1].Item);
+            console.log("Das Item gehört jetzt dir! -> " + monsterArray[_index - 1].Item);
 
-    updateplayerXP += monsterArray[_index - 1].monsterExperience;                 	    // _index ist in diesem Fall die Länge des Arrays - allerdings zählt der Computer beginnend von null, nicht eins! Deshalb _index-1.
+            updateplayerXP += monsterArray[_index - 1].monsterExperience;                 	    // _index ist in diesem Fall die Länge des Arrays - allerdings zählt der Computer beginnend von null, nicht eins! Deshalb _index-1.
 
-    updateplayerItems(monsterArray[_index - 1].Item);
-    updatePlayerLevel(monsterArray[_index - 1].Item);
-    
-    monsterArray.splice(_index - 1, 1);
+            updateplayerItems(monsterArray[_index - 1].Item);
+            updatePlayerLevel(monsterArray[_index - 1].Item);
+            
+            monsterArray.splice(_index - 1, 1);
 
-    updateHTML();
-} else if (playerLvl == monsterArray[_index - 1].monsterLvl) {
-    console.log("gleiches Level! Geiloooo!")
-    if (Math.random() > 0.4) {
-        console.log("grade so gewonnen! Geh feiern!")
-        console.log("Die Sachen des Monsters gehören dir!" + monsterArray[_index - 1].Item);
+            updateHTML();
+        } else if (playerLvl == monsterArray[_index - 1].monsterLvl) {
+            console.log("gleiches Level! Geiloooo!")
+            if (Math.random() > 0.4) {
+                console.log("grade so gewonnen! Geh feiern!")
+                console.log("Die Sachen des Monsters gehören dir!" + monsterArray[_index - 1].Item);
 
-        updateplayerXP(monsterArray[_index - 1].monsterExperience)
+                updateplayerXP(monsterArray[_index - 1].monsterExperience)
 
-        updateplayerItems(monsterArray[_index - 1].Item);
-        updatePlayerLevel(monsterArray[_index - 1].Item);
+                updateplayerItems(monsterArray[_index - 1].Item);
+                updatePlayerLevel(monsterArray[_index - 1].Item);
 
-        monsterArray.splice(_index - 1, 1);
+                monsterArray.splice(_index - 1, 1);
 
-        updateHTML();
+                updateHTML();
             } else {
-                console.log("Loser, aber Loser mit Items!");
-                updateplayerXP((monsterArray[_index - 1].monsterExperience) * (-1));
-                updatePlayerLevel("nichts");
+                    console.log("Loser, aber Loser mit Items!");
+                    updateplayerXP((monsterArray[_index - 1].monsterExperience) * (-1));
+                    updatePlayerLevel("nichts");
             }
         } else {
             console.log("Mist ... verloren ");
             updateplayerXP((monsterArray[_index - 1].monsterExperience) * (-1));
             updatePlayerLevel("nichts");
-        }
+        }     
     }
 }
-function getMonsterCount(): number {
-    return monsterArray.length;
-}
-
 
 // Aufgerufen, um das HTML-Element, welches das Spieler-Level darstellt, zu erneuern.
 function updatePlayerLevel(neuesItem: string) {
@@ -325,7 +321,7 @@ function updatePlayerLevel(neuesItem: string) {
     }                                                           // Spieler-Level = XP / XPproLevel
     document.getElementById("xpCounter").innerHTML = "Player-Level: " + playerLvl + " (XP: " + playerXP + " / " + playerXPperLevel * (playerLvl + 1) + ")     Items: " + playerItems;       // Baue den String für die Spieler-Info zusammen          //////////////////////////zeigt jetzt nicht mehr an, wieviel XP benötigt werden für einen Level aufstieg, sondern, bei wieviel XP der Level erreicht wird\\\\\\\\\\\\\\\\
     console.log("Spieler " + playerName + " hat nun Level " + playerLvl + " mit " + playerXP + " (" + playerXPperLevel + " pro Level)    außerdem hat er ein(e) " + neuesItem + " bekommen!");        // Spieler-Level in der Konsole.
-
+}
 
 function updateplayerXP (tempXP: number) {
     if (playerXP + tempXP > 0) {
@@ -344,4 +340,3 @@ function getMonsterCount(): number {
     return monsterArray.length;
 }
 
-let count: number = 0; 

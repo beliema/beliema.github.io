@@ -239,9 +239,6 @@ function fightMonster(_index) {
         }
     }
 }
-function getMonsterCount() {
-    return monsterArray.length;
-}
 // Aufgerufen, um das HTML-Element, welches das Spieler-Level darstellt, zu erneuern.
 function updatePlayerLevel(neuesItem) {
     playerLvl = (Math.floor(playerXP / playerXPperLevel)) + 1;
@@ -251,21 +248,20 @@ function updatePlayerLevel(neuesItem) {
     } // Spieler-Level = XP / XPproLevel
     document.getElementById("xpCounter").innerHTML = "Player-Level: " + playerLvl + " (XP: " + playerXP + " / " + playerXPperLevel * (playerLvl + 1) + ")     Items: " + playerItems; // Baue den String für die Spieler-Info zusammen          //////////////////////////zeigt jetzt nicht mehr an, wieviel XP benötigt werden für einen Level aufstieg, sondern, bei wieviel XP der Level erreicht wird\\\\\\\\\\\\\\\\
     console.log("Spieler " + playerName + " hat nun Level " + playerLvl + " mit " + playerXP + " (" + playerXPperLevel + " pro Level)    außerdem hat er ein(e) " + neuesItem + " bekommen!"); // Spieler-Level in der Konsole.
-    function updateplayerXP(tempXP) {
-        if (playerXP + tempXP > 0) {
-            playerXP += tempXP;
-        }
-        else {
-            playerXP = 0;
-        }
+}
+function updateplayerXP(tempXP) {
+    if (playerXP + tempXP > 0) {
+        playerXP += tempXP;
     }
-    //fügt demn Spieler neue Items hinzu
-    function updateplayerItems(neuesItem) {
-        playerItems += ", " + neuesItem;
+    else {
+        playerXP = 0;
     }
-    function getMonsterCount() {
-        return monsterArray.length;
-    }
-    let count = 0;
+}
+//fügt demn Spieler neue Items hinzu
+function updateplayerItems(neuesItem) {
+    playerItems += ", " + neuesItem;
+}
+function getMonsterCount() {
+    return monsterArray.length;
 }
 //# sourceMappingURL=62-TS-Example.js.map
