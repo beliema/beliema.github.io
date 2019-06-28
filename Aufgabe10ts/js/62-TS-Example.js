@@ -22,7 +22,7 @@ let PushArray = [];
 let monsterArray = [];
 // ----------- Funktionen ----------- //
 window.onload = function () {
-    document.getElementById("monsterSpawner").addEventListener("Click", generateMonster, false);
+    document.getElementById("monsterSpawner").addEventListener("click", generateMonster, false);
     document.getElementById("fightAll").addEventListener("click", fightAllMonsters);
     document.getElementById("fightAllWeakest").addEventListener("click)", fightAllWeakMonsters);
     document.getElementById("fightWeakest").addEventListener("click", fightWeakestMonster);
