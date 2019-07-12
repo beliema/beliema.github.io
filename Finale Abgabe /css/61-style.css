@@ -19,7 +19,7 @@ h1 {
 button {
 	font-family: 	"Courgette", sans-serif;
   	font-size: 1.2em;	
-	  padding: 2em;
+	padding: 2em;
   	overflow: hidden;
 
   	width:15em; 	
@@ -39,4 +39,10 @@ button {
 
 body {
 	background-color: beige;
+}	
+
+h2 {
+	font-size: 1.2em;
+	position: fixed;
+	text-align: center;
 }	
