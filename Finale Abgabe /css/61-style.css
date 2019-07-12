@@ -52,3 +52,9 @@ h2 {
 	background-color: white;
 
 }
+
+.Spieler1 {
+	background-color: #D8D8D8;
+	position: fixed;
+	text-align: end;
+}	
