@@ -46,3 +46,9 @@ h2 {
 	position: fixed;
 	text-align: center;
 }	
+
+.Spielfläche {
+	width: 100%;
+	background-color: white;
+
+}
