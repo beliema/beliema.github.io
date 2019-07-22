@@ -1,8 +1,7 @@
-/* css für Codebeispiel 30 */
+/* css füt Uno-Kartenspiel/
 /* Einbettung font */ 
 @import url('https://fonts.googleapis.com/css?family=Courgette');
 
-/* Basic Styles */
 
 header {
 
@@ -31,7 +30,7 @@ button {
   	box-shadow: 0 1px 4px rgba(0, 0, 0, .6);
   
   	background-color: #848484;
-  	color: #ecf0f1;
+  	color: #F5A9A9;
   
 	margin: 0.5em;
 	
