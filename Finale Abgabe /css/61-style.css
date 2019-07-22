@@ -22,7 +22,7 @@ button {
 	padding: 2em;
 	overflow: hidden;
 
-  	width:15em; 	
+  	width:100%; 	
 
   	border-width: 0;
   	outline: black;
