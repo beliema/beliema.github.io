@@ -20,7 +20,10 @@ button {
 	font-family: 	"Courgette", sans-serif;
   	font-size: 1.2em;	
 	padding: 2em;
-  	overflow: hidden;
+	overflow: hidden;
+	position: fixed;
+	align-items: center;
+
 
   	width:15em; 	
 
