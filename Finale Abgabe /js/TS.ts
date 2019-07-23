@@ -18,6 +18,7 @@ let Bildpfad: string;
 let CardHolder = "Kartenstapel"; //ID für Kartenstapel
 let playerName : string = "Spieler1";
 let playerObjects: string = "Karten";
+let playerGegner: string = "Computer";
 let winGame: boolean = false; 
 
 
@@ -56,8 +57,29 @@ function updatecard(neuesItem: string) {
 //Funktion: Neue Karte generieren//
 
 function generateCard () {
-    let tempRandom = getRNGNumber (0) + 1; //Eine Karte wird ausgeteilt, wenn man auf den Stapel klickt
-    if (tempRandom == 1) {
-        console.log("");
-        console.log("Eine neue Karte");   
+    let random: number = getRNGNumber(5)+1; //generiert bis zu 5 Karten
+
+    for (let i: number = 0; i < random; i++) //eine Schleife mit der Endfunktion i
+
+{
+    let newCard: string = generateCard();
+    
+    let newObject: string = generateObject();
+    let Picadress: string: bildpfad;
+
+    let newCard: Karte = {
+        CardColor: newCardcolor,
+        CardNumber: newCardNumber,
+        object: newObject,
+        picAdress: newPicadress,
+
+};
+
+CardArray.push(newCard);
+
+console.log(CardArray[CardArray.length -1].);
+
+} 
+updateHTML();
 }
+
