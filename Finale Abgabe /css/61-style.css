@@ -55,6 +55,7 @@ h2 {
 
 .Spieler1 {
 	background-color: #D8D8D8;
+	position: fixed;
 	
 }	
 
@@ -67,5 +68,6 @@ h2 {
 .Gegenspieler {
 
 	background-color: #D8D8D8;
+	position: fixed;
 
 }
