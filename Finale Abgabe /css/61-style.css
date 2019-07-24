@@ -16,58 +16,90 @@ h1 {
 	text-align: center;
 }
 
-button {
-	font-family: 	"Courgette", sans-serif;
-  	font-size: 1.2em;	
-	padding: 2em;
+
+.game {
+	background-color: #D8D8D8;
+	height: 100%;
+	width: 100%;
+	display: flex;
+}
+
+.stack {
+	float: left;
+	width: 30%;
+	height: 100%;
+
+}
+
+.info {
+	height: 25%;
+	width: 100%;
+}
+
+.stackCards {
+	display: table;
+	background-color: aquamarine;
+	height: 75%;
+	width: 100%;
+	border-color: #D8D8D8;
+	border-top-width: 0px;
+	border-left-width: 0px;
+	border-bottom-width: 0px;
+	border-right-width: 20px;
+	border-style: solid;
+	box-sizing: border-box;
 	overflow: hidden;
 
-  	width:23%; 	
+}
 
-  	border-width: 0;
-  	outline: black;
-  	border-radius: 2px;
-  	box-shadow: 0 1px 4px rgba(0, 0, 0, .6);
-  
-  	background-color: #848484;
-  	color: #F5A9A9;
-  
-	margin: 0.5em;
-	
-	}
-	
+.item {
+	display: table-cell;
+	vertical-align: middle;
+}
+
+.field {
+	float: left;
+	background-color: #D8D8D8;
+	height: 100%;
+	width: 100%;
+	padding: 0;
+}
+
+.computerCards {
+	display: table;
+	height: 35%;
+	width: 100%;
+	background-color: aquamarine;
+	overflow: scroll !important;
+}
+
+.inField {
+	display: table;
+	width: 100%;
+	align-items: center;
+	height: 50%;
+	box-sizing: border-box;
+	background-color: aquamarine;
+	border-color: #D8D8D8;
+	border-width: 10px;
+	border-radius: 60px;
+	border-style: solid;
+	overflow: hidden;
+}
+
+.playerCards {
+	display: table;
+	background-color: aquamarine;
+	height: 25%;
+	width: 100%;
+	overflow: scroll !important;
+}
 
 body {
-	background-color: #F5A9A9;
-}	
-
-h2 {
-	font-size: 1.2em;
-	position: fixed;
 	text-align: center;
-}	
-
-.Spielfläche {
+	margin: 0px;
+	padding: 0px;
+	height: 100%;
 	width: 100%;
-	background-color: white;
-
 }
-
-.Spieler1 {
-	background-color: #D8D8D8;
-	position: fixed;
 	
-}	
-
-#Kartespieler {
-
-	text-align: center;
-	width: 19%;
-}	
-
-.Gegenspieler {
-
-	background-color: #D8D8D8;
-	position: fixed;
-
-}
