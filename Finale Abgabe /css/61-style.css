@@ -14,14 +14,15 @@ div{
     height:150px;
     width:100px;
 	border-style: solid;
-	border-radius: 90%;
+	border-radius: 95%;
 }
 
 #Spielerdeck .Karte, #Gegnerdeck .Karte {
     display: inline-block;
     margin-left: 2%;
     margin-right: 2%;
-    margin-top:0.5em;
+	margin-top:0.5em;
+	text-align: center;
     }
 
 #Ablagestapel .Karte{
