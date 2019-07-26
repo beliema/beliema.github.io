@@ -2,8 +2,8 @@
 // 2. meine 4 Arrays festlegen
 let Kartenstapel = [];
 let Ablagestapel = [];
-let Gegnerdeck = [];
-let Spielerdeck = [];
+let Gegner = [];
+let Spieler = [];
 window.onload = function () {
     document.getElementById("Kartenstapel").addEventListener("click", KarteNehmen, false);
     GamePlay();
@@ -12,20 +12,20 @@ function GamePlay() {
     KartenGenerierung();
     Kartenstapel = shuffle(Kartenstapel); //Karten werden gemischt
     //Spielerkarten werden verteilt:
-    for (let i = 0; i < 5; i++) {
-        Spielerdeck.push(Kartenstapel[i]);
-        Gegnerdeck.push(Kartenstapel[i + 5]);
+    for (let i = 0; i < 4; i++) {
+        Spieler.push(Kartenstapel[i]);
+        Gegner.push(Kartenstapel[i + 4]);
     }
     Ablagestapel.push(Kartenstapel[10]);
     Kartenstapel.splice(0, 11);
-    console.log(Spielerdeck);
-    console.log(Gegnerdeck);
+    console.log(Spieler);
+    console.log(Gegner);
     console.log(Kartenstapel);
-    for (let i = 0; i < Spielerdeck.length; i++) {
-        KarteHTML(Spielerdeck[i], "Spielerdeck", i);
+    for (let i = 0; i < Spieler.length; i++) {
+        KarteHTML(Spieler[i], "Spielerdeck", i);
     }
-    for (let i = 0; i < Gegnerdeck.length; i++) {
-        KarteVerdeckt(Gegnerdeck[i], "Gegnerdeck", i);
+    for (let i = 0; i < Gegner.length; i++) {
+        KarteVerdeckt(Gegner[i], "Gegnerdeck", i);
     }
     KarteHTML(Ablagestapel[Ablagestapel.length - 1], "Ablagestapel", Ablagestapel.length - 1);
     KarteVerdeckt(Kartenstapel[Kartenstapel.length - 1], "Kartenstapel", Kartenstapel.length - 1);
@@ -50,43 +50,43 @@ function KarteVerdeckt(karte, Zielort, index) {
 function KarteLegen(karte, index) {
     if (karte.KartenFarbe == Ablagestapel[Ablagestapel.length - 1].KartenFarbe || karte.KartenWert == Ablagestapel[Ablagestapel.length - 1].KartenWert) {
         Ablagestapel.push(karte);
-        Spielerdeck.splice(index, 1);
+        Spieler.splice(index, 1);
         updateHTML("Spielerdeck");
         updateHTML("Ablagestapel");
         Gegnerzug();
     }
 }
 function KarteNehmen() {
-    if (checkKarten(Spielerdeck) == false) {
-        Spielerdeck.push(Kartenstapel[Kartenstapel.length - 1]);
+    if (checkKarten(Spieler) == false) {
+        Spieler.push(Kartenstapel[Kartenstapel.length - 1]);
         Kartenstapel.splice(Kartenstapel.length - 1, 1);
         updateHTML("Spielerdeck");
         updateHTML("Kartenstapel");
     }
-    if (checkKarten(Spielerdeck) == false) {
+    if (checkKarten(Spieler) == false) {
         Gegnerzug();
     }
 }
 function Gegnerzug() {
     //Wenn Gegner nicht legen kann, nimmt er Karte vom Kartenstapel
     let i = 0;
-    for (i; i < Gegnerdeck.length; i++) {
-        if (Gegnerdeck[i].KartenFarbe == Ablagestapel[Ablagestapel.length - 1].KartenFarbe || Gegnerdeck[i].KartenWert == Ablagestapel[Ablagestapel.length - 1].KartenWert) {
-            Ablagestapel.push(Gegnerdeck[i]);
-            Gegnerdeck.splice(i, 1);
+    for (i; i < Gegner.length; i++) {
+        if (Gegner[i].KartenFarbe == Ablagestapel[Ablagestapel.length - 1].KartenFarbe || Gegnerdeck[i].KartenWert == Ablagestapel[Ablagestapel.length - 1].KartenWert) {
+            Ablagestapel.push(Gegner[i]);
+            Gegner.splice(i, 1);
             updateHTML("Ablagestapel");
             updateHTML("Gegnerdeck");
             break;
         }
     }
-    if (i >= Gegnerdeck.length) {
-        Gegnerdeck.push(Kartenstapel[Kartenstapel.length - 1]);
+    if (i >= Gegner.length) {
+        Gegner.push(Kartenstapel[Kartenstapel.length - 1]);
         Kartenstapel.splice(Kartenstapel.length - 1, 1);
         updateHTML("Gegnerdeck");
         updateHTML("Kartenstapel");
-        if (Gegnerdeck[Gegnerdeck.length - 1].KartenFarbe == Ablagestapel[Ablagestapel.length - 1].KartenFarbe || Gegnerdeck[Gegnerdeck.length - 1].KartenWert == Ablagestapel[Ablagestapel.length - 1].KartenWert) {
-            Ablagestapel.push(Gegnerdeck[Gegnerdeck.length - 1]);
-            Gegnerdeck.splice(Gegnerdeck.length - 1, 1);
+        if (Gegner[Gegner.length - 1].KartenFarbe == Ablagestapel[Ablagestapel.length - 1].KartenFarbe || Gegnerdeck[Gegnerdeck.length - 1].KartenWert == Ablagestapel[Ablagestapel.length - 1].KartenWert) {
+            Ablagestapel.push(Gegner[Gegner.length - 1]);
+            Gegner.splice(Gegner.length - 1, 1);
             updateHTML("Ablagestapel");
             updateHTML("Gegnerdeck");
         }
@@ -105,13 +105,13 @@ function checkKarten(array) {
 function updateHTML(Zielort) {
     ClearHTML(Zielort);
     if (Zielort == "Spielerdeck") {
-        for (let i = 0; i < Spielerdeck.length; i++) {
-            KarteHTML(Spielerdeck[i], "Spielerdeck", i);
+        for (let i = 0; i < Spieler.length; i++) {
+            KarteHTML(Spieler[i], "Spielerdeck", i);
         }
     }
-    if (Zielort == "Gegnerdeck") {
-        for (let i = 0; i < Gegnerdeck.length; i++) {
-            KarteVerdeckt(Gegnerdeck[i], "Gegnerdeck", i);
+    if (Zielort == "Gegner") {
+        for (let i = 0; i < Gegner.length; i++) {
+            KarteVerdeckt(Gegner[i], "Gegnerdeck", i);
         }
     }
     if (Zielort == "Ablagestapel") {

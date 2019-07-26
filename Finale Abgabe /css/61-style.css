@@ -17,7 +17,7 @@ div{
 	border-style: solid;
 }
 
-#Spielerdeck .Karte, #Gegnerdeck .Karte {
+#Spieler .Karte, #Gegner .Karte {
     display: inline-block;
     margin-left: 2%;
     margin-right: 2%;
@@ -61,7 +61,7 @@ div{
     background-color:rgb(243, 243, 118);
 }
 
-#Gegnerdeck{ 
+#Gegner{ 
     background-color: #81BEF7;
     height:200px;
     width:100%;
@@ -89,7 +89,7 @@ div{
     
 }
 
-#Spielerdeck{
+#Spieler{
     background-color:#81BEF7;
     height:200px;
     width:100%;
