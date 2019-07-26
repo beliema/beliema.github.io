@@ -184,6 +184,65 @@ function cardToPlayer() {
             }
             return carddiv;
         }
+        function hasPlayerCard(card) {
+            var ok = false;
+            player.forEach(function (pcard) {
+                if ((pcard.color == card.color) && (pcard.value == card.value)) {
+                    ok = true;
+                }
+            });
+            return ok;
+        }
+        function getCardIndex(array, card) {
+            var ind = -1;
+            for (var i = 0; i < array.length; i++) {
+                if ((array[i].color == card.color) && (array[i].value == card.value)) {
+                    ind = i;
+                }
+            }
+            return ind;
+        }
+        function cardCanBePlayed(card) {
+            var ok = false;
+            if (!isEmpty(game)) {
+                var tc = getTopCard();
+                if ((tc.color == card.color) || (tc.value == card.value)) {
+                    ok = true;
+                }
+            }
+            return ok;
+        }
+        function playCardPlayer(card) {
+            if (!isEmpty(player)) {
+                var ind = getCardIndex(player, card);
+                game.push(player[ind]);
+                player.splice(ind, 1);
+                return card;
+            }
+            else {
+                console.log("Leerer Stapel");
+            }
+        }
+        function canPlayerPlay() {
+            if (!isEmpty(player)) {
+                var tc = getTopCard();
+                var ok = false;
+                for (var i = 0; i < player.length; i++) {
+                    if ((player[i].color == tc.color || (player[i].value == tc.value)))
+                        ;
+                }
+                ok = true;
+            }
+        }
+        return ok;
     }
+    {
+        console.log("Leerer Stapel");
+        return false;
+    }
+}
+function canComputerPlay() {
+    if ()
+        ;
 }
 //# sourceMappingURL=TS.js.map

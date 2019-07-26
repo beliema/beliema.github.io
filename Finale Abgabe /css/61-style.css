@@ -1,105 +1,185 @@
-/* css füt Uno-Kartenspiel/
-/* Einbettung font */ 
-@import url('https://fonts.googleapis.com/css?family=Courgette');
+* {
+	margin: 0%;
+	padding: 0%;
+}
 
+body{
+	text-align: center;
+	background-color: grey;
+}
 
 header {
-
-	background-color: #D8D8D8;
-	font-family: 'Times New Roman', Times, serif;
 	width: 100%;
-}
-
-h1 {
-	font-size: 2em;
+	background-color: grey;
+	height: 5em;
 	font-family: Arial, Helvetica, sans-serif;
-	text-align: center;
-}
-
-
-.game {
-	background-color: #D8D8D8;
-	height: 100%;
-	width: 100%;
-	display: flex;
-}
-
-.stack {
-	float: left;
-	width: 30%;
-	height: 100%;
-
-}
-
-.info {
-	height: 25%;
-	width: 100%;
-}
-
-.stackCards {
-	display: table;
-	background-color: aquamarine;
-	height: 75%;
-	width: 100%;
-	border-color: #D8D8D8;
-	border-top-width: 0px;
-	border-left-width: 0px;
-	border-bottom-width: 0px;
-	border-right-width: 20px;
-	border-style: solid;
-	box-sizing: border-box;
-	overflow: hidden;
-
-}
-
-.item {
-	display: table-cell;
-	vertical-align: middle;
-}
-
-.field {
-	float: left;
-	background-color: #D8D8D8;
-	height: 100%;
-	width: 100%;
-	padding: 0;
-}
-
-.computerCards {
-	display: table;
-	height: 35%;
-	width: 100%;
-	background-color: aquamarine;
-	overflow: scroll !important;
-}
-
-.inField {
-	display: table;
-	width: 100%;
-	align-items: center;
-	height: 50%;
-	box-sizing: border-box;
-	background-color: aquamarine;
-	border-color: #D8D8D8;
-	border-width: 10px;
-	border-radius: 60px;
-	border-style: solid;
-	overflow: hidden;
-}
-
-.playerCards {
-	display: table;
-	background-color: aquamarine;
-	height: 25%;
-	width: 100%;
-	overflow: scroll !important;
-}
-
-body {
-	text-align: center;
-	margin: 0px;
-	padding: 0px;
-	height: 100%;
-	width: 100%;
 }
 	
+h1 {
+	text-align: center;
+	padding-top: 0.4em;
+}
+p {
+	text-align: center;
+
+}
+
+.karten {
+	height: 1em;
+	width: 1em;
+	padding-left: 1em;
+	padding-right: 1em;
+
+}
+
+#button{
+	width: 100%;
+	height: 100px;
+	background-color: #0B610B;
+	text-align: center;
+	font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+#startButton {
+	height: 150px;
+	width: 100px;
+	margin-top: 2em;
+	padding: 0.5em;
+	text-align: center;
+	border: black 2px solid;
+	border-radius: 15px;
+	font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+	margin-bottom: 1em;
+	
+}
+
+#Gegner {
+	height: 250px;
+	background-color: #CED8F6;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	
+
+}
+#Spielfeld {
+	height: 250px;
+	background-color: #58ACFA;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+}
+
+#gespielteKartenm {
+	margin-right: 1em;
+}
+#NeueKarten{
+	margin-left: 1em;
+}
+
+#Spieler {
+	height: 250px;
+	background-color: #CED8F6;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	
+	
+}
+.back {
+	background-color: beige;
+	height: 150px;
+	width: 100px;
+	border: grey 5px solid;
+	border-radius: 15px;
+	text-align: center;
+	color: grey;
+	float: left;
+	margin: 0.2em;
+	box-shadow: 10px 10px 5px black;
+
+}
+
+.blau {
+	height: 150px;
+	width: 100px;
+	border: #58ACFA 5px solid;
+	border-radius: 15px;
+	background-color: white;
+	text-align: center;
+	color: blue;
+	float: left;
+	margin: 0.2em;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	font-size: 30pt;
+	font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+	box-shadow: 10px 10px 5px black;
+	
+}
+.rot {
+	height: 150px;
+	width: 100px;
+	border: #F78181 5px solid;
+	border-radius: 15px;
+	background-color: white;
+	text-align: center;
+	color: red;
+	float: left;
+	margin: 0.2em;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	font-size: 30pt;
+	font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+	box-shadow: 10px 10px 5px black;
+
+}
+.gelb {
+	height: 150px;
+	width: 100px;
+	border: #FACC2E 5px solid;
+	border-radius: 15px;
+	background-color: white;
+	text-align: center;
+	color: rgb(211, 211, 66);
+	float: left;
+	margin: 0.2em;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	font-size: 30pt;
+	font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+	box-shadow: 10px 10px 5px black;
+
+}
+.grün  {
+	height: 150px;
+	width: 100px;
+	border: #81F781 5px solid;
+	border-radius: 15px;
+	background-color: white;
+	text-align: center;
+	color: green;
+	float: left;
+	margin: 0.2em;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	font-size: 30pt;
+	font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+	box-shadow: 10px 10px 5px black;
+
+}
+
+.uno {
+	line-height: 200px;
+}
