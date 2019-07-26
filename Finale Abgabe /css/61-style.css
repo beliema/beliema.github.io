@@ -22,7 +22,7 @@ div{
     margin-left: 2%;
     margin-right: 2%;
 	margin-top:0.5em;
-	text-align: center;
+
     }
 
 #Ablagestapel .Karte{
@@ -82,9 +82,9 @@ div{
 
 #Ablagestapel{
     background-color:rgba(99, 18, 42, 0.856);
-    height:150px;
-    width:75px;
-    float:left;
+    height:200px;
+    width:100px;
+    float: center;
     margin-bottom: 6%;
     margin-left: 20%;
     
