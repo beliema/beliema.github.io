@@ -1,185 +1,111 @@
-* {
-	margin: 0%;
-	padding: 0%;
-}
-
-body{
-	text-align: center;
-	background-color: grey;
-}
-
 header {
-	width: 100%;
-	background-color: grey;
-	height: 5em;
-	font-family: Arial, Helvetica, sans-serif;
+    background-color: #D8D8D8;
+    width: 100%;
+    height: 10px;
+    color: black;
 }
-	
-h1 {
-	text-align: center;
-	padding-top: 0.4em;
+footer{
+    font-size: 2em;
+    margin-top: 75%;
+    background-color: #D8D8D8;
+    width: 100%;
+    color: black;
+    text-align: right;
 }
-p {
-	text-align: center;
+a{
+    color: #ffb3d9;
+}
+
+main{
+    background-color: #A9BCF5;
 
 }
 
-.karten {
-	height: 1em;
-	width: 1em;
-	padding-left: 1em;
-	padding-right: 1em;
+h2 {
+font-size: 0.75em;
 
 }
-
-#button{
-	width: 100%;
-	height: 100px;
-	background-color: #0B610B;
-	text-align: center;
-	font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+.Card{
+    height: 150px;
+    width: 90px;
+    border-style: solid;
+    border-color: #ffffff;
+    border-width: 1px;
+    border-radius: 10%;
+}
+#PlayerHand .Card{
+    display: inline-block;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 3em;
+}
+#CPUHand .Card{
+    display: inline-block;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 1em;
 }
 
-#startButton {
-	height: 150px;
-	width: 100px;
-	margin-top: 2em;
-	padding: 0.5em;
-	text-align: center;
-	border: black 2px solid;
-	border-radius: 15px;
-	font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-	margin-bottom: 1em;
-	
+#TableCard .Card{
+    margin-top: -3em;
+    margin-left: -6em;
 }
 
-#Gegner {
-	height: 250px;
-	background-color: #CED8F6;
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-	justify-content: center;
-	
-
-}
-#Spielfeld {
-	height: 250px;
-	background-color: #58ACFA;
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-	justify-content: center;
+.card.Hidden{
+    background-image: url("background.jpg");
 }
 
-#gespielteKartenm {
-	margin-right: 1em;
+#DrawCards .Card{
+    display: inline-block;
+    margin-top: -3em;
+    margin-left: -5em;
 }
-#NeueKarten{
-	margin-left: 1em;
+.CardValue{
+    color: #000000;
+    margin-left:30%;
+    padding: 10%;
+    padding-top: 1.8em;
+    font-size: 2em;
 }
-
-#Spieler {
-	height: 250px;
-	background-color: #CED8F6;
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-	justify-content: center;
-	
-	
+.Blue{
+    background-color:#5882FA;
 }
-.back {
-	background-color: beige;
-	height: 150px;
-	width: 100px;
-	border: grey 5px solid;
-	border-radius: 15px;
-	text-align: center;
-	color: grey;
-	float: left;
-	margin: 0.2em;
-	box-shadow: 10px 10px 5px black;
-
+.Red{
+    background-color:#FA5858;
 }
-
-.blau {
-	height: 150px;
-	width: 100px;
-	border: #58ACFA 5px solid;
-	border-radius: 15px;
-	background-color: white;
-	text-align: center;
-	color: blue;
-	float: left;
-	margin: 0.2em;
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-	justify-content: center;
-	font-size: 30pt;
-	font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-	box-shadow: 10px 10px 5px black;
-	
+.Green{
+    background-color: #01DF3A;
 }
-.rot {
-	height: 150px;
-	width: 100px;
-	border: #F78181 5px solid;
-	border-radius: 15px;
-	background-color: white;
-	text-align: center;
-	color: red;
-	float: left;
-	margin: 0.2em;
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-	justify-content: center;
-	font-size: 30pt;
-	font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-	box-shadow: 10px 10px 5px black;
-
+.Yellow{
+    background-color: #F4FA58;
 }
-.gelb {
-	height: 150px;
-	width: 100px;
-	border: #FACC2E 5px solid;
-	border-radius: 15px;
-	background-color: white;
-	text-align: center;
-	color: rgb(211, 211, 66);
-	float: left;
-	margin: 0.2em;
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-	justify-content: center;
-	font-size: 30pt;
-	font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-	box-shadow: 10px 10px 5px black;
-
+#CPUHand{
+    background-color: #CEECF5;
+    height: 250px;
+    width: 100%;
+    clear: both;
+    margin-bottom: -1%;
 }
-.grün  {
-	height: 150px;
-	width: 100px;
-	border: #81F781 5px solid;
-	border-radius: 15px;
-	background-color: white;
-	text-align: center;
-	color: green;
-	float: left;
-	margin: 0.2em;
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-	justify-content: center;
-	font-size: 30pt;
-	font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-	box-shadow: 10px 10px 5px black;
-
+#DrawCards{
+    height: 150px;
+    width: 75px;
+    float: left;
+    margin-left: 25%;
+    margin-bottom: 0%;
+    margin-top: 7%;
 }
-
-.uno {
-	line-height: 200px;
+#TableCard{
+    height: 150px;
+    width: 75px;
+    float: left;
+    margin-bottom: 0%;
+    margin-left: 25%;
+    margin-top: 7%;
+}
+#PlayerHand{
+    background-color: #CEECF5;
+    height: 250px;
+    width: 100%;
+    clear: both;
+    margin-bottom: -75%;
 }
