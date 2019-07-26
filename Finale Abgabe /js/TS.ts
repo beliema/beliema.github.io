@@ -1,271 +1,235 @@
-//Ich erstelle ein Interface um ein ungefähres Haupt-Objekt ( in diesem Fall die Karten) zu erstellen
-
-interface card {
-id: string;
-color: number;
-value: number;
-}
-
-let stack: Card[] = [];
-let player: Card[] = [];
-let computer: Card[] = [];
-let game: Card[] = [];
-
-var work = false;
-var played = false;
-var ingame = false;
-
-let isVisible = false;
-
-//Funtion um Karten zu generieren
-
-function generateCard() {
-    for (var i = 1; i <= 5; i++) {
-        for (var j = 1; j <=13; j++) {
-            var id = i + "-" + j 
-            stack.push({id: id, color: i, value: j})
-        }
-    }
-    stack = shuffle(stack);
-}
-
-function shuffle(array) {
-    for (var i = array.length - 1; i > 0; i--) {
-        var r = Math.random() * (i + 1);
-        var ri = Math.floor(r);
-        var tmp = array[i];
-        array[i] = array[ri]
-        array[ri] = tmp;
-    }
-    return array;
-}
-
-function isEmpty(array) {
-    if (array.lenght == 0) {
-        return true;
-    } else {
-        return false
-    }
-}
-
-function cardToPlayer() {
-    if (!isEmpty(stack)) {
-        player.push(stack[0]);
-        stack.splice(0,1);
-    } else {
-        console.log ("Leerer Stapel")
-}
-
-function cardToField() {
-    if (!isEmpty(stack)) {
-        game.push(stack[0]);
-        stack.splice(0, 1);
-    } else {
-        console.log("Leerer Stapel")
-    }
-}
-
-function cardToComputer() {
-    if (!isEmpty(stack)) {
-        computer.push(stack[0]);
-        stack.splice(0,1);
-    } else {
-        console.log ("Leerer Stapel")
-    }
-}
-
-function dealCards() {
-    cardToPlayer();
-    cardToComputer();
-    cardToPlayer();
-    cardToComputer();
-    cardToPlayer();
-    cardToComputer();
-    cardToPlayer();
-    cardToComputer();
-    cardToPlayer();
-    cardToComputer();
-    cardToField();
-}
-
-function start() {
-    stack = [];
-    player = [];
-    computer = [];
-    game = [];
-    ingame = true;
-    work = false;
-    played = false;
+let enemyCards = [];
+let playerCards = [];
+let playedCards = [];
+let newCards = [];
+let startButton;
+let buttonDiv;
+window.onload = function () {
+    startButton = document.getElementById("startButton");
+    buttonDiv = document.getElementById("button");
+    startButton.addEventListener("click", function () {
+        buttonDiv.style.display = "none";
+        startGame();
+    });
+};
+function startGame() {
     generateCards();
-    dealCards();
-    loadField();
-}
-
-function getTopCard() {
-    if (!isEmpty(game)) {
-        return game [game.length -1];
+    handOut(enemyCards, 5, true);
+    handOut(playerCards, 5, false);
+    handOut(playedCards, 1, false);
+    reloadUI();
+    if ((Math.random() * 100) % 2 == 0) {
+        enemyMove();
     }
 }
-
-function loadField () {
-    var playercards = "";
-    if (player.length != 0) {
-        player.forEach(function (card) { 
-            playercards = playercards + createCard(false, card, true);
-        })
+function gameOver(loser) {
+    enemyCards = [];
+    playerCards = [];
+    playedCards = [];
+    newCards = [];
+    let startButton = document.getElementById("button");
+    startButton.style.display = "block";
+    clearField();
+    if (loser) {
+        alert("Wasted");
     }
-    
-    var computercards = "";
-    if (computer.length != 0) {
-        computer.forEach(function (card) { 
-            computercards = computercards + createCard(false, card, true);
-        })
+    else {
+        alert("You won");
     }
-
-    var stackcard = "";
-    if (stack.length != 0)  {
-        stackcard = createCard( true, {  id: "nc", color: 0, value: 0 }, false);
+}
+function generateField() {
+    let enemyField = document.getElementById("enemy");
+    let playerField = document.getElementById("player");
+    let newCardsField = document.getElementById("newCards");
+    let playedCardsField = document.getElementById("playedCards");
+    for (let i = 0; i < enemyCards.length; i++) {
+        let unoDiv = document.createElement("div");
+        unoDiv.setAttribute("class", "uno");
+        let backDiv = document.createElement("div");
+        backDiv.setAttribute("class", "back");
+        backDiv.appendChild(unoDiv);
+        enemyField.appendChild(backDiv);
     }
-
-    var gamecard = "";
-    if (game.length != 0) {
-        gamecard = createCard(false, getTopCard(), false);
+    let NCunoDiv = document.createElement("div");
+    NCunoDiv.setAttribute("class", "uno");
+    let NCbackDiv = document.createElement("div");
+    NCbackDiv.setAttribute("class", "back");
+    NCbackDiv.addEventListener("click", function () {
+        handOut(playerCards, 1, true);
+        reloadUI();
+        enemyMove();
+    });
+    NCbackDiv.appendChild(NCunoDiv);
+    newCardsField.appendChild(NCbackDiv);
+    let PCunoDiv = document.createElement("div");
+    PCunoDiv.setAttribute("class", "uno");
+    let PCDiv = document.createElement("div");
+    switch (playedCards[playedCards.length - 1].colour) {
+        case "yellow": {
+            PCDiv.setAttribute("class", "yellowFront");
+            break;
+        }
+        case "red": {
+            PCDiv.setAttribute("class", "redFront");
+            break;
+        }
+        case "blue": {
+            PCDiv.setAttribute("class", "blueFront");
+            break;
+        }
+        case "green": {
+            PCDiv.setAttribute("class", "greenFront");
+            break;
+        }
+        default: {
+            console.log("error");
+            break;
+        }
     }
-    
-    document.getElementById("gameCards").innerHTML = gamecard;
-    document.getElementById("stackCards").innerHTML = stackcard;
-    document.getElementById("playerCards").innerHTML = playercards;
-    document.getElementById("computerCards").innerHTML = computercards;
-
-    function createCard(back: boolean, card: Card, createItemDiv: boolean) {
-        var colorn = "none";
-        var valuen = "X";
-        switch (card.color) {
-            case 1: 
-                colorn = "spades";
+    PCDiv.innerHTML = "" + playedCards[playedCards.length - 1].value;
+    PCDiv.appendChild(PCunoDiv);
+    playedCardsField.appendChild(PCDiv);
+    for (let i = 0; i < playerCards.length; i++) {
+        let playerUnoDiv = document.createElement("div");
+        playerUnoDiv.setAttribute("class", "uno");
+        let playerDiv = document.createElement("div");
+        switch (playerCards[i].colour) {
+            case "yellow": {
+                playerDiv.setAttribute("class", "yellowFront");
                 break;
-            case 2: 
-                colorn = "heart";
+            }
+            case "red": {
+                playerDiv.setAttribute("class", "redFront");
                 break;
-            case 3:
-                colorn = "diams";
+            }
+            case "blue": {
+                playerDiv.setAttribute("class", "blueFront");
                 break;
-            case 4:
-                colorn = "clubs";
-                break;  
-   }              
-   if (card.value < 11) {
-       valuen = card.value.toString();
-    } else {
-        switch (card.value) {
-            case 11:
-                valuen ="J";
+            }
+            case "green": {
+                playerDiv.setAttribute("class", "greenFront");
                 break;
-            case 12:
-                valuen ="Q";
+            }
+            default: {
+                console.log("error");
                 break;
-            case 13: 
-                valuen ="K";
-                break;
+            }
         }
-    }   
-
-   var carddiv = "";
-   if (back) {
-       if(createItemDiv) {
-           carddiv = carddiv + `<div class="item">`
-        }
-        carddiv = carddiv +
-        `
-        <div onclick=clickCard("${card.id}") id="${card.id}" class="stackcard card back"></div>
-        <div onclick=clickCard("${card.id}") id="${card.id}" class="stackcard card back cardRot"></div>
-        `;
-    if(createItemDiv) {
-        carddiv = carddiv + `</div>`
-    }
-   }else {
-       if(createItemDiv) {
-           carddiv = carddiv + `<div class="item">`
-        }
-    carddiv = carddiv + 
-    `
-        <div onclick=clickCard("${card.id}") id="${card.id}" class="stackcard card">
-            <div class="value">${valuen}</div>
-            <div class="${colorn}"></div>
-        </div>
-        <div onclick=clickCard("${card.id}") id="${card.id}" class="stackcard card cardRot">
-        <div class="value">${valuen}</div>
-        <div class="${colorn}"></div>
-    </div>
-    `;
-    if(createItemDiv) {
-        carddiv = carddiv + `</div>`
-    }
-    }
-    return carddiv;
-}
-
-function hasPlayerCard(card) {
-    var ok = false;
-    player.forEach(function (pcard) {
-        if ((pcard.color == card.color) && (pcard.value == card.value)) {
-            ok = true;
-        }
-    })
-    return ok;
-}
-
-function getCardIndex(array, card: Card) {
-    var ind = -1;
-    for (var i = 0; i < array.length; i++) {
-        if ((array[i].color == card.color) && (array[i].value == card.value)) {
-            ind = i;
-        }
-    }
-    return ind; 
-}
-
-function cardCanBePlayed(card) {
-    var ok = false;
-    if (!isEmpty(game)) {
-        var tc = getTopCard();
-        if((tc.color == card.color) || (tc.value == card.value)) {
-            ok = true;
-        
-        }
-    }
-    return ok;
-
-}
- 
-function playCardPlayer(card) {
-    if (!isEmpty(player)) {
-        var ind = getCardIndex(player, card);
-        game.push(player[ind]);
-        player.splice(ind, 1);
-        return card;
-    } else {
-        console.log("Leerer Stapel")
+        playerDiv.innerHTML = "" + playerCards[i].value;
+        playerDiv.addEventListener("click", function () {
+            checkCard(i);
+            reloadUI();
+        });
+        playerDiv.appendChild(playerUnoDiv);
+        playerField.appendChild(playerDiv);
     }
 }
-
-function canPlayerPlay() {
-    if (!isEmpty(player)) {
-        var tc = getTopCard();
-        var ok = false;
-        for (var i = 0; i < player.length; i++) {
-            if ((player[i].color == tc.color || (player[i].value == tc.value)) }
-                ok = true;
+function checkCard(i) {
+    if (playerCards[i].colour == playedCards[playedCards.length - 1].colour ||
+        playerCards[i].value == playedCards[playedCards.length - 1].value) {
+        playedCards.push(playerCards[i]);
+        playerCards.splice(i, 1);
+        reloadUI();
+        playedCards[playedCards.length - 1].covered = false;
+        if (playerCards.length == 0) {
+            gameOver(false);
+        }
+        else {
+            enemyMove();
         }
     }
-    return ok;
-
-    } else {
-    console.log("Leerer Stapel")
-    return false;
+}
+function reloadUI() {
+    clearField();
+    generateField();
+}
+function enemyMove() {
+    let playedACard = false;
+    for (let i = 0; i < enemyCards.length; i++) {
+        if (enemyCards[i].colour == playedCards[playedCards.length - 1].colour ||
+            enemyCards[i].value == playedCards[playedCards.length - 1].value) {
+            playedCards.push(enemyCards[i]);
+            enemyCards.splice(i, 1);
+            playedACard = true;
+            reloadUI();
+            if (enemyCards.length == 0) {
+                gameOver(true);
+            }
+            break;
+        }
+    }
+    if (!playedACard) {
+        handOut(enemyCards, 1, true);
+        reloadUI();
     }
 }
-
-function canComputerPlay() {
-    if 
+function generateCards() {
+    let tempArray = [];
+    for (let i = 1; i <= 10; i++) {
+        let newBlueCard = {
+            value: i,
+            colour: "blue",
+            covered: true
+        };
+        let newGreenCard = {
+            value: i,
+            colour: "green",
+            covered: true
+        };
+        let newRedCard = {
+            value: i,
+            colour: "red",
+            covered: true
+        };
+        let newYellowCard = {
+            value: i,
+            colour: "yellow",
+            covered: true
+        };
+        tempArray.push(newBlueCard);
+        tempArray.push(newGreenCard);
+        tempArray.push(newRedCard);
+        tempArray.push(newYellowCard);
+    }
+    mixCards(tempArray);
 }
+function mixCards(deck) {
+    let temp = [];
+    while (deck.length != 0) {
+        let rndNumber = Math.floor(Math.random() * deck.length);
+        temp.push(deck[rndNumber]);
+        deck.splice(rndNumber, 1);
+    }
+    for (let i in temp) {
+        temp[i].covered = true;
+    }
+    newCards = temp;
+}
+function handOut(deck, count, covered) {
+    for (let i = 0; i < count; i++) {
+        if (newCards.length == 0) {
+            mixCards(playedCards);
+        }
+        deck.push(newCards.pop());
+        deck[deck.length - 1].covered = covered;
+    }
+}
+function clearField() {
+    let enemyField = document.getElementById("enemy");
+    while (enemyField.firstChild) {
+        enemyField.removeChild(enemyField.firstChild);
+    }
+    let playerField = document.getElementById("player");
+    while (playerField.firstChild) {
+        playerField.removeChild(playerField.firstChild);
+    }
+    let newCardsField = document.getElementById("newCards");
+    while (newCardsField.firstChild) {
+        newCardsField.removeChild(newCardsField.firstChild);
+    }
+    let playedCardsField = document.getElementById("playedCards");
+    while (playedCardsField.firstChild) {
+        playedCardsField.removeChild(playedCardsField.firstChild);
+    }
+}
+//# sourceMappingURL=62-TS-Example.js.map
