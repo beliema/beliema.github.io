@@ -33,7 +33,7 @@ font-size: 0.75em;
     border-width: 1px;
     border-radius: 10%;
 }
-#PlayerHand .Card{
+#Spieler .Card{
     display: inline-block;
     margin-left: 5%;
     margin-right: 5%;
@@ -46,7 +46,7 @@ font-size: 0.75em;
     margin-top: 1em;
 }
 
-#TableCard .Card{
+#Stapel1 .Card{
     margin-top: -3em;
     margin-left: -6em;
 }
@@ -55,7 +55,7 @@ font-size: 0.75em;
    background-color: grey;
 }
 
-#NeueKarten .Card{
+#Ziehen .Card{
     display: inline-block;
     margin-top: -3em;
     margin-left: -5em;
@@ -79,14 +79,14 @@ font-size: 0.75em;
 .Yellow{
     background-color: #F4FA58;
 }
-#CPUHand{
+#Gegner{
     background-color: #CEECF5;
     height: 250px;
     width: 100%;
     clear: both;
     margin-bottom: -1%;
 }
-#DrawCards{
+#Ziehen{
     height: 150px;
     width: 75px;
     float: left;
