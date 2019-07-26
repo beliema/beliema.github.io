@@ -1,9 +1,9 @@
-let enemyCards = [];
-let playerCards = [];
-let playedCards = [];
-let newCards = [];
+let enemyCards: any[] = [];
+let playerCards: any[] | { value: string; }[] = [];
+let playedCards: any[] | { value: any; }[] = [];
+let newCards: any[] = [];
 let startButton;
-let buttonDiv;
+let buttonDiv: HTMLElement;
 window.onload = function () {
     startButton = document.getElementById("startButton");
     buttonDiv = document.getElementById("button");
@@ -22,7 +22,7 @@ function startGame() {
         enemyMove();
     }
 }
-function gameOver(loser) {
+function gameOver(loser: boolean) {
     enemyCards = [];
     playerCards = [];
     playedCards = [];
@@ -124,7 +124,7 @@ function generateField() {
         playerField.appendChild(playerDiv);
     }
 }
-function checkCard(i) {
+function checkCard(i: number) {
     if (playerCards[i].colour == playedCards[playedCards.length - 1].colour ||
         playerCards[i].value == playedCards[playedCards.length - 1].value) {
         playedCards.push(playerCards[i]);
@@ -193,7 +193,7 @@ function generateCards() {
     }
     mixCards(tempArray);
 }
-function mixCards(deck) {
+function mixCards(deck: any[] | { value: number; colour: string; covered: boolean; }[]) {
     let temp = [];
     while (deck.length != 0) {
         let rndNumber = Math.floor(Math.random() * deck.length);
@@ -205,7 +205,7 @@ function mixCards(deck) {
     }
     newCards = temp;
 }
-function handOut(deck, count, covered) {
+function handOut(deck: any[] | { covered: any; }[], count: number, covered: boolean) {
     for (let i = 0; i < count; i++) {
         if (newCards.length == 0) {
             mixCards(playedCards);
