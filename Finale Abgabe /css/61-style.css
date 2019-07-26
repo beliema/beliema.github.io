@@ -1,15 +1,15 @@
 header {
-    background-color: #D8D8D8;
+    background-color: #660033;
     width: 100%;
-    height: 30px;
-    color: black;
+    height: 20px;
+    color: #ffb3d9;
 }
 footer{
     font-size: 2em;
     margin-top: 75%;
-    background-color: #D8D8D8;
+    background-color: #660033;
     width: 100%;
-    color: black;
+    color: #ffb3d9;
     text-align: right;
 }
 a{
@@ -17,7 +17,7 @@ a{
 }
 
 main{
-    background-color: #A9BCF5;
+    background-color: #874465;
 
 }
 
@@ -33,29 +33,29 @@ font-size: 0.75em;
     border-width: 1px;
     border-radius: 10%;
 }
-#Spieler .Card{
+#PlayerHand .Card{
     display: inline-block;
     margin-left: 5%;
     margin-right: 5%;
     margin-top: 3em;
 }
-#Gegner .Card{
+#CPUHand .Card{
     display: inline-block;
     margin-left: 5%;
     margin-right: 5%;
     margin-top: 1em;
 }
 
-#Stapel1 .Card{
+#TableCard .Card{
     margin-top: -3em;
     margin-left: -6em;
 }
 
-.RS{
-   background-color: grey;
+.card.Hidden{
+    background-image: url("background.jpg");
 }
 
-#Ziehen .Card{
+#DrawCards .Card{
     display: inline-block;
     margin-top: -3em;
     margin-left: -5em;
@@ -68,25 +68,25 @@ font-size: 0.75em;
     font-size: 2em;
 }
 .Blue{
-    background-color:#5882FA;
+    background-color:#0000b3;
 }
 .Red{
-    background-color:#FA5858;
+    background-color:#e60000;
 }
 .Green{
-    background-color: #01DF3A;
+    background-color: #00b300;
 }
 .Yellow{
-    background-color: #F4FA58;
+    background-color: #ffff00;
 }
-#Gegner{
-    background-color: #CEECF5;
-    height: 250px;
+#CPUHand{
+    background-color: #660033;
+    height: 200px;
     width: 100%;
     clear: both;
     margin-bottom: -1%;
 }
-#Ziehen{
+#DrawCards{
     height: 150px;
     width: 75px;
     float: left;
@@ -94,7 +94,7 @@ font-size: 0.75em;
     margin-bottom: 0%;
     margin-top: 7%;
 }
-#Stapel1{
+#TableCard{
     height: 150px;
     width: 75px;
     float: left;
@@ -102,9 +102,9 @@ font-size: 0.75em;
     margin-left: 25%;
     margin-top: 7%;
 }
-#Spieler{
-    background-color: #CEECF5;
-    height: 250px;
+#PlayerHand{
+    background-color: #660033;
+    height: 200px;
     width: 100%;
     clear: both;
     margin-bottom: -75%;
