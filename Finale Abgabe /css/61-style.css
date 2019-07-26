@@ -1,111 +1,95 @@
 header {
-    background-color: #660033;
-    width: 100%;
-    height: 20px;
-    color: #ffb3d9;
+    background-color: rgb(184, 179, 179);
+    width: 100%;   
 }
-footer{
-    font-size: 2em;
-    margin-top: 75%;
-    background-color: #660033;
-    width: 100%;
-    color: #ffb3d9;
-    text-align: right;
+div{ 
+    background-color:antiquewhite;
+    margin-bottom:20%;
+    margin-top:5%;
 }
-a{
-    color: #ffb3d9;
+.Karte{ 
+    height:150px;
+    width:75px;
+    border-style: dashed; 
 }
 
-main{
-    background-color: #874465;
-
-}
-
-h2 {
-font-size: 0.75em;
-
-}
-.Card{
-    height: 150px;
-    width: 90px;
-    border-style: solid;
-    border-color: #ffffff;
-    border-width: 1px;
-    border-radius: 10%;
-}
-#PlayerHand .Card{
+#Spielerdeck .Karte, #Gegnerdeck .Karte {
     display: inline-block;
     margin-left: 5%;
     margin-right: 5%;
-    margin-top: 3em;
-}
-#CPUHand .Card{
-    display: inline-block;
-    margin-left: 5%;
-    margin-right: 5%;
-    margin-top: 1em;
+    margin-top:0.5em;
+    }
+
+#Ablagestapel .Karte{
+    margin-top: 0em;
 }
 
-#TableCard .Card{
-    margin-top: -3em;
-    margin-left: -6em;
+.Karte .Verdeckt {
+    background-color: rgb(194, 13, 43);
 }
 
-.card.Hidden{
-    background-image: url("background.jpg");
+#Kartenstapel .Karte {
+    margin-top: 0em;
 }
 
-#DrawCards .Card{
-    display: inline-block;
-    margin-top: -3em;
-    margin-left: -5em;
-}
-.CardValue{
-    color: #000000;
+.Kartenzahl {
+    color: white;
     margin-left:30%;
     padding: 10%;
-    padding-top: 1.8em;
+    padding-top: 0.8em;
     font-size: 2em;
+    
 }
-.Blue{
-    background-color:#0000b3;
+
+.Blau {
+    background-color:rgb(31, 150, 230);
 }
-.Red{
-    background-color:#e60000;
+
+.Rot{
+    background-color: rgb(209, 64, 64);
 }
-.Green{
-    background-color: #00b300;
+
+.Grün{
+    background-color: rgb(67, 165, 67);
 }
-.Yellow{
-    background-color: #ffff00;
+
+.Gelb{
+    background-color:rgb(243, 243, 118);
 }
-#CPUHand{
-    background-color: #660033;
-    height: 200px;
-    width: 100%;
-    clear: both;
+
+#Gegnerdeck{ 
+    background-color:rgb(20, 165, 158);
+    height:200px;
+    width:100%;
+    clear:both;
     margin-bottom: -1%;
 }
-#DrawCards{
-    height: 150px;
-    width: 75px;
-    float: left;
-    margin-left: 25%;
-    margin-bottom: 0%;
-    margin-top: 7%;
+
+#Kartenstapel{
+    background-color:rgb(3, 151, 3);
+    height:150px;
+    width:75px;
+    float:left;
+    margin-bottom: 6%;
+    margin-left: 20%;
+    
 }
-#TableCard{
-    height: 150px;
-    width: 75px;
-    float: left;
-    margin-bottom: 0%;
-    margin-left: 25%;
-    margin-top: 7%;
+
+#Ablagestapel{
+    background-color:rgba(99, 18, 42, 0.856);
+    height:150px;
+    width:75px;
+    float:left;
+    margin-bottom: 6%;
+    margin-left: 20%;
+    
 }
-#PlayerHand{
-    background-color: #660033;
-    height: 200px;
-    width: 100%;
-    clear: both;
+
+#Spielerdeck{
+    background-color:rgb(230, 107, 124);
+    height:200px;
+    width:100%;
+    clear:both;
     margin-bottom: -75%;
+    
 }
