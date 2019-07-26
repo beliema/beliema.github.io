@@ -1,12 +1,7 @@
- 
- // Ich erstelle ein Karteninterface 
- 
- interface Karte {
+interface Karte {
     KartenFarbe: string;
     KartenWert: number;
 }
-
-//Arrays: 
 
 let Kartenstapel: Karte[] = [];
 let Ablagestapel: Karte[] = [];
@@ -23,9 +18,9 @@ function GamePlay (){
     Kartenstapel = shuffle(Kartenstapel); //Karten werden gemischt
 
     //Spielerkarten werden verteilt:
-    for (let i = 0; i < 5; i++){
+    for (let i = 0; i < 4; i++){
         Spielerdeck.push(Kartenstapel[i]);
-        Gegnerdeck.push(Kartenstapel[i+5]);
+        Gegnerdeck.push(Kartenstapel[i+4]);
     }
 
     Ablagestapel.push(Kartenstapel[10]);
@@ -204,4 +199,5 @@ function shuffle(array : Karte[]){
 
     return array;
 }
+
 
