@@ -1,20 +1,22 @@
 // Ich erstelle ein Karteninterface 
-//Arrays: 
-let Kartenstapel = [];
+//Festlegung meiner 4 Hauptarrays: 
 let Ablagestapel = [];
-let Gegnerdeck = [];
 let Spielerdeck = [];
+let Gegnerdeck = [];
+let Kartenstapel = [];
+//Funktionen: 
 window.onload = function () {
     document.getElementById("Kartenstapel").addEventListener("click", KarteNehmen, false);
     GamePlay();
 };
 function GamePlay() {
     KartenGenerierung();
-    Kartenstapel = shuffle(Kartenstapel); //Karten werden gemischt
-    //Spielerkarten werden verteilt:
-    for (let i = 0; i < 5; i++) {
+    Kartenstapel = shuffle(Kartenstapel);
+    //ch benutze Shuffle um meinen Stapel zu vermischen 
+    //Anschlie0ßend lasse ich sie mit dieser Funktion verteilen: 
+    for (let i = 0; i < 4; i++) {
         Spielerdeck.push(Kartenstapel[i]);
-        Gegnerdeck.push(Kartenstapel[i + 5]);
+        Gegnerdeck.push(Kartenstapel[i + 4]);
     }
     Ablagestapel.push(Kartenstapel[10]);
     Kartenstapel.splice(0, 11);
@@ -32,7 +34,7 @@ function GamePlay() {
 }
 function KarteHTML(karte, Zielort, index) {
     let holdingDiv = document.createElement("div");
-    holdingDiv.setAttribute("class", "Karte" + " " + karte.KartenFarbe);
+    holdingDiv.setAttribute("class", "Karte" + " " + karte.Farbe);
     document.getElementById(Zielort).appendChild(holdingDiv);
     let Zahl = document.createElement("p");
     Zahl.setAttribute("class", "Kartenzahl");
@@ -48,7 +50,7 @@ function KarteVerdeckt(karte, Zielort, index) {
     document.getElementById(Zielort).appendChild(holdingDiv);
 }
 function KarteLegen(karte, index) {
-    if (karte.KartenFarbe == Ablagestapel[Ablagestapel.length - 1].KartenFarbe || karte.KartenWert == Ablagestapel[Ablagestapel.length - 1].KartenWert) {
+    if (karte.Farbe == Ablagestapel[Ablagestapel.length - 1].Farbe || karte.KartenWert == Ablagestapel[Ablagestapel.length - 1].KartenWert) {
         Ablagestapel.push(karte);
         Spielerdeck.splice(index, 1);
         updateHTML("Spielerdeck");
@@ -67,11 +69,11 @@ function KarteNehmen() {
         Gegnerzug();
     }
 }
+//Wenn Gegner nicht kann hebt er eine Karte auf 
 function Gegnerzug() {
-    //Wenn Gegner nicht legen kann, nimmt er Karte vom Kartenstapel
     let i = 0;
     for (i; i < Gegnerdeck.length; i++) {
-        if (Gegnerdeck[i].KartenFarbe == Ablagestapel[Ablagestapel.length - 1].KartenFarbe || Gegnerdeck[i].KartenWert == Ablagestapel[Ablagestapel.length - 1].KartenWert) {
+        if (Gegnerdeck[i].Farbe == Ablagestapel[Ablagestapel.length - 1].Farbe || Gegnerdeck[i].KartenWert == Ablagestapel[Ablagestapel.length - 1].KartenWert) {
             Ablagestapel.push(Gegnerdeck[i]);
             Gegnerdeck.splice(i, 1);
             updateHTML("Ablagestapel");
@@ -84,7 +86,7 @@ function Gegnerzug() {
         Kartenstapel.splice(Kartenstapel.length - 1, 1);
         updateHTML("Gegnerdeck");
         updateHTML("Kartenstapel");
-        if (Gegnerdeck[Gegnerdeck.length - 1].KartenFarbe == Ablagestapel[Ablagestapel.length - 1].KartenFarbe || Gegnerdeck[Gegnerdeck.length - 1].KartenWert == Ablagestapel[Ablagestapel.length - 1].KartenWert) {
+        if (Gegnerdeck[Gegnerdeck.length - 1].Farbe == Ablagestapel[Ablagestapel.length - 1].Farbe || Gegnerdeck[Gegnerdeck.length - 1].KartenWert == Ablagestapel[Ablagestapel.length - 1].KartenWert) {
             Ablagestapel.push(Gegnerdeck[Gegnerdeck.length - 1]);
             Gegnerdeck.splice(Gegnerdeck.length - 1, 1);
             updateHTML("Ablagestapel");
@@ -95,7 +97,7 @@ function Gegnerzug() {
 function checkKarten(array) {
     let passendeKarte = false;
     for (let i = 0; i < array.length; i++) {
-        if (array[i].KartenFarbe == Ablagestapel[Ablagestapel.length - 1].KartenFarbe || array[i].KartenWert == Ablagestapel[Ablagestapel.length - 1].KartenWert) {
+        if (array[i].Farbe == Ablagestapel[Ablagestapel.length - 1].Farbe || array[i].KartenWert == Ablagestapel[Ablagestapel.length - 1].KartenWert) {
             passendeKarte = true;
             break;
         }
@@ -144,7 +146,7 @@ function KartenGenerierung() {
                 Farbe = "Grün";
             }
             let NewKarte = {
-                KartenFarbe: Farbe,
+                Farbe: Farbe,
                 KartenWert: i
             };
             Kartenstapel.push(NewKarte);
