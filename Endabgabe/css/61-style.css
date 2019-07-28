@@ -14,7 +14,8 @@ div{
 .Karte { 
     height:150px;
     width:100px;
-	border-style: solid;
+    border-style: solid;
+    float: left;
 }
 
 #Spielerdeck .Karte, #Gegnerdeck .Karte {

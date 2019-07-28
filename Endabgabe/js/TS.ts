@@ -21,19 +21,22 @@ window.onload = function (){
      GamePlay();   
 }
 
+//Funktion, um mein Spiel zum Laufen zu bringen
+
 function GamePlay (){
     KartenGenerierung();
     Kartenstapel = shuffle(Kartenstapel); 
     //ch benutze Shuffle um meinen Stapel zu vermischen 
 
-    //Anschlie0ßend lasse ich sie mit dieser Funktion verteilen: 
+    //Anschließend lasse ich sie mit dieser Funktion verteilen, i<4 da ich nur 4 Karten an Spieler und Gegner verteile
     for (let i = 0; i < 4; i++){
         Spielerdeck.push(Kartenstapel[i]);
         Gegnerd.push(Kartenstapel[i+4]);
     }
 
-    Ablagestapel.push(Kartenstapel[10]);
+    Ablagestapel.push(Kartenstapel[10]); //Der Ablagestapel 'pusht' 10 KArten 
     Kartenstapel.splice(0,11);
+
 // Konsolenausgaben: 
     console.log(Spielerdeck);
     console.log (Gegnerd);
