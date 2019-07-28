@@ -154,14 +154,14 @@ function checkCards(array :card[]) :boolean {
 
 function updateHTML(Zielort :string){
     ClearHTML(Zielort);
-    if (Zielort =="Spielerdeck"){
-        for(let i = 0; i < Spielerdeck.length; i++) {
-            CardHTML(Spielerdeck[i],"Spielerdeck",i);
-        }
-    }
     if (Zielort == "Gegnerdeck"){
         for(let i = 0; i < Gegnerdeck.length; i++){
             KarteVerdeckt(Gegnerdeck [i], "Gegnerdeck",i);
+        }
+    }
+    if (Zielort =="Spielerdeck"){
+        for(let i = 0; i < Spielerdeck.length; i++) {
+            CardHTML(Spielerdeck[i],"Spielerdeck",i);
         }
     }
     if (Zielort == "Ablagestapel"){
