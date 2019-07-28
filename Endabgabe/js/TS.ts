@@ -13,19 +13,23 @@ let Ablagestapel: Karte[] = [];
 let Gegnerdeck: Karte [] = [];
 let Spielerdeck: Karte [] = [];
 
+//Funktionen
+
 window.onload = function (){
     document.getElementById("Kartenstapel").addEventListener("click",KarteNehmen,false);
      GamePlay();   
 }
 
+// Funktion Gameplay um Spiel zu starten
 function GamePlay (){
     KartenGenerierung();
-    Kartenstapel = shuffle(Kartenstapel); //Karten werden gemischt
+    Kartenstapel = shuffle(Kartenstapel); 
+    //Funktion Shuffle (siehe unten) um Karten durchzumischen
 
     //Spielerkarten werden verteilt:
-    for (let i = 0; i < 5; i++){
+    for (let i = 0; i < 4; i++){
         Spielerdeck.push(Kartenstapel[i]);
-        Gegnerdeck.push(Kartenstapel[i+5]);
+        Gegnerdeck.push(Kartenstapel[i+4]);
     }
 
     Ablagestapel.push(Kartenstapel[10]);
@@ -46,6 +50,7 @@ function GamePlay (){
     KarteHTML(Ablagestapel[Ablagestapel.length - 1], "Ablagestapel",Ablagestapel.length-1);
     KarteVerdeckt(Kartenstapel[Kartenstapel.length -1], "Kartenstapel",Kartenstapel.length-1);
 }
+
 function KarteHTML (karte:Karte, Zielort: string, index : number){
      let holdingDiv: HTMLElement = document.createElement ("div");
      holdingDiv.setAttribute("class", "Karte"  + " " + karte.KartenFarbe);
@@ -97,7 +102,7 @@ function Gegnerzug(){
                 Ablagestapel.push(Gegnerdeck[i]);
                 Gegnerdeck.splice(i, 1);
                 updateHTML("Ablagestapel");
-                updateHTML("Gegnerdeck");
+                updateHTML("Gegnerdeck"); //Gegnerdeck und Ablagestapel werden nach Zug des Gegners geupdatet 
                 break;
             }
         }
@@ -156,6 +161,7 @@ function ClearHTML(Zielort: string){
     }
 }
 
+//Funktion um neue Karten zu generieren. Dabei weise ich meiner Variable J Farben von 1-4 zu, else if Schleife
 function KartenGenerierung (){
     let Farbe: string;
     for(let i = 1; i <= 8; i++){
@@ -187,6 +193,8 @@ function KartenGenerierung (){
     console.log(Kartenstapel);
 
 }
+
+//Funktion um meine Karten zufällig durchzumischen
 
 function shuffle(array : Karte[]){
     let currentIndex = array.length;
