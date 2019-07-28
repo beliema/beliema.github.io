@@ -2,19 +2,16 @@
  // Ich erstelle ein Karteninterface 
  
  interface Karte {
-    Farbe: string;
+    KartenFarbe: string;
     KartenWert: number;
 }
 
-//Festlegung meiner 4 Hauptarrays: 
+//Festlegung meiner 4 Hauptarrays:
 
-
-let Ablagestapel: Karte[] = [];
-let Spielerdeck: Karte [] = [];
-let Gegnerdeck: Karte [] = []
 let Kartenstapel: Karte[] = [];
-
-//Funktionen: 
+let Ablagestapel: Karte[] = [];
+let Gegnerdeck: Karte [] = [];
+let Spielerdeck: Karte [] = [];
 
 window.onload = function (){
     document.getElementById("Kartenstapel").addEventListener("click",KarteNehmen,false);
@@ -23,18 +20,17 @@ window.onload = function (){
 
 function GamePlay (){
     KartenGenerierung();
-    Kartenstapel = shuffle(Kartenstapel); 
-    //ch benutze Shuffle um meinen Stapel zu vermischen 
+    Kartenstapel = shuffle(Kartenstapel); //Karten werden gemischt
 
-    //Anschlie0ßend lasse ich sie mit dieser Funktion verteilen: 
-    for (let i = 0; i < 4; i++){
+    //Spielerkarten werden verteilt:
+    for (let i = 0; i < 5; i++){
         Spielerdeck.push(Kartenstapel[i]);
-        Gegnerdeck.push(Kartenstapel[i+4]);
+        Gegnerdeck.push(Kartenstapel[i+5]);
     }
 
     Ablagestapel.push(Kartenstapel[10]);
     Kartenstapel.splice(0,11);
-// Konsolenausgaben:
+
     console.log(Spielerdeck);
     console.log (Gegnerdeck);
     console.log (Kartenstapel);  
@@ -52,7 +48,7 @@ function GamePlay (){
 }
 function KarteHTML (karte:Karte, Zielort: string, index : number){
      let holdingDiv: HTMLElement = document.createElement ("div");
-     holdingDiv.setAttribute("class", "Karte"  + " " + karte.Farbe);
+     holdingDiv.setAttribute("class", "Karte"  + " " + karte.KartenFarbe);
      document.getElementById(Zielort).appendChild(holdingDiv);
 
      let Zahl: HTMLElement = document.createElement ("p");
@@ -72,7 +68,7 @@ function KarteVerdeckt(karte: Karte, Zielort: string, index: number) {
 }
 
 function KarteLegen(karte :Karte, index: number){
-    if(karte.Farbe == Ablagestapel[Ablagestapel.length-1].Farbe || karte.KartenWert ==Ablagestapel[Ablagestapel.length-1].KartenWert){
+    if(karte.KartenFarbe == Ablagestapel[Ablagestapel.length-1].KartenFarbe || karte.KartenWert ==Ablagestapel[Ablagestapel.length-1].KartenWert){
         Ablagestapel.push(karte);
         Spielerdeck.splice(index, 1);
         updateHTML("Spielerdeck");
@@ -92,11 +88,12 @@ function KarteNehmen(){
         Gegnerzug();
     }
 }
-//Wenn Gegner nicht kann hebt er eine Karte auf 
+
 function Gegnerzug(){
+    //Wenn Gegner nicht legen kann, nimmt er Karte vom Kartenstapel
         let i = 0;
         for (i; i<Gegnerdeck.length;i++){
-            if(Gegnerdeck[i].Farbe == Ablagestapel[Ablagestapel.length-1].Farbe || Gegnerdeck[i].KartenWert == Ablagestapel[Ablagestapel.length-1].KartenWert){
+            if(Gegnerdeck[i].KartenFarbe == Ablagestapel[Ablagestapel.length-1].KartenFarbe || Gegnerdeck[i].KartenWert == Ablagestapel[Ablagestapel.length-1].KartenWert){
                 Ablagestapel.push(Gegnerdeck[i]);
                 Gegnerdeck.splice(i, 1);
                 updateHTML("Ablagestapel");
@@ -110,7 +107,7 @@ function Gegnerzug(){
             Kartenstapel.splice(Kartenstapel.length-1,1);
             updateHTML("Gegnerdeck");
             updateHTML("Kartenstapel");
-            if (Gegnerdeck[Gegnerdeck.length-1].Farbe==Ablagestapel[Ablagestapel.length-1].Farbe || Gegnerdeck[Gegnerdeck.length-1].KartenWert == Ablagestapel[Ablagestapel.length-1].KartenWert){
+            if (Gegnerdeck[Gegnerdeck.length-1].KartenFarbe==Ablagestapel[Ablagestapel.length-1].KartenFarbe || Gegnerdeck[Gegnerdeck.length-1].KartenWert == Ablagestapel[Ablagestapel.length-1].KartenWert){
                 Ablagestapel.push(Gegnerdeck[Gegnerdeck.length-1]);
                 Gegnerdeck.splice(Gegnerdeck.length-1, 1);
                 updateHTML("Ablagestapel");
@@ -124,7 +121,7 @@ function Gegnerzug(){
 function checkKarten(array :Karte[]) :boolean {
     let passendeKarte : boolean = false;
     for (let i=0; i<array.length;i++){
-        if(array[i].Farbe == Ablagestapel[Ablagestapel.length-1].Farbe || array[i].KartenWert == Ablagestapel[Ablagestapel.length-1].KartenWert){
+        if(array[i].KartenFarbe == Ablagestapel[Ablagestapel.length-1].KartenFarbe || array[i].KartenWert == Ablagestapel[Ablagestapel.length-1].KartenWert){
             passendeKarte = true;
             break;
         }
@@ -181,7 +178,7 @@ function KartenGenerierung (){
            }
                 
             let NewKarte: Karte = {
-                Farbe: Farbe,
+                KartenFarbe: Farbe,
                 KartenWert: i
             }
             Kartenstapel.push(NewKarte);
