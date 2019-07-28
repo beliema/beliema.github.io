@@ -9,7 +9,7 @@
 //Festlegung meiner 4 Hauptarrays:
 
 let Kartenstapel: card[] = [];
-let Ablagestapel: card[] = [];
+let Ablage: card[] = [];
 let Gegnerdeck: card [] = [];
 let Spielerdeck: card [] = [];
 
@@ -32,7 +32,7 @@ function GamePlay (){
         Gegnerdeck.push(Kartenstapel[i+4]);
     }
 
-    Ablagestapel.push(Kartenstapel[10]);
+    Ablage.push(Kartenstapel[10]);
     Kartenstapel.splice(0,11);
 
     console.log(Spielerdeck);
@@ -47,7 +47,7 @@ function GamePlay (){
         KarteBack(Gegnerdeck [i], "Gegnerdeck",i);
     }
 
-    CardHTML(Ablagestapel[Ablagestapel.length - 1], "Ablagestapel",Ablagestapel.length-1);
+    CardHTML(Ablage[Ablage.length - 1], "Ablagestapel",Ablage.length-1);
     KarteBack(Kartenstapel[Kartenstapel.length -1], "Kartenstapel",Kartenstapel.length-1);
 }
 
@@ -108,8 +108,8 @@ function Gegnerzug(){
     //Wenn Gegner nicht legen kann, nimmt er Karte vom Kartenstapel
         let i = 0;
         for (i; i<Gegnerdeck.length;i++){
-            if(Gegnerdeck[i].colorC == Ablagestapel[Ablagestapel.length-1].colorC || Gegnerdeck[i].valueC == Ablagestapel[Ablagestapel.length-1].valueC){
-                Ablagestapel.push(Gegnerdeck[i]);
+            if(Gegnerdeck[i].colorC == Ablage[Ablage.length-1].colorC || Gegnerdeck[i].valueC == Ablage[Ablage.length-1].valueC){
+                Ablage.push(Gegnerdeck[i]);
                 Gegnerdeck.splice(i, 1);
                 updateHTML("Ablagestapel");
                 updateHTML("Gegnerdeck"); //Gegnerdeck und Ablagestapel werden nach Zug des Gegners geupdatet 
@@ -122,8 +122,8 @@ function Gegnerzug(){
             Kartenstapel.splice(Kartenstapel.length-1,1);
             updateHTML("Gegnerdeck");
             updateHTML("Kartenstapel");
-            if (Gegnerdeck[Gegnerdeck.length-1].colorC==Ablagestapel[Ablagestapel.length-1].colorC || Gegnerdeck[Gegnerdeck.length-1].valueC == Ablagestapel[Ablagestapel.length-1].valueC){
-                Ablagestapel.push(Gegnerdeck[Gegnerdeck.length-1]);
+            if (Gegnerdeck[Gegnerdeck.length-1].colorC==Ablage[Ablage.length-1].colorC || Gegnerdeck[Gegnerdeck.length-1].valueC == Ablage[Ablage.length-1].valueC){
+                Ablage.push(Gegnerdeck[Gegnerdeck.length-1]);
                 Gegnerdeck.splice(Gegnerdeck.length-1, 1);
                 updateHTML("Ablagestapel");
                 updateHTML("Gegnerdeck"); 
@@ -134,8 +134,8 @@ function Gegnerzug(){
 }
 
 function layCard(karte :card, index: number){
-    if(karte.colorC == Ablagestapel[Ablagestapel.length-1].colorC || karte.valueC ==Ablagestapel[Ablagestapel.length-1].valueC){
-        Ablagestapel.push(karte);
+    if(karte.colorC == Ablage[Ablage.length-1].colorC || karte.valueC ==Ablage[Ablage.length-1].valueC){
+        Ablage.push(karte);
         Spielerdeck.splice(index, 1);
         updateHTML("Spielerdeck");
         updateHTML("Ablagestapel");
@@ -146,7 +146,7 @@ function layCard(karte :card, index: number){
 function checkCards(array :card[]) :boolean {
     let passendeKarte : boolean = false;
     for (let i=0; i<array.length;i++){
-        if(array[i].colorC == Ablagestapel[Ablagestapel.length-1].colorC || array[i].valueC == Ablagestapel[Ablagestapel.length-1].valueC){
+        if(array[i].colorC == Ablage[Ablage.length-1].colorC || array[i].valueC == Ablage[Ablage.length-1].valueC){
             passendeKarte = true;
             break;
         }
@@ -167,8 +167,8 @@ function updateHTML(Zielort :string){
         }
     }
     
-    if (Zielort == "Ablagestapel"){
-        CardHTML(Ablagestapel[Ablagestapel.length - 1], "Ablagestapel",Ablagestapel.length-1);
+    if (Zielort == "Ablage"){
+        CardHTML(Ablage[Ablage.length - 1], "Ablage",Ablage.length-1);
     }
     if (Zielort == "Kartenstapel"){
         KarteBack(Kartenstapel[Kartenstapel.length-1], "Kartenstapel",Kartenstapel.length-1);
