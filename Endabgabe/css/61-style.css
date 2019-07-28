@@ -51,24 +51,24 @@ div{
 }
 
 .Blau {
-    background-color:#2E2EFE;
+    background-color:#819FF7;
 }
 
 .Rot{
-    background-color: #FE2E2E;
+    background-color: #F78181;
 }
 
 .Grün{
-    background-color: #3ADF00;
+    background-color: #A9F5A9;
 }
 
 .Gelb{
-    background-color:#F7FE2E;
+    background-color:#F3F781;
 }
 
 #Gegnerdeck{ 
     background-color: #9F81F7;
-    height:200px;
+    height:250px;
     width:100%;
     clear:both;
     margin-bottom: -1%;
@@ -95,8 +95,8 @@ div{
 }
 
 #Spielerdeck{
-    background-color:#F5A9D0;
-    height:200px;
+    background-color:#9F81F7;
+    height:250px;
     width:100%;
     clear:both;
     margin-bottom: -75%;
