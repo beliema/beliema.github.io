@@ -14,8 +14,7 @@ div{
 .Karte { 
     height:150px;
     width:100px;
-    border-style: solid;
-    float: left;
+	border-style: solid;
 }
 
 #Spielerdeck .Karte, #Gegnerdeck .Karte {
@@ -31,7 +30,6 @@ div{
 
 .Karte .Verdeckt {
     background-color: rgb(194, 13, 43);
-    float: left;
 }
 
 #Kartenstapel .Karte {
@@ -60,7 +58,7 @@ div{
 }
 
 .Gelb{
-    background-color: #F7FE2E;
+    background-color:#F7FE2E;
 }
 
 #Gegnerdeck{ 
