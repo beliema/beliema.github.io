@@ -2,7 +2,7 @@
 //Festlegung meiner 4 Hauptarrays: 
 let Ablagestapel = [];
 let Spielerdeck = [];
-let Gegnerdeck = [];
+let Gegnerd = [];
 let Kartenstapel = [];
 //Funktionen: 
 window.onload = function () {
@@ -16,18 +16,19 @@ function GamePlay() {
     //Anschlie0ßend lasse ich sie mit dieser Funktion verteilen: 
     for (let i = 0; i < 4; i++) {
         Spielerdeck.push(Kartenstapel[i]);
-        Gegnerdeck.push(Kartenstapel[i + 4]);
+        Gegnerd.push(Kartenstapel[i + 4]);
     }
     Ablagestapel.push(Kartenstapel[10]);
     Kartenstapel.splice(0, 11);
+    // Konsolenausgaben: 
     console.log(Spielerdeck);
-    console.log(Gegnerdeck);
+    console.log(Gegnerd);
     console.log(Kartenstapel);
     for (let i = 0; i < Spielerdeck.length; i++) {
         KarteHTML(Spielerdeck[i], "Spielerdeck", i);
     }
-    for (let i = 0; i < Gegnerdeck.length; i++) {
-        KarteVerdeckt(Gegnerdeck[i], "Gegnerdeck", i);
+    for (let i = 0; i < Gegnerd.length; i++) {
+        KarteVerdeckt(Gegnerd[i], "Gegnerdeck", i);
     }
     KarteHTML(Ablagestapel[Ablagestapel.length - 1], "Ablagestapel", Ablagestapel.length - 1);
     KarteVerdeckt(Kartenstapel[Kartenstapel.length - 1], "Kartenstapel", Kartenstapel.length - 1);
@@ -72,23 +73,23 @@ function KarteNehmen() {
 //Wenn Gegner nicht kann hebt er eine Karte auf 
 function Gegnerzug() {
     let i = 0;
-    for (i; i < Gegnerdeck.length; i++) {
-        if (Gegnerdeck[i].Farbe == Ablagestapel[Ablagestapel.length - 1].Farbe || Gegnerdeck[i].KartenWert == Ablagestapel[Ablagestapel.length - 1].KartenWert) {
-            Ablagestapel.push(Gegnerdeck[i]);
-            Gegnerdeck.splice(i, 1);
+    for (i; i < Gegnerd.length; i++) {
+        if (Gegnerd[i].Farbe == Ablagestapel[Ablagestapel.length - 1].Farbe || Gegnerd[i].KartenWert == Ablagestapel[Ablagestapel.length - 1].KartenWert) {
+            Ablagestapel.push(Gegnerd[i]);
+            Gegnerd.splice(i, 1);
             updateHTML("Ablagestapel");
             updateHTML("Gegnerdeck");
             break;
         }
     }
-    if (i >= Gegnerdeck.length) {
-        Gegnerdeck.push(Kartenstapel[Kartenstapel.length - 1]);
+    if (i >= Gegnerd.length) {
+        Gegnerd.push(Kartenstapel[Kartenstapel.length - 1]);
         Kartenstapel.splice(Kartenstapel.length - 1, 1);
         updateHTML("Gegnerdeck");
         updateHTML("Kartenstapel");
-        if (Gegnerdeck[Gegnerdeck.length - 1].Farbe == Ablagestapel[Ablagestapel.length - 1].Farbe || Gegnerdeck[Gegnerdeck.length - 1].KartenWert == Ablagestapel[Ablagestapel.length - 1].KartenWert) {
-            Ablagestapel.push(Gegnerdeck[Gegnerdeck.length - 1]);
-            Gegnerdeck.splice(Gegnerdeck.length - 1, 1);
+        if (Gegnerd[Gegnerd.length - 1].Farbe == Ablagestapel[Ablagestapel.length - 1].Farbe || Gegnerd[Gegnerd.length - 1].KartenWert == Ablagestapel[Ablagestapel.length - 1].KartenWert) {
+            Ablagestapel.push(Gegnerd[Gegnerd.length - 1]);
+            Gegnerd.splice(Gegnerd.length - 1, 1);
             updateHTML("Ablagestapel");
             updateHTML("Gegnerdeck");
         }
@@ -111,9 +112,9 @@ function updateHTML(Zielort) {
             KarteHTML(Spielerdeck[i], "Spielerdeck", i);
         }
     }
-    if (Zielort == "Gegnerdeck") {
-        for (let i = 0; i < Gegnerdeck.length; i++) {
-            KarteVerdeckt(Gegnerdeck[i], "Gegnerdeck", i);
+    if (Zielort == "Gegnerd") {
+        for (let i = 0; i < Gegnerd.length; i++) {
+            KarteVerdeckt(Gegnerd[i], "Gegnerd", i);
         }
     }
     if (Zielort == "Ablagestapel") {
@@ -129,31 +130,34 @@ function ClearHTML(Zielort) {
         Element.removeChild(Element.firstChild);
     }
 }
+//Funktion für die Generierung meiner Karten 
 function KartenGenerierung() {
     let Farbe;
     for (let i = 1; i <= 8; i++) {
         for (let j = 1; j <= 4; j++) {
             if (j == 1) {
-                Farbe = "Blau";
-            }
-            else if (j == 2) {
-                Farbe = "Rot";
-            }
-            else if (j == 3) {
                 Farbe = "Gelb";
             }
-            else if (j == 4) {
+            else if (j == 2) {
+                Farbe = "Blau";
+            }
+            else if (j == 3) {
                 Farbe = "Grün";
             }
+            else if (j == 4) {
+                Farbe = "Rot";
+            }
+            //Ich ordne meinen Werten von 1-4 der Variablen J eine Farbe zu 
             let NewKarte = {
                 Farbe: Farbe,
                 KartenWert: i
             };
-            Kartenstapel.push(NewKarte);
+            Kartenstapel.push(NewKarte); //eine neue Karte wird vom Stapel gezogen
         }
     }
     console.log(Kartenstapel);
 }
+//Funktion um die Karten zu vermischen 
 function shuffle(array) {
     let currentIndex = array.length;
     let temporaryValue;
