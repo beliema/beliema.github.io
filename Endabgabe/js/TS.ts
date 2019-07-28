@@ -29,15 +29,17 @@ function GamePlay (){
     //Spielerkarten werden verteilt:
     for (let i = 0; i < 4; i++){
         Spielerdeck.push(Kartenstapel[i]);
-        Gegnerdeck.push(Kartenstapel[i+4]);
+        Gegnerdeck.push(Kartenstapel[i+4]); // i<4, da ich jeweils 4 Karten an Gegner und Spieler verteile
     }
 
     Ablagestapel.push(Kartenstapel[10]);
     Kartenstapel.splice(0,11);
 
+//Konsolenangaben
     console.log(Spielerdeck);
+    console.log (Kartenstapel); 
     console.log (Gegnerdeck);
-    console.log (Kartenstapel);  
+ 
     
     for(let i = 0; i < Spielerdeck.length; i++) {
         CardHTML(Spielerdeck[i],"Spielerdeck",i);
@@ -80,7 +82,7 @@ function CardHTML (karte:card, Zielort: string, index : number){
      holdingDiv.appendChild(Zahl);
 
      if (Zielort == "Spielerdeck"){
-         holdingDiv.addEventListener("click", function() {KarteLegen(karte, index)}, false);
+         holdingDiv.addEventListener("click", function() {layCard(karte, index)}, false);
      }
 }
 
@@ -90,7 +92,7 @@ function KarteVerdeckt(karte: card, Zielort: string, index: number) {
     document.getElementById(Zielort).appendChild(holdingDiv);
 }
 
-function KarteLegen(karte :card, index: number){
+function layCard(karte :card, index: number){
     if(karte.colorC == Ablagestapel[Ablagestapel.length-1].colorC || karte.valueC ==Ablagestapel[Ablagestapel.length-1].valueC){
         Ablagestapel.push(karte);
         Spielerdeck.splice(index, 1);
@@ -112,10 +114,22 @@ function takeCard(){
     }
 }
 
+
+function checkCards(array :card[]) :boolean {
+    let passendeKarte : boolean = false;
+    for (let i=0; i<array.length;i++){
+        if(array[i].colorC == Ablagestapel[Ablagestapel.length-1].colorC || array[i].valueC == Ablagestapel[Ablagestapel.length-1].valueC){
+            passendeKarte = true;
+            break;
+        }
+    }
+    return passendeKarte;
+}
+
 function Gegnerzug(){
     //Wenn Gegner nicht legen kann, nimmt er Karte vom Kartenstapel
         let i = 0;
-        for (i; i<Gegnerdeck.length;i++){
+        for (i; i<Gegnerdeck.length;i++){ //i muss größer als die Länge des Gegnerdecks sein 
             if(Gegnerdeck[i].colorC == Ablagestapel[Ablagestapel.length-1].colorC || Gegnerdeck[i].valueC == Ablagestapel[Ablagestapel.length-1].valueC){
                 Ablagestapel.push(Gegnerdeck[i]);
                 Gegnerdeck.splice(i, 1);
@@ -139,17 +153,6 @@ function Gegnerzug(){
         }
     
 
-}
-
-function checkCards(array :card[]) :boolean {
-    let passendeKarte : boolean = false;
-    for (let i=0; i<array.length;i++){
-        if(array[i].colorC == Ablagestapel[Ablagestapel.length-1].colorC || array[i].valueC == Ablagestapel[Ablagestapel.length-1].valueC){
-            passendeKarte = true;
-            break;
-        }
-    }
-    return passendeKarte;
 }
 
 function updateHTML(Zielort :string){
