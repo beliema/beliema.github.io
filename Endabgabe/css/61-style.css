@@ -10,6 +10,7 @@ div{
     background-color:#E6E6E6;
     margin-bottom:20%;
     margin-top:5%;
+    float: left;
 }
 .Karte { 
     height:150px;
