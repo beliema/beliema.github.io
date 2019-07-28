@@ -6,7 +6,7 @@ let Gegnerdeck = [];
 let Spielerdeck = [];
 //Funktionen
 window.onload = function () {
-    document.getElementById("Kartenstapel").addEventListener("click", takeCard, false);
+    document.getElementById("Kartenstapel").addEventListener("click", KarteNehmen, false);
     GamePlay();
 };
 // Funktion Gameplay um Spiel zu starten
@@ -14,7 +14,6 @@ function GamePlay() {
     generateCards();
     Kartenstapel = shuffle(Kartenstapel);
     //Funktion Shuffle (siehe etwas weiter unten) um Karten durchzumischen bevor das Spiel beginnt
-    //Spielerkarten werden verteilt:
     for (let i = 0; i < 4; i++) {
         Spielerdeck.push(Kartenstapel[i]);
         Gegnerdeck.push(Kartenstapel[i + 4]);
@@ -33,7 +32,6 @@ function GamePlay() {
     CardHTML(Ablagestapel[Ablagestapel.length - 1], "Ablagestapel", Ablagestapel.length - 1);
     KarteBack(Kartenstapel[Kartenstapel.length - 1], "Kartenstapel", Kartenstapel.length - 1);
 }
-//Funktion um meine Karten zufällig durchzumischen
 function shuffle(array) {
     let currentIndex = array.length;
     let temporaryValue;
@@ -54,11 +52,11 @@ function KarteBack(karte, Zielort, index) {
 }
 function CardHTML(karte, Zielort, index) {
     let holdingDiv = document.createElement("div");
-    holdingDiv.setAttribute("class", "Karte" + " " + karte.colorC);
+    holdingDiv.setAttribute("class", "Karte" + " " + karte.KartenFarbe);
     document.getElementById(Zielort).appendChild(holdingDiv);
     let Zahl = document.createElement("p");
     Zahl.setAttribute("class", "Kartenzahl");
-    Zahl.innerHTML = "" + karte.valueC;
+    Zahl.innerHTML = "" + karte.KartenWert;
     holdingDiv.appendChild(Zahl);
     if (Zielort == "Spielerdeck") {
         holdingDiv.addEventListener("click", function () { layCard(karte, index); }, false);
@@ -79,7 +77,7 @@ function Gegnerzug() {
     //Wenn Gegner nicht legen kann, nimmt er Karte vom Kartenstapel
     let i = 0;
     for (i; i < Gegnerdeck.length; i++) {
-        if (Gegnerdeck[i].colorC == Ablagestapel[Ablagestapel.length - 1].colorC || Gegnerdeck[i].valueC == Ablagestapel[Ablagestapel.length - 1].valueC) {
+        if (Gegnerdeck[i].KartenFarbe == Ablagestapel[Ablagestapel.length - 1].KartenFarbe || Gegnerdeck[i].KartenWert == Ablagestapel[Ablagestapel.length - 1].KartenWert) {
             Ablagestapel.push(Gegnerdeck[i]);
             Gegnerdeck.splice(i, 1);
             updateHTML("Ablagestapel");
@@ -92,7 +90,7 @@ function Gegnerzug() {
         Kartenstapel.splice(Kartenstapel.length - 1, 1);
         updateHTML("Gegnerdeck");
         updateHTML("Kartenstapel");
-        if (Gegnerdeck[Gegnerdeck.length - 1].colorC == Ablagestapel[Ablagestapel.length - 1].colorC || Gegnerdeck[Gegnerdeck.length - 1].valueC == Ablagestapel[Ablagestapel.length - 1].valueC) {
+        if (Gegnerdeck[Gegnerdeck.length - 1].KartenFarbe == Ablagestapel[Ablagestapel.length - 1].KartenFarbe || Gegnerdeck[Gegnerdeck.length - 1].KartenWert == Ablagestapel[Ablagestapel.length - 1].KartenWert) {
             Ablagestapel.push(Gegnerdeck[Gegnerdeck.length - 1]);
             Gegnerdeck.splice(Gegnerdeck.length - 1, 1);
             updateHTML("Ablagestapel");
@@ -112,7 +110,7 @@ function layCard(karte, index) {
 function checkCards(array) {
     let passendeKarte = false;
     for (let i = 0; i < array.length; i++) {
-        if (array[i].colorC == Ablagestapel[Ablagestapel.length - 1].colorC || array[i].valueC == Ablagestapel[Ablagestapel.length - 1].valueC) {
+        if (array[i].KartenFarbe == Ablagestapel[Ablagestapel.length - 1].KartenFarbe || array[i].KartenWert == Ablagestapel[Ablagestapel.length - 1].KartenWert) {
             passendeKarte = true;
             break;
         }
@@ -144,8 +142,8 @@ function ClearHTML(Zielort) {
         Element.removeChild(Element.firstChild);
     }
 }
-//Funktion um neue Karten zu generieren. Dabei weise ich meiner Variable j Farben von 1-4 zu, else if Schleife
-function generateCards() {
+//Funktion um neue Karten zu generieren. Dabei weise ich meiner Variable J Farben von 1-4 zu, else if Schleife
+function KartenGenerierung() {
     let Farbe;
     for (let i = 1; i <= 8; i++) {
         for (let j = 1; j <= 4; j++) {
@@ -169,5 +167,19 @@ function generateCards() {
         }
     }
     console.log(Kartenstapel);
+}
+//Funktion um meine Karten zufällig durchzumischen
+function shuffle(array) {
+    let currentIndex = array.length;
+    let temporaryValue;
+    let randomIndex;
+    while (currentIndex != 0) {
+        randomIndex = Math.floor(Math.random() * currentIndex);
+        currentIndex -= 1;
+        temporaryValue = array[currentIndex];
+        array[currentIndex] = array[randomIndex];
+        array[randomIndex] = temporaryValue;
+    }
+    return array;
 }
 //# sourceMappingURL=TS.js.map
