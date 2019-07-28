@@ -25,12 +25,12 @@ function GamePlay() {
     console.log(Gegnerdeck);
     console.log(Kartenstapel);
     for (let i = 0; i < Spielerdeck.length; i++) {
-        KarteHTML(Spielerdeck[i], "Spielerdeck", i);
+        CardHTML(Spielerdeck[i], "Spielerdeck", i);
     }
     for (let i = 0; i < Gegnerdeck.length; i++) {
         KarteVerdeckt(Gegnerdeck[i], "Gegnerdeck", i);
     }
-    KarteHTML(Ablagestapel[Ablagestapel.length - 1], "Ablagestapel", Ablagestapel.length - 1);
+    CardHTML(Ablagestapel[Ablagestapel.length - 1], "Ablagestapel", Ablagestapel.length - 1);
     KarteVerdeckt(Kartenstapel[Kartenstapel.length - 1], "Kartenstapel", Kartenstapel.length - 1);
 }
 //Funktion um meine Karten zufällig durchzumischen
@@ -47,7 +47,7 @@ function shuffle(array) {
     }
     return array;
 }
-function KarteHTML(karte, Zielort, index) {
+function CardHTML(karte, Zielort, index) {
     let holdingDiv = document.createElement("div");
     holdingDiv.setAttribute("class", "Karte" + " " + karte.colorC);
     document.getElementById(Zielort).appendChild(holdingDiv);
@@ -123,7 +123,7 @@ function updateHTML(Zielort) {
     ClearHTML(Zielort);
     if (Zielort == "Spielerdeck") {
         for (let i = 0; i < Spielerdeck.length; i++) {
-            KarteHTML(Spielerdeck[i], "Spielerdeck", i);
+            CardHTML(Spielerdeck[i], "Spielerdeck", i);
         }
     }
     if (Zielort == "Gegnerdeck") {
@@ -132,7 +132,7 @@ function updateHTML(Zielort) {
         }
     }
     if (Zielort == "Ablagestapel") {
-        KarteHTML(Ablagestapel[Ablagestapel.length - 1], "Ablagestapel", Ablagestapel.length - 1);
+        CardHTML(Ablagestapel[Ablagestapel.length - 1], "Ablagestapel", Ablagestapel.length - 1);
     }
     if (Zielort == "Kartenstapel") {
         KarteVerdeckt(Kartenstapel[Kartenstapel.length - 1], "Kartenstapel", Kartenstapel.length - 1);

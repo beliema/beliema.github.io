@@ -40,14 +40,14 @@ function GamePlay (){
     console.log (Kartenstapel);  
     
     for(let i = 0; i < Spielerdeck.length; i++) {
-        KarteHTML(Spielerdeck[i],"Spielerdeck",i);
+        CardHTML(Spielerdeck[i],"Spielerdeck",i);
     }
 
     for(let i = 0; i < Gegnerdeck.length; i++){
         KarteVerdeckt(Gegnerdeck [i], "Gegnerdeck",i);
     }
 
-    KarteHTML(Ablagestapel[Ablagestapel.length - 1], "Ablagestapel",Ablagestapel.length-1);
+    CardHTML(Ablagestapel[Ablagestapel.length - 1], "Ablagestapel",Ablagestapel.length-1);
     KarteVerdeckt(Kartenstapel[Kartenstapel.length -1], "Kartenstapel",Kartenstapel.length-1);
 }
 
@@ -69,7 +69,7 @@ function shuffle(array : card[]){
 
     return array;
 }
-function KarteHTML (karte:card, Zielort: string, index : number){
+function CardHTML (karte:card, Zielort: string, index : number){
      let holdingDiv: HTMLElement = document.createElement ("div");
      holdingDiv.setAttribute("class", "Karte"  + " " + karte.colorC);
      document.getElementById(Zielort).appendChild(holdingDiv);
@@ -156,7 +156,7 @@ function updateHTML(Zielort :string){
     ClearHTML(Zielort);
     if (Zielort =="Spielerdeck"){
         for(let i = 0; i < Spielerdeck.length; i++) {
-            KarteHTML(Spielerdeck[i],"Spielerdeck",i);
+            CardHTML(Spielerdeck[i],"Spielerdeck",i);
         }
     }
     if (Zielort == "Gegnerdeck"){
@@ -165,7 +165,7 @@ function updateHTML(Zielort :string){
         }
     }
     if (Zielort == "Ablagestapel"){
-        KarteHTML(Ablagestapel[Ablagestapel.length - 1], "Ablagestapel",Ablagestapel.length-1);
+        CardHTML(Ablagestapel[Ablagestapel.length - 1], "Ablagestapel",Ablagestapel.length-1);
     }
     if (Zielort == "Kartenstapel"){
         KarteVerdeckt(Kartenstapel[Kartenstapel.length-1], "Kartenstapel",Kartenstapel.length-1);
