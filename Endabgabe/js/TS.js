@@ -13,7 +13,7 @@ window.onload = function () {
 function GamePlay() {
     generateCards();
     Kartenstapel = shuffle(Kartenstapel);
-    //Funktion Shuffle (siehe etwas weiter unten) um Karten durchzumischen
+    //Funktion Shuffle (siehe etwas weiter unten) um Karten durchzumischen bevor das Spiel beginnt
     //Spielerkarten werden verteilt:
     for (let i = 0; i < 4; i++) {
         Spielerdeck.push(Kartenstapel[i]);
@@ -25,13 +25,13 @@ function GamePlay() {
     console.log(Gegnerdeck);
     console.log(Kartenstapel);
     for (let i = 0; i < Spielerdeck.length; i++) {
-        KarteHTML(Spielerdeck[i], "Spielerdeck", i);
+        CardHTML(Spielerdeck[i], "Spielerdeck", i);
     }
     for (let i = 0; i < Gegnerdeck.length; i++) {
-        KarteVerdeckt(Gegnerdeck[i], "Gegnerdeck", i);
+        KarteBack(Gegnerdeck[i], "Gegnerdeck", i);
     }
-    KarteHTML(Ablagestapel[Ablagestapel.length - 1], "Ablagestapel", Ablagestapel.length - 1);
-    KarteVerdeckt(Kartenstapel[Kartenstapel.length - 1], "Kartenstapel", Kartenstapel.length - 1);
+    CardHTML(Ablagestapel[Ablagestapel.length - 1], "Ablagestapel", Ablagestapel.length - 1);
+    KarteBack(Kartenstapel[Kartenstapel.length - 1], "Kartenstapel", Kartenstapel.length - 1);
 }
 //Funktion um meine Karten zufällig durchzumischen
 function shuffle(array) {
@@ -47,7 +47,12 @@ function shuffle(array) {
     }
     return array;
 }
-function KarteHTML(karte, Zielort, index) {
+function KarteBack(karte, Zielort, index) {
+    let holdingDiv = document.createElement("div");
+    holdingDiv.setAttribute("class", "Karte" + " " + "Back");
+    document.getElementById(Zielort).appendChild(holdingDiv);
+}
+function CardHTML(karte, Zielort, index) {
     let holdingDiv = document.createElement("div");
     holdingDiv.setAttribute("class", "Karte" + " " + karte.colorC);
     document.getElementById(Zielort).appendChild(holdingDiv);
@@ -56,31 +61,17 @@ function KarteHTML(karte, Zielort, index) {
     Zahl.innerHTML = "" + karte.valueC;
     holdingDiv.appendChild(Zahl);
     if (Zielort == "Spielerdeck") {
-        holdingDiv.addEventListener("click", function () { KarteLegen(karte, index); }, false);
-    }
-}
-function KarteVerdeckt(karte, Zielort, index) {
-    let holdingDiv = document.createElement("div");
-    holdingDiv.setAttribute("class", "Karte" + " " + "Verdeckt");
-    document.getElementById(Zielort).appendChild(holdingDiv);
-}
-function KarteLegen(karte, index) {
-    if (karte.colorC == Ablagestapel[Ablagestapel.length - 1].colorC || karte.valueC == Ablagestapel[Ablagestapel.length - 1].valueC) {
-        Ablagestapel.push(karte);
-        Spielerdeck.splice(index, 1);
-        updateHTML("Spielerdeck");
-        updateHTML("Ablagestapel");
-        Gegnerzug();
+        holdingDiv.addEventListener("click", function () { layCard(karte, index); }, false);
     }
 }
 function takeCard() {
-    if (checkKarten(Spielerdeck) == false) {
+    if (checkCards(Spielerdeck) == false) {
         Spielerdeck.push(Kartenstapel[Kartenstapel.length - 1]);
         Kartenstapel.splice(Kartenstapel.length - 1, 1);
         updateHTML("Spielerdeck");
         updateHTML("Kartenstapel");
     }
-    if (checkKarten(Spielerdeck) == false) {
+    if (checkCards(Spielerdeck) == false) {
         Gegnerzug();
     }
 }
@@ -93,7 +84,7 @@ function Gegnerzug() {
             Gegnerdeck.splice(i, 1);
             updateHTML("Ablagestapel");
             updateHTML("Gegnerdeck"); //Gegnerdeck und Ablagestapel werden nach Zug des Gegners geupdatet 
-            break;
+            break; // break zum Beenden der For-Schleife
         }
     }
     if (i >= Gegnerdeck.length) {
@@ -109,7 +100,16 @@ function Gegnerzug() {
         }
     }
 }
-function checkKarten(array) {
+function layCard(karte, index) {
+    if (karte.colorC == Ablagestapel[Ablagestapel.length - 1].colorC || karte.valueC == Ablagestapel[Ablagestapel.length - 1].valueC) {
+        Ablagestapel.push(karte);
+        Spielerdeck.splice(index, 1);
+        updateHTML("Spielerdeck");
+        updateHTML("Ablagestapel");
+        Gegnerzug();
+    }
+}
+function checkCards(array) {
     let passendeKarte = false;
     for (let i = 0; i < array.length; i++) {
         if (array[i].colorC == Ablagestapel[Ablagestapel.length - 1].colorC || array[i].valueC == Ablagestapel[Ablagestapel.length - 1].valueC) {
@@ -121,21 +121,21 @@ function checkKarten(array) {
 }
 function updateHTML(Zielort) {
     ClearHTML(Zielort);
-    if (Zielort == "Spielerdeck") {
-        for (let i = 0; i < Spielerdeck.length; i++) {
-            KarteHTML(Spielerdeck[i], "Spielerdeck", i);
-        }
-    }
     if (Zielort == "Gegnerdeck") {
         for (let i = 0; i < Gegnerdeck.length; i++) {
-            KarteVerdeckt(Gegnerdeck[i], "Gegnerdeck", i);
+            KarteBack(Gegnerdeck[i], "Gegnerdeck", i);
+        }
+    }
+    if (Zielort == "Spielerdeck") {
+        for (let i = 0; i < Spielerdeck.length; i++) {
+            CardHTML(Spielerdeck[i], "Spielerdeck", i);
         }
     }
     if (Zielort == "Ablagestapel") {
-        KarteHTML(Ablagestapel[Ablagestapel.length - 1], "Ablagestapel", Ablagestapel.length - 1);
+        CardHTML(Ablagestapel[Ablagestapel.length - 1], "Ablagestapel", Ablagestapel.length - 1);
     }
     if (Zielort == "Kartenstapel") {
-        KarteVerdeckt(Kartenstapel[Kartenstapel.length - 1], "Kartenstapel", Kartenstapel.length - 1);
+        KarteBack(Kartenstapel[Kartenstapel.length - 1], "Kartenstapel", Kartenstapel.length - 1);
     }
 }
 function ClearHTML(Zielort) {
@@ -161,11 +161,11 @@ function generateCards() {
             else if (j == 4) {
                 Farbe = "Grün";
             }
-            let NewKarte = {
+            let NewCard = {
                 colorC: Farbe,
                 valueC: i //i als variable für den Wert einer Karte
             };
-            Kartenstapel.push(NewKarte); //Push-Befehl, um neue Karte vom Stapel zu bekommen
+            Kartenstapel.push(NewCard); //Push-Befehl, um neue Karte vom Stapel zu bekommen
         }
     }
     console.log(Kartenstapel);
