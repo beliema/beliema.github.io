@@ -1,7 +1,7 @@
 // Ich erstelle ein Karteninterface 
 //Festlegung meiner 4 Hauptarrays:
 let Kartenstapel = [];
-let Ablage = [];
+let Ablagestapel = [];
 let Gegnerdeck = [];
 let Spielerdeck = [];
 //Funktionen
@@ -19,7 +19,7 @@ function GamePlay() {
         Spielerdeck.push(Kartenstapel[i]);
         Gegnerdeck.push(Kartenstapel[i + 4]);
     }
-    Ablage.push(Kartenstapel[10]);
+    Ablagestapel.push(Kartenstapel[10]);
     Kartenstapel.splice(0, 11);
     console.log(Spielerdeck);
     console.log(Gegnerdeck);
@@ -30,7 +30,7 @@ function GamePlay() {
     for (let i = 0; i < Gegnerdeck.length; i++) {
         KarteBack(Gegnerdeck[i], "Gegnerdeck", i);
     }
-    CardHTML(Ablage[Ablage.length - 1], "Ablagestapel", Ablage.length - 1);
+    CardHTML(Ablagestapel[Ablagestapel.length - 1], "Ablagestapel", Ablagestapel.length - 1);
     KarteBack(Kartenstapel[Kartenstapel.length - 1], "Kartenstapel", Kartenstapel.length - 1);
 }
 //Funktion um meine Karten zufällig durchzumischen
@@ -79,12 +79,12 @@ function Gegnerzug() {
     //Wenn Gegner nicht legen kann, nimmt er Karte vom Kartenstapel
     let i = 0;
     for (i; i < Gegnerdeck.length; i++) {
-        if (Gegnerdeck[i].colorC == Ablage[Ablage.length - 1].colorC || Gegnerdeck[i].valueC == Ablage[Ablage.length - 1].valueC) {
-            Ablage.push(Gegnerdeck[i]);
+        if (Gegnerdeck[i].colorC == Ablagestapel[Ablagestapel.length - 1].colorC || Gegnerdeck[i].valueC == Ablagestapel[Ablagestapel.length - 1].valueC) {
+            Ablagestapel.push(Gegnerdeck[i]);
             Gegnerdeck.splice(i, 1);
             updateHTML("Ablagestapel");
             updateHTML("Gegnerdeck"); //Gegnerdeck und Ablagestapel werden nach Zug des Gegners geupdatet 
-            break; // break zum Beenden der For-Schleife
+            break; // break zum Beenden der for-Schleife
         }
     }
     if (i >= Gegnerdeck.length) {
@@ -92,8 +92,8 @@ function Gegnerzug() {
         Kartenstapel.splice(Kartenstapel.length - 1, 1);
         updateHTML("Gegnerdeck");
         updateHTML("Kartenstapel");
-        if (Gegnerdeck[Gegnerdeck.length - 1].colorC == Ablage[Ablage.length - 1].colorC || Gegnerdeck[Gegnerdeck.length - 1].valueC == Ablage[Ablage.length - 1].valueC) {
-            Ablage.push(Gegnerdeck[Gegnerdeck.length - 1]);
+        if (Gegnerdeck[Gegnerdeck.length - 1].colorC == Ablagestapel[Ablagestapel.length - 1].colorC || Gegnerdeck[Gegnerdeck.length - 1].valueC == Ablagestapel[Ablagestapel.length - 1].valueC) {
+            Ablagestapel.push(Gegnerdeck[Gegnerdeck.length - 1]);
             Gegnerdeck.splice(Gegnerdeck.length - 1, 1);
             updateHTML("Ablagestapel");
             updateHTML("Gegnerdeck");
@@ -101,8 +101,8 @@ function Gegnerzug() {
     }
 }
 function layCard(karte, index) {
-    if (karte.colorC == Ablage[Ablage.length - 1].colorC || karte.valueC == Ablage[Ablage.length - 1].valueC) {
-        Ablage.push(karte);
+    if (karte.colorC == Ablagestapel[Ablagestapel.length - 1].colorC || karte.valueC == Ablagestapel[Ablagestapel.length - 1].valueC) {
+        Ablagestapel.push(karte);
         Spielerdeck.splice(index, 1);
         updateHTML("Spielerdeck");
         updateHTML("Ablagestapel");
@@ -112,7 +112,7 @@ function layCard(karte, index) {
 function checkCards(array) {
     let passendeKarte = false;
     for (let i = 0; i < array.length; i++) {
-        if (array[i].colorC == Ablage[Ablage.length - 1].colorC || array[i].valueC == Ablage[Ablage.length - 1].valueC) {
+        if (array[i].colorC == Ablagestapel[Ablagestapel.length - 1].colorC || array[i].valueC == Ablagestapel[Ablagestapel.length - 1].valueC) {
             passendeKarte = true;
             break;
         }
@@ -131,8 +131,8 @@ function updateHTML(Zielort) {
             CardHTML(Spielerdeck[i], "Spielerdeck", i);
         }
     }
-    if (Zielort == "Ablage") {
-        CardHTML(Ablage[Ablage.length - 1], "Ablage", Ablage.length - 1);
+    if (Zielort == "Ablagestapel") {
+        CardHTML(Ablagestapel[Ablagestapel.length - 1], "Ablagestapel", Ablagestapel.length - 1);
     }
     if (Zielort == "Kartenstapel") {
         KarteBack(Kartenstapel[Kartenstapel.length - 1], "Kartenstapel", Kartenstapel.length - 1);
