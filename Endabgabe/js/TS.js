@@ -1,4 +1,5 @@
 // Ich erstelle ein Karteninterface 
+//Festlegung meiner 4 Hauptarrays:
 let Kartenstapel = [];
 let Ablagestapel = [];
 let Gegnerdeck = [];

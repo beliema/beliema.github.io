@@ -6,11 +6,7 @@
     KartenWert: number;
 }
 
-<<<<<<< HEAD
 //Festlegung meiner 4 Hauptarrays:
-=======
-//Arrays: 
->>>>>>> parent of 5ac36c6... g
 
 let Kartenstapel: Karte[] = [];
 let Ablagestapel: Karte[] = [];
