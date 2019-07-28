@@ -53,7 +53,7 @@ function GamePlay (){
     KarteVerdeckt(Kartenstapel[Kartenstapel.length -1], "Kartenstapel",Kartenstapel.length-1);
 }
 
-//Funktion um meine Karten zufällig durchzumischen
+//Funktion um meine Karten zufällig durchzumischen, while Schleife mit return-Ausgabe
 
 function shuffle(array : card[]){
     let currentIndex = array.length;
