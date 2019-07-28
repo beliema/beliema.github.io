@@ -2,8 +2,8 @@
  // Ich erstelle ein Karteninterface 
  
  interface Karte {
-    KartenFarbe: string;
-    KartenWert: number;
+    colorC: string;
+    valueC: number;
 }
 
 //Festlegung meiner 4 Hauptarrays:
@@ -16,15 +16,15 @@ let Spielerdeck: Karte [] = [];
 //Funktionen
 
 window.onload = function (){
-    document.getElementById("Kartenstapel").addEventListener("click",KarteNehmen,false);
+    document.getElementById("Kartenstapel").addEventListener("click",takeCard,false);
      GamePlay();   
 }
 
 // Funktion Gameplay um Spiel zu starten
 function GamePlay (){
-    KartenGenerierung();
+    generateCards();
     Kartenstapel = shuffle(Kartenstapel); 
-    //Funktion Shuffle (siehe unten) um Karten durchzumischen
+    //Funktion Shuffle (siehe etwas weiter unten) um Karten durchzumischen
 
     //Spielerkarten werden verteilt:
     for (let i = 0; i < 4; i++){
@@ -51,14 +51,32 @@ function GamePlay (){
     KarteVerdeckt(Kartenstapel[Kartenstapel.length -1], "Kartenstapel",Kartenstapel.length-1);
 }
 
+//Funktion um meine Karten zufällig durchzumischen
+
+function shuffle(array : Karte[]){
+    let currentIndex = array.length;
+    let temporaryValue;
+    let randomIndex;
+
+    while (currentIndex != 0){
+        randomIndex = Math.floor(Math.random()*currentIndex);
+        currentIndex -= 1;
+
+        temporaryValue = array [currentIndex];
+        array[currentIndex] = array[randomIndex];
+        array[randomIndex] = temporaryValue;
+    }
+
+    return array;
+}
 function KarteHTML (karte:Karte, Zielort: string, index : number){
      let holdingDiv: HTMLElement = document.createElement ("div");
-     holdingDiv.setAttribute("class", "Karte"  + " " + karte.KartenFarbe);
+     holdingDiv.setAttribute("class", "Karte"  + " " + karte.colorC);
      document.getElementById(Zielort).appendChild(holdingDiv);
 
      let Zahl: HTMLElement = document.createElement ("p");
      Zahl.setAttribute ("class", "Kartenzahl");
-     Zahl.innerHTML = "" + karte.KartenWert;
+     Zahl.innerHTML = "" + karte.valueC;
      holdingDiv.appendChild(Zahl);
 
      if (Zielort == "Spielerdeck"){
@@ -73,7 +91,7 @@ function KarteVerdeckt(karte: Karte, Zielort: string, index: number) {
 }
 
 function KarteLegen(karte :Karte, index: number){
-    if(karte.KartenFarbe == Ablagestapel[Ablagestapel.length-1].KartenFarbe || karte.KartenWert ==Ablagestapel[Ablagestapel.length-1].KartenWert){
+    if(karte.colorC == Ablagestapel[Ablagestapel.length-1].colorC || karte.valueC ==Ablagestapel[Ablagestapel.length-1].valueC){
         Ablagestapel.push(karte);
         Spielerdeck.splice(index, 1);
         updateHTML("Spielerdeck");
@@ -82,7 +100,7 @@ function KarteLegen(karte :Karte, index: number){
     }
 }
 
-function KarteNehmen(){
+function takeCard(){
     if(checkKarten(Spielerdeck)==false){
         Spielerdeck.push(Kartenstapel[Kartenstapel.length - 1]);
         Kartenstapel.splice(Kartenstapel.length -1, 1);
@@ -98,7 +116,7 @@ function Gegnerzug(){
     //Wenn Gegner nicht legen kann, nimmt er Karte vom Kartenstapel
         let i = 0;
         for (i; i<Gegnerdeck.length;i++){
-            if(Gegnerdeck[i].KartenFarbe == Ablagestapel[Ablagestapel.length-1].KartenFarbe || Gegnerdeck[i].KartenWert == Ablagestapel[Ablagestapel.length-1].KartenWert){
+            if(Gegnerdeck[i].colorC == Ablagestapel[Ablagestapel.length-1].colorC || Gegnerdeck[i].valueC == Ablagestapel[Ablagestapel.length-1].valueC){
                 Ablagestapel.push(Gegnerdeck[i]);
                 Gegnerdeck.splice(i, 1);
                 updateHTML("Ablagestapel");
@@ -112,7 +130,7 @@ function Gegnerzug(){
             Kartenstapel.splice(Kartenstapel.length-1,1);
             updateHTML("Gegnerdeck");
             updateHTML("Kartenstapel");
-            if (Gegnerdeck[Gegnerdeck.length-1].KartenFarbe==Ablagestapel[Ablagestapel.length-1].KartenFarbe || Gegnerdeck[Gegnerdeck.length-1].KartenWert == Ablagestapel[Ablagestapel.length-1].KartenWert){
+            if (Gegnerdeck[Gegnerdeck.length-1].colorC==Ablagestapel[Ablagestapel.length-1].colorC || Gegnerdeck[Gegnerdeck.length-1].valueC == Ablagestapel[Ablagestapel.length-1].valueC){
                 Ablagestapel.push(Gegnerdeck[Gegnerdeck.length-1]);
                 Gegnerdeck.splice(Gegnerdeck.length-1, 1);
                 updateHTML("Ablagestapel");
@@ -126,7 +144,7 @@ function Gegnerzug(){
 function checkKarten(array :Karte[]) :boolean {
     let passendeKarte : boolean = false;
     for (let i=0; i<array.length;i++){
-        if(array[i].KartenFarbe == Ablagestapel[Ablagestapel.length-1].KartenFarbe || array[i].KartenWert == Ablagestapel[Ablagestapel.length-1].KartenWert){
+        if(array[i].colorC == Ablagestapel[Ablagestapel.length-1].colorC || array[i].valueC == Ablagestapel[Ablagestapel.length-1].valueC){
             passendeKarte = true;
             break;
         }
@@ -161,8 +179,8 @@ function ClearHTML(Zielort: string){
     }
 }
 
-//Funktion um neue Karten zu generieren. Dabei weise ich meiner Variable J Farben von 1-4 zu, else if Schleife
-function KartenGenerierung (){
+//Funktion um neue Karten zu generieren. Dabei weise ich meiner Variable j Farben von 1-4 zu, else if Schleife
+function generateCards (){
     let Farbe: string;
     for(let i = 1; i <= 8; i++){
         for(let j = 1; j <= 4; j++){
@@ -184,32 +202,15 @@ function KartenGenerierung (){
            }
                 
             let NewKarte: Karte = {
-                KartenFarbe: Farbe,
-                KartenWert: i
+                colorC: Farbe,
+                valueC: i //i als variable für den Wert einer Karte
             }
-            Kartenstapel.push(NewKarte);
+            Kartenstapel.push(NewKarte); //Push-Befehl, um neue Karte vom Stapel zu bekommen
         }
     }
     console.log(Kartenstapel);
 
 }
 
-//Funktion um meine Karten zufällig durchzumischen
 
-function shuffle(array : Karte[]){
-    let currentIndex = array.length;
-    let temporaryValue;
-    let randomIndex;
-
-    while (currentIndex != 0){
-        randomIndex = Math.floor(Math.random()*currentIndex);
-        currentIndex -= 1;
-
-        temporaryValue = array [currentIndex];
-        array[currentIndex] = array[randomIndex];
-        array[randomIndex] = temporaryValue;
-    }
-
-    return array;
-}
 
