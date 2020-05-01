@@ -1,0 +1,10 @@
+#rahmen{
+    width: 90%;
+    margin: 5%;
+    background-color: brown;
+}
+
+#container{
+    background-color: black;
+    margin: 5%; 
+}
