@@ -107,7 +107,7 @@ body{
 
   .sequencecard:active {
       transform: scale(0.97);
-      transition: transform 0.2s;
+      transition: transform 0.2s; 
   }
   
   .front-face,

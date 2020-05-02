@@ -4,6 +4,8 @@ function flipCard() {
     this.classList.toggle('flip');
 }
 
+cards.forEach(card => card.addEventListener('click', flipCard));
+
 let hasFlippedCard = false;
 let lockBoard = false;
 let firstCard, secondCard;
@@ -25,7 +27,7 @@ secondCard = this;
 checkForMatch();
 }
 
-cards.forEach(card => card.addEventListener('click', flipCard));
+
 
 //Timer
 var timeleft1=30;
