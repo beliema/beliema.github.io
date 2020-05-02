@@ -1,5 +1,9 @@
 const cards = document.querySelectorAll('.sequencecard');
 
+function flipCard() {
+    this.classList.toggle('flip');
+}
+
 let hasFlippedCard = false;
 let lockBoard = false;
 let firstCard, secondCard;

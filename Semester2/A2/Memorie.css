@@ -74,25 +74,40 @@ h1{
 
 }
 
+
+
 * {
     padding: 0;
     margin:0;
     box-sizing: border-box;
 }
 
+body{
+    height: 100vh;
+    display:flex;
+    background: beige;
+}
+
+
+
 .sequencecard {
     width: 23%;
     height: 35%;
     margin: 5px;
     position: relative;
+    transform-style: preserve-3d;
     box-shadow: 1px 1px 1px rgba(0,0,0,.3);
     border: solid;
     border-radius: 12px;
     border-width: 0.5px;
-    transform-style: preserve-3d;
     transition: transform 0.5s;
     transform: scale(1);
 
+  }
+
+  .sequencecard:active {
+      transform: scale(0.97);
+      transition: transform 0.2s;
   }
   
   .front-face,
