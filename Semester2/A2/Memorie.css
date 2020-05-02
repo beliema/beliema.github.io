@@ -89,6 +89,9 @@ h1{
     border: solid;
     border-radius: 12px;
     border-width: 0.5px;
+    transform-style: preserve-3d;
+    transition: transform 0.5s;
+    
   }
   
   .front-face,
@@ -108,4 +111,9 @@ h1{
     margin: auto;
     display: flex;
     flex-wrap: wrap;
+    perspective: 1000px;
+  }
+
+  .sequencecard.flip{
+      transform: rotateY(180deg);
   }
