@@ -1,21 +1,11 @@
 //flip cards
 
-const cards = document.querySelectorAll('.sequencecard');
-
-function flipCard() {
-    this.classList.toggle('flip');
-}
-  
-cards.forEach(cards => cards.addEventListener('click', flipCard));
-  
-(function shuffle() {
-    cards.forEach(card => {
-      let randomPos = Math.floor(Math.random() * 8);
-      card.style.order = randomPos;
-    });
-  })();
-
-
+let card = document.getElementsByClassName("sequencecard");
+let cards = [...card];
+// loop to add event listeners to each card
+for (var i = 0; i < cards.length; i++){
+   cards[i].addEventListener("click", displayCard);
+};
 
 
 
