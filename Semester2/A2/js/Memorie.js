@@ -1,13 +1,14 @@
 //flip cards
 
-let card = document.getElementsByClassName("sequencecard");
-let cards = [...card];
-// loop to add event listeners to each card
-for (var i = 0; i < cards.length; i++){
-   cards[i].addEventListener("click", displayCard);
-};
+const cards = document.querySelectorAll('.sequencecard');
 
+function flipCard() {
+  this.classList.toggle('flip');
+}
 
+cards.forEach(card => card.addEventListener('click', flipCard));
+
+// ich bekomme es nicht hin, dass sich die Karten drehen, wenn man auf sie klickt. Wie kann ich das Problem am Besten beheben?
 
 //Timer
 var timeleft1=30;
