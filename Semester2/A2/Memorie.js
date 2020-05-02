@@ -28,21 +28,17 @@ var timeleft1=30;
 var timeleft2=40;
 var timeleft3=60;
 
-var i = 5;
-(function timer(){
+var i = 30;
+function timer(){
     if (--i < 0) return;
     setTimeout(function(){
-        document.getElementsByTagName('countdown')[0].innerHTML = i + ' secs';
+        document.getElementById('countdown').innerHTML = i + ' secs';
         timer();
     }, 1000);
-})();
+};
 
 
-//Knopf für Timer 
 
-function startTimer() {
-
-}
 
 
 
