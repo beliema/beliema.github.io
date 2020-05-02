@@ -84,7 +84,7 @@ h1{
 
 body{
     height: 100vh;
-    display:flex;
+    display: flex;
     background: beige;
 }
 
@@ -100,7 +100,7 @@ body{
     border: solid;
     border-radius: 12px;
     border-width: 0.5px;
-    transition: transform .5s;
+    transition: .5s;
     transform: scale(1);
 
   }
