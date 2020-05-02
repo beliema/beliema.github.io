@@ -8,18 +8,12 @@ function flipCard() {
   
 cards.forEach(cards => cards.addEventListener('click', flipCard));
   
-
-
-
-
-
-
-
-
-
-
-
-
+(function shuffle() {
+    cards.forEach(card => {
+      let randomPos = Math.floor(Math.random() * 8);
+      card.style.order = randomPos;
+    });
+  })();
 
 
 
