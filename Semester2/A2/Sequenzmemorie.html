@@ -55,7 +55,7 @@
                                     <div class="timemode">
                                         <h3 id="timemodeüberschrift"> Choose your time: </h3>
                                         <label for="customtimemode"> Set time
-                                                <input id="customtimemode" type="number"> 
+                                                <input id="customtimemode" type="numbers"> 
                                             </label>
 
                                             <button type="button">Submit </button>
@@ -75,10 +75,17 @@
                                             <label for="timemode3"> 60 seconds
                                                     <input id="timemode3" type="checkbox">
                                             </label> 
+
+                                       
                                            
                                     </div>
 
-                                </br>  <button id="startgame" type="button"> Start Game </button>
+                                </br>  <button onclick="startTimer()" id="startgame" type="button"> Start Game </button>
+                                
+
+                            </br> </br> </br> </br>
+
+                            <div id="countdown"> </div>
 
                                    
                             </div>
@@ -92,7 +99,7 @@
                                                   </div>
 
                                                 <div class="sequencecard">
-                                                        <img class="front-face" src="img/react.svg" alt="React">
+                                                        <img class="front-face" src="https://upload.wikimedia.org/wikipedia/de/5/57/Hochschule_Furtwangen_HFU_logo.svg" alt="React">
                                                         <img class="back-face" src="https://upload.wikimedia.org/wikipedia/de/5/57/Hochschule_Furtwangen_HFU_logo.svg" alt="Sequence Card">
                                                     </div>
 

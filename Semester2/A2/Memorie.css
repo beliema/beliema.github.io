@@ -91,7 +91,8 @@ h1{
     border-width: 0.5px;
     transform-style: preserve-3d;
     transition: transform 0.5s;
-    
+    transform: scale(1);
+
   }
   
   .front-face,
@@ -102,6 +103,7 @@ h1{
     position: absolute;
     border-radius: 5px;
     background: lightblue;
+    backface-visibility: hidden;
 
   }
 
@@ -116,4 +118,23 @@ h1{
 
   .sequencecard.flip{
       transform: rotateY(180deg);
+  }
+
+  .front-face{
+      transform: rotateY(180deg);
+  }
+
+  .sequencecard:active {
+
+    transform: scale(0.97);
+    transition: transform .2s;
+ 
+  }
+
+  #countdown { 
+      margin: 5%;
+      border: solid;
+      border-radius: 12px;
+      text-align: center;
+      border-color: lightblue;
   }
