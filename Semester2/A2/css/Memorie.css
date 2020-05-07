@@ -118,7 +118,7 @@ body{
     position: absolute;
     border-radius: 5px;
     background: lightblue;
-    backface-visibility: hidden;
+    
 
   }
 
