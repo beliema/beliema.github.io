@@ -6,6 +6,7 @@
     border: groove;
 }
 
+
 h1 {
 	text-align: center;
 
@@ -52,4 +53,12 @@ body{
     height: 100vh;
     display: flex;
 	background: #F6CED8;
+}
+
+.total {
+	width: 30%;
+    height: 40%;
+    margin: 5%;
+    background-color: #F5DA81;
+	border: groove;
 }
