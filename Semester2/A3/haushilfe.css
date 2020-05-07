@@ -33,7 +33,23 @@ p {
 
 }
 
-.choosecategorie {
+h3 {
 	margin: 5%;
-	
+	text-align: center;
+
+
+}
+
+.categories {
+	width: 30%;
+    height: 90%;
+    margin: 5%;
+    background-color: #F5DA81;
+	border: groove;
+}
+
+body{
+    height: 100vh;
+    display: flex;
+	background: #F6CED8;
 }
