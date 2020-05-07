@@ -17,7 +17,8 @@ h1 {
     font-size: 18px;
     border-radius:12px;
     position: absolute;
-    left: 30%;
+	left: 30%;
+	top: 35%;
 }
 
 #offerhelp {
@@ -26,7 +27,8 @@ h1 {
     font-size: 18px;
     border-radius:12px;
     position: absolute;
-    left: 60%;
+	left: 60%;
+	top: 35%;
 }
 
 p {
@@ -44,7 +46,8 @@ h3 {
 .categories {
 	width: 30%;
     height: 90%;
-    margin: 5%;
+	margin: 5%;
+
     background-color: #F5DA81;
 	border: groove;
 }
@@ -61,4 +64,14 @@ body{
     margin: 5%;
     background-color: #F5DA81;
 	border: groove;
+}
+
+.gl {
+	position: absolute;
+	top: 53%;
+	left: 40%;
+	width: 55%;
+	height: 40%;
+	border: groove;
+    background-color: #F5DA81;
 }
