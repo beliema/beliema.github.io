@@ -32,3 +32,4 @@ function tableCreate() {
     body.appendChild(tbl);
     // tbl border attribute to 
     tbl.setAttribute("border", "2");
+}
