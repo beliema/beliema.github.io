@@ -38,18 +38,23 @@
 												<input id="gamemode1" type="checkbox">
 										</label>
 
-							</br>
+								</br>
 
 
 										<label for="categorie2"> chores 
 												<input id="gamemode2" type="checkbox">
 										</label>
 
-							</br>
+								</br>
 
 										<label for="categorie3">  finances
 												<input id="gamemode3" type="checkbox">
 										</label> 
+								</br>
+
+						
+
+
 
 							</div>
 
@@ -58,49 +63,63 @@
 
 						<div class="total"> 
 
+
 								<h3 id="totalcosts"> Your total will be:</h3>
+						</br> </br> </br> </br>
+
+							<p>Choose payment option:</p> 
+
+							<select id="selectpayment">
+								<option value="Paypal">Paypal</option>
+								<option value="CreditCard">Credit Card</option>
+								<option value="Klarna">Klarna</option>
+								<option value="bill">get a bill</option>
+
+							</select>
+						
+
 
 						</div>
 
 						<div class="gl">
-							<h2>Grocerie list</h2>
+							<h2 id="groceries"> Grocerie list</h2>
 
 							<table>
 							  <tr>
-								<th>article</th>
-								<th>amount</th>
-								<th>costs</th>
-								<th>where?</th>
+								<th>Article</th>
+								<th>Amount</th>
+								<th>Costs</th>
+								<th>Where?</th>
 							  </tr>
 							  <tr>
-								<td>butter</td>
-								<td>2 packs</td>
-								<td>1,50-</td>
-								<td>Aldi</td>
+								<td><input class="newarticle" type="text" placeholder="Article"></td>
+								<td><input class="howmuch" type="text" placeholder="Amount"></td>
+								<td><input class="whichprice" type="text" placeholder="Price"></td>
+								<td><input class="wheretoget" type="text" placeholder="Where"></td>
 							  </tr>
 							  <tr>
-								<td>olive oil</td>
-								<td>1 bottle</td>
-								<td>4,-</td>
-								<td>Edeka</td>
+								<td><input class="newarticle" type="text" placeholder="Article"></td>
+								<td><input class="howmuch" type="text" placeholder="Amount"></td>
+								<td><input class="whichprice" type="text" placeholder="Price"></td>
+								<td><input class="wheretoget" type="text" placeholder="Where"></td>
 							  </tr>
 							  <tr>
-								<td>apples</td>
-								<td>1kg</td>
-								<td>2,-</td>
-								<td>Aldi</td>
+								<td><input class="newarticle" type="text" placeholder="Article"></td>
+								<td><input class="howmuch" type="text" placeholder="Amount"></td>
+								<td><input class="whichprice" type="text" placeholder="Price"></td>
+								<td><input class="wheretoget" type="text" placeholder="Where"></td>
 							  </tr>
 							  <tr>
-								<td>bread</td>
-								<td>1</td>
-								<td>2,-</td>
-								<td>bakery</td>
+								<td><input class="newarticle" type="text" placeholder="Article"></td>
+								<td><input class="howmuch" type="text" placeholder="Amount"></td>
+								<td><input class="whichprice" type="text" placeholder="Price"></td>
+								<td><input class="wheretoget" type="text" placeholder="Where"></td>
 							  </tr>
 							  <tr>
-								<td>potatos</td>
-								<td>2kg</td>
-								<td>6,-</td>
-								<td>local farmer</td>
+								<td><input class="newarticle" type="text" placeholder="Article"></td>
+								<td><input class="howmuch" type="text" placeholder="Amount"></td>
+								<td><input class="whichprice" type="text" placeholder="Price"></td>
+								<td><input class="wheretoget" type="text" placeholder="Where"></td>
 							  </tr>
 							  
 							</table>
@@ -109,7 +128,7 @@
 
 
 						<div class="chores">
-							<h2>chores</h2>
+							<h2>Chores</h2>
 
 							<table>
 							  <tr>
@@ -118,18 +137,18 @@
 								
 							  </tr>
 							  <tr>
-								<td>cleaning</td>
-								<td>5 Euros/room</td>
+								<td><input class="newtask" type="text" placeholder="Chore"></td>
+								<td><input class="setpayment" type="text" placeholder="payment"></td>
 								
 							  </tr>
 							  <tr>
-								<td>gardening</td>
-								<td>15 Euros/hour</td>
+								<td><input class="newtask" type="text" placeholder="Chore"></td>
+								<td><input class="setpayment" type="text" placeholder="payment"></td>
 								
 							  </tr>
 							  <tr>
-								<td>cleaning the front porch</td>
-								<td>20 Euro/hour</td>
+								<td><input class="newtask" type="text" placeholder="Chore"></td>
+								<td><input class="setpayment" type="text" placeholder="payment"></td>
 								
 							  </tr>
 							

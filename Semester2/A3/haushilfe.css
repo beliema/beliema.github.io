@@ -104,6 +104,7 @@ table {
 
   h2 { 
 	  left: 45%;
+	  text-align: center;
 	
   }
 
@@ -115,3 +116,11 @@ table {
 	left: 15%;
 	top: 70%;
 }
+
+#selectpayment {
+	position: absolute;
+	left: 15%;
+
+}
+
+
