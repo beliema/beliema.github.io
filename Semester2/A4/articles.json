@@ -1,21 +1,21 @@
 [{  
     
-    "product": "Alberta",
-    "price": "AB"
+    "product": "Äpfel",
+    "price": 2
   },
   {
     
-    "product": "British Columbia",
-    "price": "BC"
+    "product": "potatoes",
+    "price": 2
   },
   {
     
-    "product": "Manitoba",
-    "price": "MB"
+    "product": "Milk",
+    "price": 0.80
   },
   {
     
-    "product": "New Brunswick",
-    "price": "NB"
+    "product": "farine",
+    "price": "0.50"
   }
 ]
