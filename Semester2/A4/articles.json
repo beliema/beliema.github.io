@@ -1,0 +1,21 @@
+[{  
+    
+    "product": "Alberta",
+    "price": "AB"
+  },
+  {
+    
+    "product": "British Columbia",
+    "price": "BC"
+  },
+  {
+    
+    "product": "Manitoba",
+    "price": "MB"
+  },
+  {
+    
+    "product": "New Brunswick",
+    "price": "NB"
+  }
+]

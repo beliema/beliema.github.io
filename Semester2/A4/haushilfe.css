@@ -66,24 +66,25 @@ body{
 	border: groove;
 }
 
-.gl {
-	position: absolute;
-	top: 51%;
-	left: 40%;
-	width: 55%;
-	height: 40%;
+#groceryinput {
+	width: 51%;
+	position:absolute;
+	left:34%;
+	top:45%;
 	border: groove;
-    background-color: #F5DA81;
+	background-color: #F5DA81;
+	display:none;
+	
 }
 
 table {
 	font-family: arial, sans-serif;
 	border-collapse: collapse;
 	width: 100%;
+	border-color: black;
   }
   
   td, th {
-	border: 1px solid #dddddd;
 	text-align: left;
 	padding: 8px;
   }
@@ -92,14 +93,15 @@ table {
 	background-color: #DA81F5;
   }
 
-  .chores {
+  #choreInput {
 	position: absolute;
-	top: 95%;
-	left: 40%;
-	width: 55%;
+	top: 80%;
+	left: 34%;
+	width: 51%;
 	height: 30%;
 	border: groove;
-    background-color: #F5DA81;
+	background-color: #F5DA81;
+	display:none;
   }
 
   h2 { 
@@ -108,13 +110,9 @@ table {
 	
   }
 
-#newL {
-	background-color: #DA81F5;
-    font-size: 18px;
-    border-radius:12px;
-    position: absolute;
-	left: 15%;
-	top: 70%;
+#categoryselect {
+    font-size: 14px;
+	
 }
 
 #selectpayment {
@@ -123,7 +121,28 @@ table {
 
 }
 
+main{
+	width:90%;
+	height:90%;
 
-.rechteSeite {
-	left: 40%;
+}
+
+#articledropdown{
+	width: 150px;
+}
+
+#wheretoget{
+	width:150px;
+}
+
+#whichprice{
+	width:150px;
+}
+
+#howmuch{
+	width:150px;
+}
+
+#addtolist{
+	width:150px;
 }

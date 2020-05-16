@@ -5,7 +5,8 @@
 	<meta charset="utf-8" />
 	<title>Haushaltshilfe</title>
 	<link rel="stylesheet" href="haushilfe.css" type="text/css" media="screen" />
-     <script src="haushilfe.js" type="text/javascript" charset="utf-8"></script> 
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script> 
+	<script src="C:\Users\Daniel\Desktop\BaeBaeBae\haushilfe.js" type="text/javascript" charset="utf-8"></script>
 </head>
 
 <body>
@@ -23,51 +24,61 @@
 
 									</div>
 
-									 <button type="button" id="needhelp" >need help</button>  
-									 <button type="button" id="offerhelp" >offer help</button> 
-
 									
 
 							</div>
 
+
 							<div class="categories">
 
-								<h3 id="choosecategorie"> Choose a categorie!</h3>
+								<h3 id="choosecategorie"> Choose a category!</h3>
 
-										<label for="categorie1"> grocerie shopping
-												<input id="gamemode1" type="checkbox">
-										</label>
+								<table>
+									<tr>
+									  <td>Groceries</td>
+									  <td><input id="gamemode1" type="checkbox" onclick="showGrocery()"></td>
+									</tr>
+									<tr>
+										<td>Chores</td>
+										<td><input id="gamemode2" type="checkbox" onclick="showChores()"></td>
+									  </tr>
+									  <tr>
+										<td>Financial</td>
+										<td><input id="gamemode3" type="checkbox"></td>
+									  </tr>
+									</table>
 
-								</br>
-
-
-										<label for="categorie2"> chores 
-												<input id="gamemode2" type="checkbox">
-										</label>
-
-								</br>
-
-										<label for="categorie3">  finances
-												<input id="gamemode3" type="checkbox">
-										</label> 
-								</br>
-
-						
-
-
+									 
 
 							</div>
 
 				
-						</div>
+						
 
 						<div class="total"> 
-
-
-								<h3 id="totalcosts"> Your total will be:</h3>
-						</br> </br> 
+						<h3 id="totalcosts"> Your total will be:</h3>
+						</br>
 						
-						</br> </br>
+						<div id="totaltable">
+
+							<table>
+								<tr>
+									<th>Article</th>
+									<th>Amount</th>
+									<th>Where</th>
+									<th>Price</th>
+								</tr>
+								<tr>								  
+								  <td><p id="productend"></p></td>
+								  <td><p id="amountend"></td>
+								  <td><p id="whereend"></td>
+								  <td><p id="priceend"></td>
+								</tr>
+							  </table>
+
+
+
+						</div>
 
 							<p>Choose payment option:</p> 
 
@@ -78,62 +89,43 @@
 								<option value="bill">get a bill</option>
 
 							</select>
-						</div>
-
-
 						
 
-				
 
-						<div class="gl">
-							<h2 id="groceries"> Grocerie list</h2>
+						</div>
+
+						<div id="groceryinput">
+							<h2 id="groceries"> Grocery list</h2>
 
 							<table>
 							  <tr>
 								<th>Article</th>
 								<th>Amount</th>
-								<th>Costs</th>
-								<th>Where?</th>
+								<th>Where</th>
+								<th></th>
 							  </tr>
 							  <tr>
-								<td><input class="newarticle" type="text" placeholder="Article"></td>
-								<td><input class="howmuch" type="text" placeholder="Amount"></td>
-								<td><input class="whichprice" type="text" placeholder="Price"></td>
-								<td><input class="wheretoget" type="text" placeholder="Where"></td>
+								<td><select id="articledropdown" placeholder="Article"></select></td>
+								<td><input id="howmuch" type="number"></td>
+								<td><select id="wheretoget" type="text" placeholder="Where"></td>
+								<td><button type="button" id="addtolist" onclick="addToCart()">Add to cart</button></td>
 							  </tr>
 							  <tr>
-								<td><input class="newarticle" type="text" placeholder="Article"></td>
-								<td><input class="howmuch" type="text" placeholder="Amount"></td>
-								<td><input class="whichprice" type="text" placeholder="Price"></td>
-								<td><input class="wheretoget" type="text" placeholder="Where"></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
 							  </tr>
-							  <tr>
-								<td><input class="newarticle" type="text" placeholder="Article"></td>
-								<td><input class="howmuch" type="text" placeholder="Amount"></td>
-								<td><input class="whichprice" type="text" placeholder="Price"></td>
-								<td><input class="wheretoget" type="text" placeholder="Where"></td>
-							  </tr>
-							  <tr>
-								<td><input class="newarticle" type="text" placeholder="Article"></td>
-								<td><input class="howmuch" type="text" placeholder="Amount"></td>
-								<td><input class="whichprice" type="text" placeholder="Price"></td>
-								<td><input class="wheretoget" type="text" placeholder="Where"></td>
-							  </tr>
-							  <tr>
-								<td><input class="newarticle" type="text" placeholder="Article"></td>
-								<td><input class="howmuch" type="text" placeholder="Amount"></td>
-								<td><input class="whichprice" type="text" placeholder="Price"></td>
-								<td><input class="wheretoget" type="text" placeholder="Where"></td>
-							  </tr>
+							  
 							  
 							</table>
 
 
-			
+						</div>
 
 
 
-						<div class="chores">
+						<div id="choreInput">
 							<h2>Chores</h2> 	
 						
 							<table>
@@ -160,19 +152,12 @@
 							
 							  
 							</table>
-						</div>
+
 						
 
 						</div>
 
-						<div class="newlist">
-							<button type="button" id="newL" >create a new list</button>  
 						</div>
-
-
-				
-				
-
 
 				</main>
 
