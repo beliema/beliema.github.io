@@ -83,13 +83,13 @@ $(function() {
 //Alles zum Warenkorb hinzufügen (Chores)
 function addToCartChores(){
 
-  var e = document.getElementById("articledropdown");
+  var e = document.getElementById("newtask");
   var artikel = e.options[e.selectedIndex].text;
   
-  var i = document.getElementById("wheretoget");
+  var i = document.getElementById("setpayment");
   var where = i.options[e.selectedIndex].text;
   
-  var amount = document.getElementById("howmuch").value;
+  var amount = document.getElementById("setpayment").value;
   
   
     document.getElementById("amountend").innerHTML = amount;
@@ -111,7 +111,7 @@ slider.oninput = function() {
 
 //Dropdown Chores
 $(function() {
-  var data = [
+  var dataChores = [
     {
       "task": "",
       "id": "0",
@@ -138,7 +138,7 @@ $(function() {
         "price": "20.00",
           },
   ];
-  $.each(data, function(i, option) {
+  $.each(dataChores, function(i, option) {
       $('#newtask').append($('<option/>').attr("value", option.id).text(option.task));
   });
   
