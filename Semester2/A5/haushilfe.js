@@ -149,3 +149,13 @@ $(function() {
   });
   
 })
+
+function sendOrder() {
+        
+}
+
+
+function deleteOrder() {
+  if (checkBox.checked == true){
+
+}
