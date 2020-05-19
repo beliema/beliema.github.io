@@ -194,3 +194,7 @@ main{
   background: beige; 
   cursor: pointer; 
 }
+
+#confirmOrder{
+	left:30%;
+}

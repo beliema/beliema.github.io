@@ -60,17 +60,23 @@ $(function() {
       "place": "",
     },
     {
-      "product": "Toilettenpapier",
+      "product": "Äpfel",
       "id": "1",
-      "price": "20",
+      "price": "2.00",
       "place": "Edeka",
       },
       {
-      "product": "Desinfektionsmittel",
+      "product": "Mehl",
       "id": "2",
-      "price": "200",
+      "price": "1.40",
       "place": "Lidl",
-      }
+      },
+      {
+        "product": "Nudeln",
+        "id": "3",
+        "price": "1.00",
+        "place": "Aldi",
+        },
   ];
   $.each(data, function(i, option) {
       $('#articledropdown').append($('<option/>').attr("value", option.id).text(option.product));
@@ -84,7 +90,7 @@ $(function() {
 function addToCartChores(){
 
   var e = document.getElementById("newtask");
-  var artikel = e.options[e.selectedIndex].text;
+  var task = e.options[e.selectedIndex].text;
   
   var i = document.getElementById("setpayment");
   var where = i.options[e.selectedIndex].text;
@@ -93,20 +99,20 @@ function addToCartChores(){
   
   
     document.getElementById("amountend").innerHTML = amount;
-    document.getElementById("productend").innerHTML = artikel;
+    document.getElementById("productend").innerHTML = task;
     document.getElementById("whereend").innerHTML = where;
   }
 
 //Slider-Value 
 
-var slider = document.getElementById("myRange");
-var output = document.getElementById("demo");
-output.innerHTML = slider.value; 
+//var slider = document.getElementById("myRange");
+//var output = document.getElementById("demo");
+//output.innerHTML = slider.value; 
 
 
-slider.oninput = function() {
-  output.innerHTML = this.value;
-} 
+//slider.oninput = function() {
+  //output.innerHTML = this.value;
+//} 
 
 
 //Dropdown Chores
