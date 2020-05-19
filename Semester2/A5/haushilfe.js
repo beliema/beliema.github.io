@@ -39,6 +39,17 @@ function showChores() {
   }
 }
 
+function showFinances() {
+  var checkBox = document.getElementById("gamemode3");
+  var text = document.getElementById("financeInput");
+
+  if (checkBox.checked == true){
+    text.style.display = "block";
+  } else {
+    text.style.display = "none";
+  }
+}
+
 //Dropdown Produkt
 $(function() {
   var data = [
@@ -69,5 +80,15 @@ $(function() {
   });
 })
 
+//Slider-Value 
+
+var slider = document.getElementById("myRange");
+var output = document.getElementById("demo");
+output.innerHTML = slider.value; 
+
+
+slider.oninput = function() {
+  output.innerHTML = this.value;
+} 
 
 
