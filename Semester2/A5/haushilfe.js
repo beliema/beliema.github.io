@@ -49,36 +49,17 @@ $(function() {
       "place": "",
     },
     {
-      "product": "Joghurt",
+      "product": "Toilettenpapier",
       "id": "1",
-      "price": "0.80",
+      "price": "20",
       "place": "Edeka",
       },
       {
-      "product": "Reis",
+      "product": "Desinfektionsmittel",
       "id": "2",
-      "price": "3.00",
+      "price": "200",
       "place": "Lidl",
-      },
-      {
-        "product": "Äpfel",
-        "id": "3",
-        "price": "2.00",
-        "place": "Aldi",
-      },
-      {
-        "product": "Mehl",
-        "id": "4",
-        "price": "1.50",
-        "place": "Rewe",
-      },
-      {
-        "product": "Nudeln",
-        "id": "5",
-        "price": "2.40",
-        "place": "Norma",
-      },
-
+      }
   ];
   $.each(data, function(i, option) {
       $('#articledropdown').append($('<option/>').attr("value", option.id).text(option.product));
