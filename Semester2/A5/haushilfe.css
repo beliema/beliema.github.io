@@ -95,7 +95,7 @@ table {
 
   #choreInput {
 	position: absolute;
-	top: 60%;
+	top: 70%;
 	left: 34%;
 	width: 51%;
 	height: 30%;
@@ -148,9 +148,9 @@ main{
 	width:150px;
 }
 
-.financeInput {
+#financeInput {
 	position: absolute;
-	top: 90%;
+	top: 105%;
 	left: 34%;
 	width: 51%;
 	height: 30%;

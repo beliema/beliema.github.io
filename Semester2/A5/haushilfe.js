@@ -50,7 +50,7 @@ function showFinances() {
   }
 }
 
-//Dropdown Produkt
+//Dropdown Produkt Groceries
 $(function() {
   var data = [
     {
@@ -80,6 +80,23 @@ $(function() {
   });
 })
 
+//Alles zum Warenkorb hinzufügen (Chores)
+function addToCartChores(){
+
+  var e = document.getElementById("articledropdown");
+  var artikel = e.options[e.selectedIndex].text;
+  
+  var i = document.getElementById("wheretoget");
+  var where = i.options[e.selectedIndex].text;
+  
+  var amount = document.getElementById("howmuch").value;
+  
+  
+    document.getElementById("amountend").innerHTML = amount;
+    document.getElementById("productend").innerHTML = artikel;
+    document.getElementById("whereend").innerHTML = where;
+  }
+
 //Slider-Value 
 
 var slider = document.getElementById("myRange");
@@ -92,3 +109,37 @@ slider.oninput = function() {
 } 
 
 
+//Dropdown Chores
+$(function() {
+  var data = [
+    {
+      "task": "",
+      "id": "0",
+      "payment": "",
+    },
+    {
+      "task": "mow the lawn",
+      "id": "1",
+      "payment": "15.00",
+      },
+      {
+      "task": "clean a room",
+      "id": "2",
+      "price": "5.00",
+      },
+      {
+        "task": "walk the dog",
+        "id": "3",
+        "price": "10.00",
+        },
+      {
+        "task": "wash the car",
+        "id": "4",
+        "price": "20.00",
+          },
+  ];
+  $.each(data, function(i, option) {
+      $('#newtask').append($('<option/>').attr("value", option.id).text(option.task));
+  });
+  
+})
