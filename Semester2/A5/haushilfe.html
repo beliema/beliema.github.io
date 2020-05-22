@@ -53,7 +53,7 @@
 							</div>
 
 				
-						
+					
 
 						<div class="total"> 
 						<h3 id="totalcosts"> Your total will be:</h3>
@@ -61,14 +61,14 @@
 						
 						<div id="totaltable">
 
-							<table>
+							<table id="myTable">
 								<tr>
 									<th>Article</th>
 									<th>Amount</th>
 									<th>Where</th>
 									<th>Price</th>
 								</tr>
-								<tr>								  
+								<tr>						  
 								  <td><p id="productend"></p></td>
 								  <td><p id="amountend"></td>
 								  <td><p id="whereend"></td>
@@ -91,10 +91,12 @@
 							</select>
 
 							<button type="button" id="confirmOrder" onclick="sendOrder()">Confirm your order</button>
-							<button type="button" id="deleteOrder" type="reset" onclick="deleteOrder()">Delete your order</button>
+							<button type="button" id="confirmOrder" onclick="deleteOrder()">Confirm your order</button>
 
 
 						</div>
+				
+						
 
 						<div id="groceryinput">
 							<h2 id="groceries"> Grocery list</h2>

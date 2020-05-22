@@ -163,26 +163,8 @@ $(function() {
 async function sendOrder() {
   // var b = document.getElementById("confirmOrder");
 
-  alert("Your order has been sent!");
-
-        
+  alert("Your order has been sent!");       
 }
 
-
-
-
- //function deleteOrder() {
-  //var dele = document.getElementById("deleteOrder");
-  //var pe = document.getElementById("productend");
-//var ae = document.getElementById("amountend");
-  //var we = document.getElementById("whereend");
-  //var pre = document.getElementById("priceend");
-
-  //if (button.clicked == true){
-    //pe.style.display = "none";
-  
-//} else {
-   // pe.style.display = "block";}
-//}
 
 
