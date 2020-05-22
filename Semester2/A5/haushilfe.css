@@ -198,3 +198,12 @@ main{
 #confirmOrder{
 	left:30%;
 }
+
+#confirmOrder {
+	display: none;
+}
+
+#deleteOrder {
+	display : none;
+
+}

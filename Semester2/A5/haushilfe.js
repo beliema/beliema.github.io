@@ -5,7 +5,13 @@ var e = document.getElementById("articledropdown");
 var artikel = e.options[e.selectedIndex].text;
 
 var i = document.getElementById("wheretoget");
-var where = i.options[e.selectedIndex].text;
+var where = i.options[i.selectedIndex].text;
+
+var b = document.getElementById("confirmOrder");
+b.style.display = "block";
+
+var d = document.getElementById("deleteOrder");
+d.style.display = "block";
 
 var amount = document.getElementById("howmuch").value;
 
@@ -13,7 +19,26 @@ var amount = document.getElementById("howmuch").value;
   document.getElementById("amountend").innerHTML = amount;
   document.getElementById("productend").innerHTML = artikel;
   document.getElementById("whereend").innerHTML = where;
+
+
 }
+
+//Alles zum Warenkorb hinzufügen (Chores)
+function addToCartChores(){
+
+  var e = document.getElementById("newtask");
+  var task = e.options[e.selectedIndex].text;
+  
+  var i = document.getElementById("setpayment");
+  var where = i.options[e.selectedIndex].text;
+  
+  var amount = document.getElementById("setpayment").value;
+  
+  
+    document.getElementById("amountend").innerHTML = amount;
+    document.getElementById("productend").innerHTML = task;
+    document.getElementById("whereend").innerHTML = where;
+  }
 
 // Knopf Funktionen
 function showGrocery() {
@@ -86,22 +111,7 @@ $(function() {
   });
 })
 
-//Alles zum Warenkorb hinzufügen (Chores)
-function addToCartChores(){
 
-  var e = document.getElementById("newtask");
-  var task = e.options[e.selectedIndex].text;
-  
-  var i = document.getElementById("setpayment");
-  var where = i.options[e.selectedIndex].text;
-  
-  var amount = document.getElementById("setpayment").value;
-  
-  
-    document.getElementById("amountend").innerHTML = amount;
-    document.getElementById("productend").innerHTML = task;
-    document.getElementById("whereend").innerHTML = where;
-  }
 
 //Slider-Value 
 
@@ -150,12 +160,29 @@ $(function() {
   
 })
 
-function sendOrder() {
+async function sendOrder() {
+  // var b = document.getElementById("confirmOrder");
+
+  alert("Your order has been sent!");
+
         
 }
 
 
-function deleteOrder() {
-  if (checkBox.checked == true){
 
-}
+
+ //function deleteOrder() {
+  //var dele = document.getElementById("deleteOrder");
+  //var pe = document.getElementById("productend");
+//var ae = document.getElementById("amountend");
+  //var we = document.getElementById("whereend");
+  //var pre = document.getElementById("priceend");
+
+  //if (button.clicked == true){
+    //pe.style.display = "none";
+  
+//} else {
+   // pe.style.display = "block";}
+//}
+
+
