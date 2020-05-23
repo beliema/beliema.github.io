@@ -1,11 +1,60 @@
+var data = [
+  {
+    "product": "",
+    "id": "0",
+    "price": "",
+    "place": "",
+  },
+  {
+    "product": "Äpfel",
+    "id": "1",
+    "price": "2.00",
+    "place": "Edeka",
+    },
+    {
+    "product": "Mehl",
+    "id": "2",
+    "price": "1.40",
+    "place": "Lidl",
+    },
+    {
+    "product": "Nudeln",
+    "id": "3",
+    "price": "1.00",
+    "place": "Aldi",
+    },
+];
+
+
+function getPriceByName(product){
+  return data.filter(
+    function(data){return data.product == product}
+);
+}
+
+
+
+
 //Alles zum Warenkorb hinzufügen
 function addToCart(){
+
+  var table = document.getElementById("myTable");
+  var row = table.insertRow(1);
+  var cell1 = row.insertCell(0);
+  var cell2 = row.insertCell(1);
+  var cell3 = row.insertCell(2);
+  var cell4 = row.insertCell(3);
 
 var e = document.getElementById("articledropdown");
 var artikel = e.options[e.selectedIndex].text;
 
 var i = document.getElementById("wheretoget");
 var where = i.options[i.selectedIndex].text;
+
+var amount = document.getElementById("howmuch").value;
+
+var found = getPriceByName("Mehl");
+var price = document.getElementById('priceend').innerHTML= found[0].price;
 
 var b = document.getElementById("confirmOrder");
 b.style.display = "block";
@@ -15,10 +64,10 @@ d.style.display = "block";
 
 var amount = document.getElementById("howmuch").value;
 
-
-  document.getElementById("amountend").innerHTML = amount;
-  document.getElementById("productend").innerHTML = artikel;
-  document.getElementById("whereend").innerHTML = where;
+  cell1.innerHTML = artikel;
+  cell2.innerHTML = amount;
+  cell3.innerHTML = where;
+  cell4.innerHTML = price;
 
 
 }
@@ -77,32 +126,6 @@ function showFinances() {
 
 //Dropdown Produkt Groceries
 $(function() {
-  var data = [
-    {
-      "product": "",
-      "id": "0",
-      "price": "",
-      "place": "",
-    },
-    {
-      "product": "Äpfel",
-      "id": "1",
-      "price": "2.00",
-      "place": "Edeka",
-      },
-      {
-      "product": "Mehl",
-      "id": "2",
-      "price": "1.40",
-      "place": "Lidl",
-      },
-      {
-        "product": "Nudeln",
-        "id": "3",
-        "price": "1.00",
-        "place": "Aldi",
-        },
-  ];
   $.each(data, function(i, option) {
       $('#articledropdown').append($('<option/>').attr("value", option.id).text(option.product));
   });
@@ -163,8 +186,16 @@ $(function() {
 async function sendOrder() {
   // var b = document.getElementById("confirmOrder");
 
-  alert("Your order has been sent!");       
+  alert("Your order has been sent!");
+
+        
 }
 
 
 
+
+function deleteOrder() {
+
+  document.getElementById("myTable").deleteRow(1);
+
+}
