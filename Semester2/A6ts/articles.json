@@ -1,0 +1,56 @@
+{
+  "Einkaufen": [
+      {
+          "name": "Äpfel",
+          "price": 2.00
+      },
+      {
+          "name": "Mehl",
+          "price": 1.50
+      },
+      {
+          "name": "Kartoffeln",
+          "price": 2.50
+      },
+      {
+        "name": "Milch",
+        "price": 0.80
+      },
+      {
+        "name": "Käse",
+        "price": 1.70
+      },
+      {
+        "name": "Joghurt",
+        "price": 0.60
+      }
+  ],
+  "Chores": [
+      {
+          "name": "Rasen mähen",
+          "price": 10.00
+      },
+      {
+          "name": "Raum putzen",
+          "price": 5.00
+      },
+      {
+          "name": "Hund ausführen",
+          "price": 15.00
+      },
+      {
+          "name": "Blumen gießen",
+          "price": 7.00
+      }
+  ],
+  "Financial": [
+      {
+          "name": "Geld abholen",
+          "price": 20.00
+      },
+      {
+          "name": "Geld zur Bank bringen",
+          "price": 20.00
+      }
+  ]
+}
