@@ -17,7 +17,7 @@ var L06_Haushilfe;
             let response = yield fetch("articles.json");
             let offer = yield response.text();
             let data = JSON.parse(offer);
-            generateContent(data);
+            L06_Haushilfe.generateContent(data);
             console.log("verknüpft");
             //Festlegung der Variablen mit Verbindung der Elemente aus dem HTML Code
             let einkaufen = document.querySelector("#Einkaufen");

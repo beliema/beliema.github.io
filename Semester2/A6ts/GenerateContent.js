@@ -1,5 +1,5 @@
-var haushaltshilfe;
-(function (haushaltshilfe) {
+var L06_Haushilfe;
+(function (L06_Haushilfe) {
     function generateContent(_data) {
         console.log(_data);
         let form = document.querySelector("form");
@@ -45,7 +45,7 @@ var haushaltshilfe;
                 fieldset.appendChild(group);
         }
     }
-    haushaltshilfe.generateContent = generateContent;
+    L06_Haushilfe.generateContent = generateContent;
     function createTasks(_items, _category) {
         console.log("createTasks");
         let group = document.createElement("div");
@@ -152,5 +152,5 @@ var haushaltshilfe;
         }
         return group;
     }
-})(haushaltshilfe || (haushaltshilfe = {}));
+})(L06_Haushilfe || (L06_Haushilfe = {}));
 //# sourceMappingURL=GenerateContent.js.map
