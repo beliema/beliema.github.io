@@ -1,10 +1,8 @@
 {
-  "name": "beliemasapp",
+  "name": "semester2",
   "version": "1.0.0",
   "description": "",
-  "main": "GenerateContent.js",
-  "dependencies": {},
-  "devDependencies": {},
+  "main": "index.js",
   "scripts": {
     "start": "node Semester2/A6ts/haushilfe.js"
   },

@@ -1,9 +1,8 @@
-//# sourceMappingURL=Server.js.map
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const Http = require("http");
 const Url = require("url");
-var L06_CocktailBar;
+var L06_Haushilfe;
 (function (L06_Haushilfe) {
     let server = Http.createServer();
     console.log(server);
