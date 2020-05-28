@@ -1,5 +1,5 @@
 .intro {
-	width: 90%;
+	width: 100%;
     height: 40%;
     margin: 5%;
     background-color: #F5DA81;
@@ -15,7 +15,7 @@ h1 {
 .Bestellung {
 	background-color: #F5DA81;
 	border: groove;
-	width: 90%;
+	width: 100%;
 	margin: 5%;
 }
 
@@ -34,8 +34,8 @@ h3 {
 }
 
 .categories {
-	width:90%;
-    height: 50%;
+	width:100%;
+  height: 50%;
 	margin: 5%;
 
     background-color: #F5DA81;
