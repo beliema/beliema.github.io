@@ -71,7 +71,7 @@ var L06_Haushilfe;
         let amount = document.createElement("input");
         let selectstore = document.createElement("select");
         let okbutton = document.createElement("button");
-        okbutton.id = "einkaufbestättigen";
+        okbutton.id = "einkaufbestätigen";
         okbutton.type = "button";
         okbutton.textContent = "In den Warenkorb";
         for (let item of _items) {

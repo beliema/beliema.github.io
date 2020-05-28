@@ -104,7 +104,7 @@ namespace L06_Haushilfe{
         let amount: HTMLInputElement = document.createElement("input");
         let selectstore: HTMLSelectElement = document.createElement("select");
         let okbutton: HTMLButtonElement = document.createElement("button");
-        okbutton.id = "einkaufbestättigen";
+        okbutton.id = "einkaufbestätigen";
         okbutton.type = "button";
         okbutton.textContent = "In den Warenkorb";
         for (let item of _items) {
