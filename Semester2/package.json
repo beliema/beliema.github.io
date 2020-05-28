@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node Semester2/A6ts/haushilfe.js"
+    "start": "node Semester2/A6ts/Server/haushilfe.js"
   },
   "author": "beliema",
   "license": "ISC"

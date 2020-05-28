@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "main": "GenerateContent.js",
-  "dependencies": {},
+  "dependencies": {
+    "@types/node": "^14.0.5"
+  },
   "devDependencies": {},
   "scripts": {
     "start": "node Semester2/A6ts/haushilfe.js"
