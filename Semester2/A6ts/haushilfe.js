@@ -22,8 +22,8 @@ var L06_Haushilfe;
             //Festlegung der Variablen mit Verbindung der Elemente aus dem HTML Code
             let einkaufen = document.querySelector("#Einkaufen");
             let haushalt = document.querySelector("#Chores");
-            let fieldeinkauf = document.querySelector("FeldEinkaufen");
-            let fieldhaushalt = document.querySelector("FeldChores");
+            let fieldeinkauf = document.querySelector("#FeldEinkaufen");
+            let fieldhaushalt = document.querySelector("#FeldChores");
             let geteinkauf = document.querySelector("#einkaufbestätigen");
             let gethaushalt = document.querySelector("#einkaufbestätigenhh");
             let submit = document.querySelector("button#abschicken");

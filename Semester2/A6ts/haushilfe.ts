@@ -19,8 +19,8 @@ namespace L06_Haushilfe {
         let einkaufen: HTMLInputElement = <HTMLInputElement>document.querySelector("#Einkaufen");
         let haushalt: HTMLInputElement = <HTMLInputElement>document.querySelector("#Chores");
 
-        let fieldeinkauf: HTMLFieldSetElement = <HTMLFieldSetElement>document.querySelector("FeldEinkaufen");
-        let fieldhaushalt: HTMLFieldSetElement = <HTMLFieldSetElement>document.querySelector("FeldChores");
+        let fieldeinkauf: HTMLFieldSetElement = <HTMLFieldSetElement>document.querySelector("#FeldEinkaufen");
+        let fieldhaushalt: HTMLFieldSetElement = <HTMLFieldSetElement>document.querySelector("#FeldChores");
       
         let geteinkauf: HTMLButtonElement = <HTMLButtonElement>document.querySelector("#einkaufbestätigen");
         let gethaushalt: HTMLButtonElement = <HTMLButtonElement>document.querySelector("#einkaufbestätigenhh");
