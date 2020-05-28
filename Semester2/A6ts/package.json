@@ -1,0 +1,13 @@
+{
+  "name": "beliemasapp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "GenerateContent.js",
+  "dependencies": {},
+  "devDependencies": {},
+  "scripts": {
+    "start": "node /Users/beliema/Documents/GitHub/beliema.github.io/Semester2/A6ts/haushilfe.js"
+  },
+  "author": "beliema",
+  "license": "ISC"
+}
