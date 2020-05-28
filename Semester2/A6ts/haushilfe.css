@@ -38,7 +38,7 @@ h3 {
   height: 50%;
 	margin: 5%;
 
-    background-color: #F5DA81;
+  background-color: #F5DA81;
 	border: groove;
 }
 
@@ -67,21 +67,10 @@ body{
 	
 }
 
-table {
-	font-family: arial, sans-serif;
-	border-collapse: collapse;
-	width: 100%;
-	border-color: black;
-  }
+
   
-  td, th {
-	text-align: left;
-	padding: 8px;
-  }
   
-  tr:nth-child(even) {
-	background-color: #DA81F5;
-  }
+ 
 
   #choreInput {
 	position: absolute;
@@ -118,25 +107,6 @@ main{
 
 }
 
-#articledropdown{
-	width: 150px;
-}
-
-#wheretoget{
-	width:150px;
-}
-
-#whichprice{
-	width:150px;
-}
-
-#howmuch{
-	width:150px;
-}
-
-#addtolist{
-	width:150px;
-}
 
 #financeInput {
 	position: absolute;
@@ -149,51 +119,3 @@ main{
 	display:none;
 }
 
-.slidecontainer {
-	width: 51%;
-}
-
-.slider {
-  -webkit-appearance: none;  
-  appearance: none;
-  width: 51%; 
-  height: 25px; 
-  background: #DA81F5; 
-  outline: none; 
-  opacity: 0.7; 
-  -webkit-transition: .2s; 
-  transition: opacity .2s;
-}
-
-.slider:hover {
-  opacity: 1; 
-}
-
-.slider::-webkit-slider-thumb {
-  -webkit-appearance: none; 
-  appearance: none;
-  width: 25px; 
-  height: 25px; 
-  background: beige; 
-  cursor: pointer; 
-}
-
-.slider::-moz-range-thumb {
-  width: 25px; 
-  height: 25px; 
-  background: beige; 
-  cursor: pointer; 
-}
-
-#confirmOrder{
-	left:30%;
-}
-
-#confirmOrder {
-	display: none;
-}
-
-#deleteOrder {
-	display : none;
-
-}
