@@ -4,11 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node Semester2/A6ts/haushilfe.js"
+   "start": "node Semester2/A6ts/Server/Server.js"
   },
   "author": "beliema",
   "license": "ISC",
   "dependencies": {
-    "@types/node": "14.0.5"
+    "@types/node": "^14.0.5"
   }
 }
