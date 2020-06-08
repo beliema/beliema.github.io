@@ -1,17 +1,46 @@
-import { isMainThread } from "worker_threads";
+namespace L08_Canvas_Alley {
+    interface Vector {
+        x: number;
+        y: number;
+    }
 
-namespace Canvas {
 
-    let canvas: HTMLCanvasElement = document.querySelector("canvas");
-    let crc2: CanvasRenderingContext2D = canvas.getContext("2d");
-    
-    crc2.fillStyle ="#FF0000";
-    crc2.fillRect(0, 0, crc2.canvas.width, crc2.canvas.height);
+    window.addEventListener("load", handleload);
+    let crc2: CanvasRenderingContext2D;
+    let golden: number= 0.62; //goldener Schnitt
 
-    crc2.beginPath();
-    crc2.arc(100, 100, 20, 0, 1.5 * Math.PI);
-    crc2.closePath();
-    crc2.stroke;
-    
+    function handleload(_event: Event): void {
+        let canvas: HTMLCanvasElement | null = document.querySelector("canvas");
+        if (!canvas)
+            return;
+            crc2 = <CanvasRenderingContext2D>canvas.getContext("2d)");
 
+        drawBackground();
+        drawSun({x:100, y: 75});
+        drawCloud({x:500, y: 125}, {x: 250, y: 75});
+
+    }
+
+    function drawBackground(): void {
+        console.log("Background");
+
+        let gradient: CanvasGradient = crc2.createLinearGradient(0,0,0,crc2.canvas.height);
+        gradient.addColorStop(0, "lightblue");
+        gradient.addColorStop(golden, "white");
+        gradient.addColorStop(1, "green");
+
+        crc2.fillStyle = gradient;
+        crc2.fillRect(0,0, crc2.canvas.width, crc2.canvas.height);
+
+    }
+
+    function drawSun(_position: Vector): void {
+        console.log("Sun", _position);
+        
+    }
+
+    function drawCloud(_position: Vector, _size: Vector): void {
+        console.log("Cloud", _position. _size);
+        
+    }
 }
