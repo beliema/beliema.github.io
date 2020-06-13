@@ -1,9 +1,12 @@
-var L08_Canvas_Corona;
-(function (L08_Canvas_Corona) {
+//Grundgerüst von Nelly Schneider, dann Veränderung und Umsetzung eigener Ideen, da sich bei mir der Hintergrund sonst nicht erstellen ließ 
+var L08_Virus;
+(function (L08_Virus) {
+    //Def. Variablen 
     let crc2;
     let middle = 0.95;
     let width;
     let height;
+    //Installation Eventlistener 
     window.addEventListener("load", handleLoad);
     function handleLoad(_event) {
         let canvas = document.querySelector("canvas");
@@ -207,5 +210,5 @@ var L08_Canvas_Corona;
         }
         crc2.restore();
     }
-})(L08_Canvas_Corona || (L08_Canvas_Corona = {}));
+})(L08_Virus || (L08_Virus = {}));
 //# sourceMappingURL=Virus.js.map

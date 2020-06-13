@@ -1,14 +1,19 @@
-namespace L08_Canvas_Corona {
+//Grundgerüst von Nelly Schneider, dann Veränderung und Umsetzung eigener Ideen, da sich bei mir der Hintergrund sonst nicht erstellen ließ 
+
+namespace L08_Virus {
+    //Anlegen Interface 
     interface Vector {
         x: number;
         y: number;
     }
+    //Def. Variablen 
+
     let crc2: CanvasRenderingContext2D;
     let middle: number = 0.95;
     let width: number;
     let height: number;
     
-    
+    //Installation Eventlistener 
 
     window.addEventListener("load", handleLoad);
     
