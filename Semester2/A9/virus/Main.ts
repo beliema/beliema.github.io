@@ -1,5 +1,7 @@
 namespace L09_Virus { 
 
+    //Nicht fertig gecodet, weil keine Zeit 
+
     window.addEventListener("load", handleLoad);
 
     export let crc2: CanvasRenderingContext2D;
