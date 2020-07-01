@@ -1,4 +1,4 @@
-namespace L09_Virus {
+namespace L10_Virus {
     export class Vector {
         x: number;
         y: number;
