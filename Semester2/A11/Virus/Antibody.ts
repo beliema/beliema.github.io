@@ -11,7 +11,7 @@ namespace L11_Virus {
 
         }
 
-        moveAntibody(_timeslice: number): void {
+        public moveAntibody(_timeslice: number): void {
            super.move(_timeslice); 
 
           if (this.position.x < 0)
@@ -24,7 +24,7 @@ namespace L11_Virus {
           this.position.y -= crc2.canvas.height;
         }
 
-        drawAntibody(): void {
+        public drawAntibody(): void {
           crc2.beginPath();
           crc2.moveTo(this.position.x, this.position.y);
           crc2.lineTo(this.position.x + 22, this.position.y - 12 );

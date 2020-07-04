@@ -21,7 +21,7 @@ var L11_Virus;
             L11_Virus.crc2.save();
             let r1 = 1;
             let r2 = 8;
-            //let nParticles: number = 50;
+            //let nParticles: number = 40;
             let particle = new Path2D();
             let gradient = L11_Virus.crc2.createRadialGradient(0, 0, r1, 0, 0, r2);
             particle.arc(0, 0, r2, 0, 2 * Math.PI);

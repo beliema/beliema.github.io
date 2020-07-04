@@ -4,6 +4,7 @@ var L11_Virus;
         constructor(_position) {
             this.position = _position;
             this.velocity = new L11_Virus.Vector(0, 0);
+            this.size;
         }
         draw() {
         }

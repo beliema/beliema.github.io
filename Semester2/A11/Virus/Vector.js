@@ -22,6 +22,9 @@ var L11_Virus;
             this.set(Math.cos(direction), Math.sin(direction));
             this.scale(length);
         }
+        copy() {
+            return new Vector(this.x, this.y);
+        }
     }
     L11_Virus.Vector = Vector;
 })(L11_Virus || (L11_Virus = {}));

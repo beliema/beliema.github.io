@@ -364,10 +364,12 @@ namespace L11_Virus {
            
         }
         function createParticles(_position: Vector, _n: number): void {
-            for (let i: number = 0; i < _n; i++){
                 let x: number = (Math.random() - 0.5) * _position.x;
                 let y: number = -(Math.random() * _position.y);
-                particles.push(new Particle( new Vector(x, y)));
+
+            for (let i: number = 0; i < _n; i++){
+
+                particles.push(new Particle(new Vector(x, y)));
             }
         }
 

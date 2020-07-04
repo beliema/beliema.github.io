@@ -1,7 +1,7 @@
 namespace L11_Virus {
     
     export class HumanCell extends Cell {
-       //  isHit(_hotspot: Vector): void; 
+         // private isHit(_hotspot: Vector): void; 
 
         constructor(_position: Vector, _size: Vector) { 
             super(_position); 
@@ -18,7 +18,7 @@ namespace L11_Virus {
            //  this.size = _size;
         }
 
-        moveHumanCell(_timeslice: number): void {
+        public moveHumanCell(_timeslice: number): void {
             let offset: Vector = new Vector(this.velocity.x, this.velocity.y);
             offset.scale(_timeslice);
             this.position.add(offset);
@@ -33,7 +33,7 @@ namespace L11_Virus {
                 this.position.y -= crc2.canvas.height;
         }
 
-        drawHumanCell(): void {
+        public drawHumanCell(): void {
 
             let r1: number = 1; 
             let r2: number = 13; 
@@ -53,6 +53,10 @@ namespace L11_Virus {
             crc2.fill(particle);
             crc2.restore();
         }
-        
+
+
+            
     }
+        
+    
 }

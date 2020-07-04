@@ -13,7 +13,7 @@ namespace L11_Virus {
 
         } 
 
-        move(_timeslice: number): void {
+       public  move(_timeslice: number): void {
             super.move(_timeslice);
         
 
@@ -27,7 +27,7 @@ namespace L11_Virus {
                 this.position.y -= crc2.canvas.height;
         }
 
-        draw(): void {
+       public draw(): void {
 
             let radiusK: number =15; 
             /*let r1: number = 1; 

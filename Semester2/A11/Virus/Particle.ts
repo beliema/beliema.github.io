@@ -1,8 +1,8 @@
 namespace L11_Virus {
     export class Particle extends Cell { 
        
-        radius: number;
-        color: string;
+        public radius: number;
+        public color: string;
     
         constructor(_position: Vector) {
             
@@ -27,13 +27,13 @@ namespace L11_Virus {
             this.velocity.random(10, 100);
         }
 
-        draw(): void {
+        public draw(): void {
             console.log("Particle draw");
             crc2.save();
            
             let r1: number = 1;
             let r2: number = 8;
-            //let nParticles: number = 50;
+            //let nParticles: number = 40;
             let particle: Path2D = new Path2D();
             let gradient: CanvasGradient = crc2.createRadialGradient(0, 0, r1, 0, 0, r2);
             particle.arc(0, 0, r2, 0, 2 * Math.PI);
@@ -54,7 +54,7 @@ namespace L11_Virus {
              
         }
     
-        move(_timeslice: number): void {
+        public move(_timeslice: number): void {
             // console.log("Particle move");
             /* let offset: Vector = new Vector(this.velocity.x, this.velocity.y);
             offset.x *= 0;
