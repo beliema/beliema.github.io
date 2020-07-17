@@ -16,7 +16,7 @@ function handleload (_event: Event): void {
 
         //Festlegung Variablen in Verbindung mit HTML-Elementen 
 
-        let format: HTMLSpanElement = <HTMLSpanElement>document.querySelector("#Canvas");
+        let format: HTMLSpanElement = <HTMLSpanElement>document.querySelector("#Zeichenfläche");
      //   let farbe: 
         let symbol: HTMLInputElement =  <HTMLInputElement>document.querySelector("#Symbol");
 
@@ -27,9 +27,9 @@ function handleload (_event: Event): void {
 
         //Canvas-Größen 
 
-        let format1: HTMLInputElement = <HTMLInputElement>document.getElementById("#canvas1");
-        let format2: HTMLInputElement = <HTMLInputElement>document.getElementById("#canvas2");
-        let format3: HTMLInputElement = <HTMLInputElement>document.getElementById("#canvas3");
+        let format1: HTMLInputElement = <HTMLInputElement>document.getElementById("canvas1");
+        let format2: HTMLInputElement = <HTMLInputElement>document.getElementById("canvas2");
+        let format3: HTMLInputElement = <HTMLInputElement>document.getElementById("canvas3");
 
         //Submit-Button 
 
