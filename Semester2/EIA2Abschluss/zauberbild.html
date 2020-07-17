@@ -1,0 +1,120 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=desktop-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Abschlussaufgabe Zauberbild</title>
+    <link rel="stylesheet" href="zauberbild.css" type="text/css" media="screen"/> 
+    <script src="Canvas/canvas.js"></script> 
+    <script src="Generatepage/generatepage.js"></script> 
+    <script src="Halbkreis/Halbkreis.js"></script> 
+    <script src="Herz/Herz.js"></script> 
+    <script src="Hexagon/Hexagon.js"></script> 
+    <script src="Kreis/Kreis.js"></script> 
+    <script src="Raute/Raute.js"></script> 
+    <script src="Moveable/Moveable.js"></script> 
+    <script src="Rotation/Rotation.js"></script>
+    <script src="Vector/Vector.js"></script>
+    
+</head>
+
+<body>
+
+    <header> 
+
+        <h1> Z A U B E R B I L D </h1>
+
+    </header>
+
+    <main>
+
+        <div id="Zeichenfläche"> 
+            <h3> Wähle deine Zeichenfläche </h3>
+
+    
+            <input id="Format1" name="Fläche" type="radio" value="Canvasfläche">
+            <label for="Format1">Format 1</label> 
+        </br> 
+            <input id="Format2" name="Fläche" type="radio" value="Canvasfläche">
+            <label for="Format2">Format 2 </label> 
+        </br>
+            <input id="Format3" name="Fläche" type="radio" value="Canvasfläche">
+            <label for="Format3">Format 3</label> 
+        </br>
+
+        </div>
+
+        <div id="Farbauswahl"> 
+            <h3> Wähle deine Zeichenfarbe </h3>
+
+
+        </div>
+
+        <div id="Symbol"> 
+                <h3> Wähle dein Symbol </h3>
+
+        
+                <input id="Halbkreis" name="Symbol" type="radio" value="Symbol">
+                <label for="Halbkreis"> Halbkreis </label> 
+            </br> 
+            </br> 
+                <input id="Kreis" name="Symbol" type="radio" value="Symbol">
+                <label for="Kreis"> Kreis </label>
+            </br>
+            </br>
+                <input id="Raute" name="Symbol" type="radio" value="Symbol">
+                <label for="Raute"> Raute </label> 
+            </br>
+            </br>
+                <input id="Herz" name="Symbol" type="radio" value="Symbol">
+                <label for="Herz"> Herz </label> 
+            </br>
+            </br> 
+                <input id="Hexagon" name="Symbol" type="radio" value="Symbol">
+                <label for="Hexagon"> Hexagon </label>
+            </br>
+            </br>
+            <button id="SaveSymbol" type="button" form="SaveSymbol"> OK </button>
+        
+        </div>
+
+        <span id="Canvas"> 
+
+         <canvas id="canvas1" width=500 height=500></canvas> 
+         <canvas id="canvas2" width=300 height=500></canvas> 
+         <canvas id="canvas3" width=500 height=300></canvas> 
+
+        </span>
+
+        </br> 
+
+        <button id="neuCanvas" type="reset" form="neuCanvas"> neu </button>
+        <button id="speichern" type="submit" form="speichern"> speichern </button>
+
+        
+
+        <div id="alteBilder">
+                <form action="server">
+                    <h3>Lade ein altes Zauberbild</h3>
+                </br>
+                    <select name="alteBilder" id="alteBilderdd">
+                      <option value="Bild1">Bild 1</option>
+                      <option value="Bild2">Bild 2</option>
+                      <option value="Bild3">Bild3</option>
+                    </select>
+                    <br><br><br><br><br><br><br><br><br><br>
+                    <input id="Submit" type="submit" value="Submit">
+
+                  </form>
+        </div>
+
+
+
+    </main>
+ 
+</body>
+
+</html>

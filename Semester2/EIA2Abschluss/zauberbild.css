@@ -1,0 +1,128 @@
+h1 { 
+    text-align: center;
+    text-shadow: 2px 2px 5px grey;
+    font-family: 'Times New Roman', Times, serif;
+   
+}
+
+h3 {
+    text-align: center;
+    text-decoration: underline;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+body {
+    background-color: whitesmoke;
+}
+
+#Zeichenfläche {
+
+    text-align: center;
+    width: 300px;
+    margin: 2%; 
+    border-width: 3px;
+    border-style: outset;
+    border-color: black;
+    border-radius: 5px; 
+}
+
+#Farbauswahl { 
+
+    width: 300px;
+    margin: 2%; 
+    border-width: 3px;
+    border-style: outset;
+    border-color: black;
+    border-radius: 5px; 
+}
+
+#Symbol { 
+
+    text-align: left;
+    width: 300px;
+    margin: 2%; 
+    border-width: 3px;
+    border-style: outset;
+    border-color: black;
+    border-radius: 5px; 
+}
+
+#Canvas {
+    left: 380px; 
+    top: 60px; 
+    width: 550px;
+    position: absolute;
+    margin: 2%; 
+    border-width: 3px; 
+    border-color: black;
+    border-style: double;
+  
+}
+
+#canvas1 {
+    width: 500px;
+    height: 500px;
+    display: none;
+    
+}
+
+#canvas2 {
+    width: 300px; 
+    height: 500px;
+    display: none; 
+}
+
+#canvas3 {
+    width: 500px;
+    height: 300px; 
+    display: none; 
+}
+
+#SaveSymbol {
+    width: 300px;
+}
+
+#neuCanvas {
+    left: 500px; 
+    margin: 2%;
+    position: relative; 
+
+}
+
+#speichern { 
+    left: 550px; 
+    position: relative;
+    left: 650px;
+}
+
+#alteBilder { 
+    text-align: center;
+    width: 300px;
+    margin: 2%; 
+    border-width: 3px;
+    border-style: outset;
+    border-color: black;
+    border-radius: 5px;
+    float: right; 
+    position: relative; 
+    top: -600px; 
+}
+
+#Submit { 
+    width: 300px; 
+}
+
+button {
+    border-radius: 5px; 
+    background-color: #F2F2F2;
+    border-style: outset;
+    color: black;
+    border: 2px solid #555555;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+  
+button:hover {
+    background-color: #555555;
+    color: white;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
