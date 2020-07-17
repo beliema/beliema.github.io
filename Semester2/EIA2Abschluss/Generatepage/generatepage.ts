@@ -2,13 +2,13 @@ namespace AS_Zauberbild {
 
     console.log("Zauberbild-Editor wird geladen");
 
-    window.addEventListener("load", handleload);
+    window.addEventListener("load", handleLoad);
 
     let url: string = "zauberbild.html";
   
 
 
-function handleload (_event: Event): void {
+function handleLoad (_event: Event): void {
 
        // let response: Response = await fetch(""); 
       //  let offer: string = await response.text();

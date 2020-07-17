@@ -9,14 +9,14 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 var AS_Zauberbild;
 (function (AS_Zauberbild) {
     console.log("Zauberbild-Editor wird geladen");
-    window.addEventListener("load", handleload);
+    window.addEventListener("load", handleLoad);
     let url = "zauberbild.html";
-    function handleload(_event) {
+    function handleLoad(_event) {
         // let response: Response = await fetch(""); 
         //  let offer: string = await response.text();
         //  let data: Data = JSON.parse(offer);
         //Festlegung Variablen in Verbindung mit HTML-Elementen 
-        let format = document.querySelector("#Canvas");
+        let format = document.querySelector("#Zeichenfläche");
         //   let farbe: 
         let symbol = document.querySelector("#Symbol");
         //Button-Elemente 
@@ -24,9 +24,9 @@ var AS_Zauberbild;
         let neuesCanvas = document.querySelector('#neuCanvas');
         let speichern = document.querySelector("#speichern");
         //Canvas-Größen 
-        let format1 = document.getElementById("#canvas1");
-        let format2 = document.getElementById("#canvas2");
-        let format3 = document.getElementById("#canvas3");
+        let format1 = document.getElementById("canvas1");
+        let format2 = document.getElementById("canvas2");
+        let format3 = document.getElementById("canvas3");
         //Submit-Button 
         let submit = document.querySelector("button#Submit");
         console.log("Daten werden an den Server übermittelt");
