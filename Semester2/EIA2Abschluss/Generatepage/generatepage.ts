@@ -61,6 +61,8 @@ function handleLoad (_event: Event): void {
                     Canvas2.disabled = true;
                     Canvas3.disabled = true;
 
+                    
+
                     console.log("Canvas-Format 500 x 500 Pixel wird generiert"); 
 
                 }

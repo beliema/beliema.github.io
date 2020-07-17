@@ -56,26 +56,27 @@ body {
     border-width: 3px; 
     border-color: black;
     border-style: double;
+    display: none;
   
 }
 
 #canvas1 {
     width: 500px;
     height: 500px;
-    display: none;
+    
     
 }
 
 #canvas2 {
     width: 300px; 
     height: 500px;
-    display: none; 
+  
 }
 
 #canvas3 {
     width: 500px;
     height: 300px; 
-    display: none; 
+ 
 }
 
 #SaveSymbol {
