@@ -23,10 +23,6 @@ var AS_Zauberbild;
         let symbolspeichern = document.querySelector("#SaveSymbol");
         let neuesCanvas = document.querySelector('#neuCanvas');
         let speichern = document.querySelector("#speichern");
-        //Canvas-Größen 
-        let format1 = document.getElementById("canvas1");
-        let format2 = document.getElementById("canvas2");
-        let format3 = document.getElementById("canvas3");
         //Submit-Button 
         let submit = document.querySelector("button#Submit");
         console.log("Daten werden an den Server übermittelt");
@@ -39,23 +35,29 @@ var AS_Zauberbild;
         //  speichern.addEventListener("click", saveCanvasData);
         // submit.addEventListener("click", sendInOrder);    
         //Funktion 1: Je nachdem welches Format ausgewählt wurde, generieret sich ein Canvas in vordefinierter Größe. 
-        function generateCanvasSize() {
+        function generateCanvasSize(_event) {
+            let format1 = document.getElementById("Format1");
+            let format2 = document.getElementById("Format2");
+            let format3 = document.getElementById("Format3");
+            let Canvas1 = document.getElementById("canvas1");
+            let Canvas2 = document.getElementById("canvas2");
+            let Canvas3 = document.getElementById("canvas3");
             if (format1.checked == true) {
-                format1.disabled = false;
-                format2.disabled = true;
-                format3.disabled = true;
+                Canvas1.disabled = false;
+                Canvas2.disabled = true;
+                Canvas3.disabled = true;
                 console.log("Canvas-Format 500 x 500 Pixel wird generiert");
             }
             else if (format2.checked == true) {
-                format1.disabled = true;
-                format2.disabled = false;
-                format3.disabled = true;
+                Canvas1.disabled = true;
+                Canvas2.disabled = false;
+                Canvas3.disabled = true;
                 console.log("Canvas-Format 300 x 500 Pixel wird generiert");
             }
             else if (format3.checked == true) {
-                format1.disabled = true;
-                format2.disabled = true;
-                format3.disabled = false;
+                Canvas1.disabled = true;
+                Canvas2.disabled = true;
+                Canvas3.disabled = false;
                 console.log("Canvas-Format 500 x 300 Pixel wird generiert");
             }
             // Asynchrone Funktion, die die Daten des gemalten Canvas an den Server schickt 

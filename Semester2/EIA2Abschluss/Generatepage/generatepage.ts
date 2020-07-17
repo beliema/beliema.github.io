@@ -25,11 +25,6 @@ function handleLoad (_event: Event): void {
         let neuesCanvas: HTMLButtonElement = <HTMLButtonElement>document.querySelector('#neuCanvas');
         let speichern: HTMLButtonElement = <HTMLButtonElement>document.querySelector("#speichern");
 
-        //Canvas-Größen 
-
-        let format1: HTMLInputElement = <HTMLInputElement>document.getElementById("canvas1");
-        let format2: HTMLInputElement = <HTMLInputElement>document.getElementById("canvas2");
-        let format3: HTMLInputElement = <HTMLInputElement>document.getElementById("canvas3");
 
         //Submit-Button 
 
@@ -51,32 +46,38 @@ function handleLoad (_event: Event): void {
 
         //Funktion 1: Je nachdem welches Format ausgewählt wurde, generieret sich ein Canvas in vordefinierter Größe. 
 
-            function generateCanvasSize(): void {
+            function generateCanvasSize(_event: Event): void {
 
-        
+                let format1: HTMLInputElement = <HTMLInputElement>document.getElementById("Format1");
+                let format2: HTMLInputElement = <HTMLInputElement>document.getElementById("Format2");
+                let format3: HTMLInputElement = <HTMLInputElement>document.getElementById("Format3");
+
+                let Canvas1: HTMLCanvasElement = <HTMLCanvasElement>document.getElementById("canvas1");
+                let Canvas2: HTMLCanvasElement = <HTMLCanvasElement>document.getElementById("canvas2");
+                let Canvas3: HTMLCanvasElement = <HTMLCanvasElement>document.getElementById("canvas3");
 
                 if (format1.checked == true) {
-                    format1.disabled = false;
-                    format2.disabled = true;
-                    format3.disabled = true;
+                    Canvas1.disabled = false;
+                    Canvas2.disabled = true;
+                    Canvas3.disabled = true;
 
                     console.log("Canvas-Format 500 x 500 Pixel wird generiert"); 
 
                 }
                 
                 else if (format2.checked == true) {
-                    format1.disabled = true;
-                    format2.disabled = false; 
-                    format3.disabled = true; 
+                    Canvas1.disabled = true;
+                    Canvas2.disabled = false; 
+                    Canvas3.disabled = true; 
 
                     console.log("Canvas-Format 300 x 500 Pixel wird generiert");
 
                 }
 
                 else if (format3.checked == true) {
-                    format1.disabled = true;
-                    format2.disabled = true;
-                    format3.disabled = false; 
+                    Canvas1.disabled = true;
+                    Canvas2.disabled = true;
+                    Canvas3.disabled = false; 
 
                     console.log("Canvas-Format 500 x 300 Pixel wird generiert"); 
                 }
