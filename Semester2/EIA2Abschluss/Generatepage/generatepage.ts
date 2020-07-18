@@ -9,6 +9,7 @@ namespace AS_Zauberbild {
 
 
 function handleLoad (_event: Event): void {
+    console.log("test");
 
        // let response: Response = await fetch(""); 
       //  let offer: string = await response.text();
@@ -22,8 +23,8 @@ function handleLoad (_event: Event): void {
 
         //Button-Elemente 
         let symbolspeichern: HTMLButtonElement = <HTMLButtonElement>document.querySelector("#SaveSymbol");
-        let neuesCanvas: HTMLButtonElement = <HTMLButtonElement>document.querySelector('#neuCanvas');
-        let speichern: HTMLButtonElement = <HTMLButtonElement>document.querySelector("#speichern");
+        let neuesCanvas: HTMLButtonElement = <HTMLButtonElement>document.getElementById("neuCanvas");
+        let speichern: HTMLButtonElement = <HTMLButtonElement>document.getElementById("speichern");
 
 
         //Submit-Button 
@@ -39,7 +40,16 @@ function handleLoad (_event: Event): void {
        // symbol.addEventListener("click", chooseSymbol);
 
        // symbolspeichern.addEventListener("click", saveSymbolValue);
-       // neuesCanvas.addEventListener("click", createNewCanvas);
+     
+        neuesCanvas.addEventListener("click", (_event: Event) => {
+
+            let deleteOldCanvas: Node = <Node>_event.target;
+            let getparentdiv: Node = <Node>deleteOldCanvas.parentNode;
+            let getgrandparentdiv: Node = <Node>getparentdiv.parentNode;
+            getgrandparentdiv.removeChild(getparentdiv); 
+            console.log(" Button 'Neu' wurde geklickt, Canvasdaten werden gelöscht"); 
+
+        } ); 
        //  speichern.addEventListener("click", saveCanvasData);
 
         // submit.addEventListener("click", sendInOrder);    
@@ -56,30 +66,30 @@ function handleLoad (_event: Event): void {
                 let Canvas2: HTMLCanvasElement = <HTMLCanvasElement>document.getElementById("canvas2");
                 let Canvas3: HTMLCanvasElement = <HTMLCanvasElement>document.getElementById("canvas3");
 
+                Canvas1.style.height = "500px"; 
+                
                 if (format1.checked == true) {
-                    Canvas1.disabled = false;
-                    Canvas2.disabled = true;
-                    Canvas3.disabled = true;
-
-                    
+                    Canvas1.hidden = false;
+                    Canvas2.hidden = true;
+                    Canvas3.hidden = true;
 
                     console.log("Canvas-Format 500 x 500 Pixel wird generiert"); 
 
                 }
                 
                 else if (format2.checked == true) {
-                    Canvas1.disabled = true;
-                    Canvas2.disabled = false; 
-                    Canvas3.disabled = true; 
+                    Canvas1.hidden = true;
+                    Canvas2.hidden = false; 
+                    Canvas3.hidden = true; 
 
-                    console.log("Canvas-Format 300 x 500 Pixel wird generiert");
+                    console.log("Canvas-Format 500 x 00 Pixel wird generiert");
 
                 }
 
                 else if (format3.checked == true) {
-                    Canvas1.disabled = true;
-                    Canvas2.disabled = true;
-                    Canvas3.disabled = false; 
+                    Canvas1.hidden = true;
+                    Canvas2.hidden = true;
+                    Canvas3.hidden = false; 
 
                     console.log("Canvas-Format 500 x 300 Pixel wird generiert"); 
                 }
@@ -98,14 +108,24 @@ function handleLoad (_event: Event): void {
 
             }
 
-            //Funktion, die das alte Canvas löscht und 
+            //Funktion, die das alte/gezeichnete Canvas löscht 
             
+            function createNewCanvas (_data: number, _event: any): void {
+
+                let deleteOldCanvas: Node = <Node>_event.target;
+                let getparentdiv: Node = <Node>deleteOldCanvas.parentNode;
+                let getgrandparentdiv: Node = <Node>getparentdiv.parentNode;
+                getgrandparentdiv.removeChild(getparentdiv); 
+
+            } 
+
+
         }
 
 
-
+               
     }
 
-    
-    
-}
+
+
+} 

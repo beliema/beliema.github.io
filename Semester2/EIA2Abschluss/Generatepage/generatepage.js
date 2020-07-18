@@ -12,6 +12,7 @@ var AS_Zauberbild;
     window.addEventListener("load", handleLoad);
     let url = "zauberbild.html";
     function handleLoad(_event) {
+        console.log("test");
         // let response: Response = await fetch(""); 
         //  let offer: string = await response.text();
         //  let data: Data = JSON.parse(offer);
@@ -21,8 +22,8 @@ var AS_Zauberbild;
         let symbol = document.querySelector("#Symbol");
         //Button-Elemente 
         let symbolspeichern = document.querySelector("#SaveSymbol");
-        let neuesCanvas = document.querySelector('#neuCanvas');
-        let speichern = document.querySelector("#speichern");
+        let neuesCanvas = document.getElementById("neuCanvas");
+        let speichern = document.getElementById("speichern");
         //Submit-Button 
         let submit = document.querySelector("button#Submit");
         console.log("Daten werden an den Server übermittelt");
@@ -31,7 +32,13 @@ var AS_Zauberbild;
         //  farbe.addEventListener("click", handleChange);
         // symbol.addEventListener("click", chooseSymbol);
         // symbolspeichern.addEventListener("click", saveSymbolValue);
-        // neuesCanvas.addEventListener("click", createNewCanvas);
+        neuesCanvas.addEventListener("click", (_event) => {
+            let deleteOldCanvas = _event.target;
+            let getparentdiv = deleteOldCanvas.parentNode;
+            let getgrandparentdiv = getparentdiv.parentNode;
+            getgrandparentdiv.removeChild(getparentdiv);
+            console.log(" Button 'Neu' wurde geklickt, Canvasdaten werden gelöscht");
+        });
         //  speichern.addEventListener("click", saveCanvasData);
         // submit.addEventListener("click", sendInOrder);    
         //Funktion 1: Je nachdem welches Format ausgewählt wurde, generieret sich ein Canvas in vordefinierter Größe. 
@@ -42,22 +49,23 @@ var AS_Zauberbild;
             let Canvas1 = document.getElementById("canvas1");
             let Canvas2 = document.getElementById("canvas2");
             let Canvas3 = document.getElementById("canvas3");
+            Canvas1.style.height = "500px";
             if (format1.checked == true) {
-                Canvas1.disabled = false;
-                Canvas2.disabled = true;
-                Canvas3.disabled = true;
+                Canvas1.hidden = false;
+                Canvas2.hidden = true;
+                Canvas3.hidden = true;
                 console.log("Canvas-Format 500 x 500 Pixel wird generiert");
             }
             else if (format2.checked == true) {
-                Canvas1.disabled = true;
-                Canvas2.disabled = false;
-                Canvas3.disabled = true;
-                console.log("Canvas-Format 300 x 500 Pixel wird generiert");
+                Canvas1.hidden = true;
+                Canvas2.hidden = false;
+                Canvas3.hidden = true;
+                console.log("Canvas-Format 500 x 00 Pixel wird generiert");
             }
             else if (format3.checked == true) {
-                Canvas1.disabled = true;
-                Canvas2.disabled = true;
-                Canvas3.disabled = false;
+                Canvas1.hidden = true;
+                Canvas2.hidden = true;
+                Canvas3.hidden = false;
                 console.log("Canvas-Format 500 x 300 Pixel wird generiert");
             }
             // Asynchrone Funktion, die die Daten des gemalten Canvas an den Server schickt 
@@ -71,7 +79,13 @@ var AS_Zauberbild;
                     alert(responseText);
                 });
             }
-            //Funktion, die das alte Canvas löscht und 
+            //Funktion, die das alte/gezeichnete Canvas löscht 
+            function createNewCanvas(_data, _event) {
+                let deleteOldCanvas = _event.target;
+                let getparentdiv = deleteOldCanvas.parentNode;
+                let getgrandparentdiv = getparentdiv.parentNode;
+                getgrandparentdiv.removeChild(getparentdiv);
+            }
         }
     }
 })(AS_Zauberbild || (AS_Zauberbild = {}));
