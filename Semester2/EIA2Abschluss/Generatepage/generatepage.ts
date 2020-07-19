@@ -9,7 +9,6 @@ namespace AS_Zauberbild {
 
 
 function handleLoad (_event: Event): void {
-    console.log("test");
 
        // let response: Response = await fetch(""); 
       //  let offer: string = await response.text();
@@ -18,8 +17,9 @@ function handleLoad (_event: Event): void {
         //Festlegung Variablen in Verbindung mit HTML-Elementen 
 
         let format: HTMLSpanElement = <HTMLSpanElement>document.querySelector("#Zeichenfläche");
-     //   let farbe: 
+        let farbe: HTMLInputElement = <HTMLInputElement>document.querySelector("#Farbauswahl");
         let symbol: HTMLInputElement =  <HTMLInputElement>document.querySelector("#Symbol");
+        let canvas: HTMLCanvasElement = <HTMLCanvasElement>document.getElementById("canvas");
 
         //Button-Elemente 
         let symbolspeichern: HTMLButtonElement = <HTMLButtonElement>document.querySelector("#SaveSymbol");
@@ -36,7 +36,89 @@ function handleLoad (_event: Event): void {
         // Installation der Listener 
 
         format.addEventListener("click", generateCanvasSize);
-    //  farbe.addEventListener("click", handleChange);
+
+        farbe.addEventListener("click", (_event: Event) => {
+            let farbe1: HTMLInputElement = <HTMLInputElement>document.getElementById("Farbe1"); 
+                let farbe2: HTMLInputElement = <HTMLInputElement>document.getElementById("Farbe2"); 
+                let farbe3: HTMLInputElement = <HTMLInputElement>document.getElementById("Farbe3"); 
+                let farbe4: HTMLInputElement = <HTMLInputElement>document.getElementById("Farbe4"); 
+                let farbe5: HTMLInputElement = <HTMLInputElement>document.getElementById("Farbe5"); 
+                let farbe6: HTMLInputElement = <HTMLInputElement>document.getElementById("Farbe6"); 
+                let farbe7: HTMLInputElement = <HTMLInputElement>document.getElementById("Farbe7"); 
+                let farbe8: HTMLInputElement = <HTMLInputElement>document.getElementById("Farbe8"); 
+                let farbe9: HTMLInputElement = <HTMLInputElement>document.getElementById("Farbe9"); 
+                let farbe10: HTMLInputElement = <HTMLInputElement>document.getElementById("Farbe10"); 
+                let farbe11: HTMLInputElement = <HTMLInputElement>document.getElementById("Farbe11");
+                let farbe12: HTMLInputElement = <HTMLInputElement>document.getElementById("Farbe12"); 
+                let farbe13: HTMLInputElement = <HTMLInputElement>document.getElementById("Farbe13");  
+                let farbe14: HTMLInputElement = <HTMLInputElement>document.getElementById("Farbe14"); 
+                let farbe15: HTMLInputElement = <HTMLInputElement>document.getElementById("Farbe15"); 
+                let farbe16: HTMLInputElement = <HTMLInputElement>document.getElementById("Farbe16"); 
+                let farbe17: HTMLInputElement = <HTMLInputElement>document.getElementById("Farbe17"); 
+                let farbe18: HTMLInputElement = <HTMLInputElement>document.getElementById("Farbe18"); 
+
+
+
+                if (farbe1.checked == true) {
+                    canvas.style.backgroundColor = "#F2F5A9";
+                }
+
+                else if (farbe2.checked == true) {
+                    canvas.style.backgroundColor = "#F5A9A9";
+                }
+
+                else if (farbe3.checked == true) {
+                    canvas.style.backgroundColor = "#D0A9F5";
+                }
+
+                else if (farbe4.checked == true) {
+                    canvas.style.backgroundColor = "#A9BCF5";
+                }
+
+                else if (farbe5.checked == true) {
+                    canvas.style.backgroundColor = "#A9F5D0";
+                }
+
+                else if (farbe6.checked == true) {
+                    canvas.style.backgroundColor ="#FACC2E"
+                }
+
+                else if (farbe7.checked == true) {
+                    canvas.style.backgroundColor ="#FE2E2E"
+                }
+
+                else if (farbe8.checked == true) {
+                    canvas.style.backgroundColor ="#A901DB"
+                }
+
+                else if (farbe9.checked == true) {
+                    canvas.style.backgroundColor ="#0174DF"
+                }
+
+                else if (farbe10.checked == true) {
+                    canvas.style.backgroundColor ="#04B431"
+                }
+
+                else if (farbe16.checked == true) {
+                    canvas.style.backgroundColor ="white"
+                }
+
+                else if (farbe17.checked == true) {
+                    canvas.style.backgroundColor ="black"
+                }
+
+                else if (farbe11.checked == true) {
+                    canvas.style.backgroundColor ="#F2F5A9"
+                    canvas.style.backgroundImage ="#D0A9F5, #A901DB"
+                }
+
+                
+                
+
+
+                
+        });
+
        // symbol.addEventListener("click", chooseSymbol);
 
        // symbolspeichern.addEventListener("click", saveSymbolValue);
@@ -49,7 +131,8 @@ function handleLoad (_event: Event): void {
             getgrandparentdiv.removeChild(getparentdiv); 
             console.log(" Button 'Neu' wurde geklickt, Canvasdaten werden gelöscht"); 
 
-        } ); 
+            } 
+        ); 
        //  speichern.addEventListener("click", saveCanvasData);
 
         // submit.addEventListener("click", sendInOrder);    
@@ -61,38 +144,24 @@ function handleLoad (_event: Event): void {
                 let format1: HTMLInputElement = <HTMLInputElement>document.getElementById("Format1");
                 let format2: HTMLInputElement = <HTMLInputElement>document.getElementById("Format2");
                 let format3: HTMLInputElement = <HTMLInputElement>document.getElementById("Format3");
-
-                let Canvas1: HTMLCanvasElement = <HTMLCanvasElement>document.getElementById("canvas1");
-                let Canvas2: HTMLCanvasElement = <HTMLCanvasElement>document.getElementById("canvas2");
-                let Canvas3: HTMLCanvasElement = <HTMLCanvasElement>document.getElementById("canvas3");
-
-                Canvas1.style.height = "500px"; 
                 
                 if (format1.checked == true) {
-                    Canvas1.hidden = false;
-                    Canvas2.hidden = true;
-                    Canvas3.hidden = true;
-
+                    canvas.style.height = "500px";
                     console.log("Canvas-Format 500 x 500 Pixel wird generiert"); 
-
                 }
                 
                 else if (format2.checked == true) {
-                    Canvas1.hidden = true;
-                    Canvas2.hidden = false; 
-                    Canvas3.hidden = true; 
-
-                    console.log("Canvas-Format 500 x 00 Pixel wird generiert");
-
+                    canvas.style.height = "400px";
+                    console.log("Canvas-Format 500 x 400 Pixel wird generiert");
                 }
 
                 else if (format3.checked == true) {
-                    Canvas1.hidden = true;
-                    Canvas2.hidden = true;
-                    Canvas3.hidden = false; 
-
+                    canvas.style.height = "300px"; 
                     console.log("Canvas-Format 500 x 300 Pixel wird generiert"); 
                 }
+
+            //Funktion, die die Canvasfläche in die ausgewählte Farbe einfärbt
+             // function changeCanvasColor(_event: MouseEvent): void {}
 
 
             // Asynchrone Funktion, die die Daten des gemalten Canvas an den Server schickt 
@@ -110,14 +179,25 @@ function handleLoad (_event: Event): void {
 
             //Funktion, die das alte/gezeichnete Canvas löscht 
             
-            function createNewCanvas (_data: number, _event: any): void {
+            //function createNewCanvas (_data: number, _event: any): void {
 
-                let deleteOldCanvas: Node = <Node>_event.target;
-                let getparentdiv: Node = <Node>deleteOldCanvas.parentNode;
-                let getgrandparentdiv: Node = <Node>getparentdiv.parentNode;
-                getgrandparentdiv.removeChild(getparentdiv); 
+            //    let context: canvas.getContext('2d'); 
+            //    let buttonNew: HTMLButtonElement = <HTMLButtonElement>document.getElementById("neuCanvas")
 
-            } 
+            //    if (buttonNew.click == true) {
+
+            //        context.clearRect(0, 0, canvas.width, canvas.height);
+
+            //    }
+                
+            //    else if (buttonNew.click == false) {
+
+            //        console.log("alles bleibt so wie es ist!");
+            //    }
+
+            // } 
+
+            
 
 
         }

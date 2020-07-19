@@ -12,13 +12,13 @@ h3 {
 }
 
 body {
-    background-color: whitesmoke;
+    background-color: #f5f5f5;
 }
 
 #Zeichenfläche {
 
     text-align: center;
-    width: 300px;
+    width: 350px;
     margin: 2%; 
     border-width: 3px;
     border-style: outset;
@@ -28,7 +28,7 @@ body {
 
 #Farbauswahl { 
 
-    width: 300px;
+    width: 350px;
     margin: 2%; 
     border-width: 3px;
     border-style: outset;
@@ -39,7 +39,7 @@ body {
 #Symbol { 
 
     text-align: left;
-    width: 300px;
+    width: 350px;
     margin: 2%; 
     border-width: 3px;
     border-style: outset;
@@ -47,39 +47,17 @@ body {
     border-radius: 5px; 
 }
 
-#Canvas {
-    left: 380px; 
+ canvas {
+    left: 400px; 
     top: 60px; 
-    width: 550px;
+    width: 500px;
+    height: 300px;  
     position: absolute;
     margin: 2%; 
     border-width: 3px; 
     border-color: black;
     border-style: double;
-   
-  
-}
-
-#canvas1 {
-    width: 500px;
-    height: 500px;
-    visibility: hidden;
     
-    
-}
-
-#canvas2 {
-    width: 500px; 
-    height: 400px;
-    visibility: hidden;
-  
-}
-
-#canvas3 {
-    width: 500px;
-    height: 300px; 
-    visibility: hidden;
- 
 }
 
 #SaveSymbol {
@@ -90,11 +68,12 @@ body {
     left: 500px; 
     margin: 2%;
     position: relative; 
+    top: -100px;
 
 }
 
 #speichern { 
-    left: 550px; 
+    top: -100px; 
     position: relative;
     left: 650px;
 }
@@ -109,7 +88,7 @@ body {
     border-radius: 5px;
     float: right; 
     position: relative; 
-    top: -600px; 
+    top: -850px; 
 }
 
 #Submit { 
@@ -131,4 +110,101 @@ button:hover {
     box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
 }
 
+
+table {
+    border-spacing: 15px; 
+}
+
+.Farbe1 {
+    background-color: #F2F5A9;
+}
+
+.Farbe6 {
+    background-color: #FACC2E;
+}
+
+.Farbe2 {
+    background-color: #F5A9A9;
+}
+
+.Farbe7 {
+    background-color: #FE2E2E;
+}
+
+.Farbe3 {
+    background-color: #D0A9F5;
+}
+
+.Farbe8 {
+    background-color: #A901DB;
+}
+
+.Farbe4 {
+    background-color: #A9BCF5;
+}
+
+.Farbe9 { 
+    background-color: #0174DF;
+}
+
+.Farbe5 {
+    background-color: #A9F5D0;
+}
+
+.Farbe10 { 
+    background-color: #04B431;
+}
+
+.Farbe11 { 
+    background-color: #F2F5A9; 
+    background-image: linear-gradient(#F2F5A9, #FACC2E); 
+}
+
+.Farbe12 { 
+    background-color: #F5A9A9; 
+    background-image: linear-gradient(#F5A9A9, #FE2E2E); 
+}
+
+.Farbe13 { 
+    background-color: #D0A9F5; 
+    background-image: linear-gradient(#D0A9F5, #A901DB); 
+}
+
+.Farbe14 { 
+    background-color: #A9BCF5; 
+    background-image: linear-gradient(#A9BCF5, #0174DF); 
+}
+
+.Farbe15 { 
+    background-color: #A9F5D0; 
+    background-image: linear-gradient(#A9F5D0, #04B431); 
+}
+
+.Farbe16 { 
+    background-color: white;
+}
+
+.Farbe17 {
+    background-color: black;
+}
+
+.Farbe18 {
+    background-color: white; 
+    background-image: linear-gradient(white, black); 
+}
+
+.FF {
+   
+        border: 1px solid black;
+        border-style: outset; 
+        padding: 5px;
+        position: middle; 
+        size: 10px; 
+}
+
+.Flächenfarbe {
+    left: 50px; 
+    top: -10px;
+    position: relative;
+}
 

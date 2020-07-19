@@ -12,14 +12,14 @@ var AS_Zauberbild;
     window.addEventListener("load", handleLoad);
     let url = "zauberbild.html";
     function handleLoad(_event) {
-        console.log("test");
         // let response: Response = await fetch(""); 
         //  let offer: string = await response.text();
         //  let data: Data = JSON.parse(offer);
         //Festlegung Variablen in Verbindung mit HTML-Elementen 
         let format = document.querySelector("#Zeichenfläche");
-        //   let farbe: 
+        let farbe = document.querySelector("#Farbauswahl");
         let symbol = document.querySelector("#Symbol");
+        let canvas = document.getElementById("canvas");
         //Button-Elemente 
         let symbolspeichern = document.querySelector("#SaveSymbol");
         let neuesCanvas = document.getElementById("neuCanvas");
@@ -29,7 +29,66 @@ var AS_Zauberbild;
         console.log("Daten werden an den Server übermittelt");
         // Installation der Listener 
         format.addEventListener("click", generateCanvasSize);
-        //  farbe.addEventListener("click", handleChange);
+        farbe.addEventListener("click", (_event) => {
+            let farbe1 = document.getElementById("Farbe1");
+            let farbe2 = document.getElementById("Farbe2");
+            let farbe3 = document.getElementById("Farbe3");
+            let farbe4 = document.getElementById("Farbe4");
+            let farbe5 = document.getElementById("Farbe5");
+            let farbe6 = document.getElementById("Farbe6");
+            let farbe7 = document.getElementById("Farbe7");
+            let farbe8 = document.getElementById("Farbe8");
+            let farbe9 = document.getElementById("Farbe9");
+            let farbe10 = document.getElementById("Farbe10");
+            let farbe11 = document.getElementById("Farbe11");
+            let farbe12 = document.getElementById("Farbe12");
+            let farbe13 = document.getElementById("Farbe13");
+            let farbe14 = document.getElementById("Farbe14");
+            let farbe15 = document.getElementById("Farbe15");
+            let farbe16 = document.getElementById("Farbe16");
+            let farbe17 = document.getElementById("Farbe17");
+            let farbe18 = document.getElementById("Farbe18");
+            if (farbe1.checked == true) {
+                canvas.style.backgroundColor = "#F2F5A9";
+            }
+            else if (farbe2.checked == true) {
+                canvas.style.backgroundColor = "#F5A9A9";
+            }
+            else if (farbe3.checked == true) {
+                canvas.style.backgroundColor = "#D0A9F5";
+            }
+            else if (farbe4.checked == true) {
+                canvas.style.backgroundColor = "#A9BCF5";
+            }
+            else if (farbe5.checked == true) {
+                canvas.style.backgroundColor = "#A9F5D0";
+            }
+            else if (farbe6.checked == true) {
+                canvas.style.backgroundColor = "#FACC2E";
+            }
+            else if (farbe7.checked == true) {
+                canvas.style.backgroundColor = "#FE2E2E";
+            }
+            else if (farbe8.checked == true) {
+                canvas.style.backgroundColor = "#A901DB";
+            }
+            else if (farbe9.checked == true) {
+                canvas.style.backgroundColor = "#0174DF";
+            }
+            else if (farbe10.checked == true) {
+                canvas.style.backgroundColor = "#04B431";
+            }
+            else if (farbe16.checked == true) {
+                canvas.style.backgroundColor = "white";
+            }
+            else if (farbe17.checked == true) {
+                canvas.style.backgroundColor = "black";
+            }
+            else if (farbe11.checked == true) {
+                canvas.style.backgroundColor = "#F2F5A9";
+                canvas.style.backgroundImage = "#D0A9F5, #A901DB";
+            }
+        });
         // symbol.addEventListener("click", chooseSymbol);
         // symbolspeichern.addEventListener("click", saveSymbolValue);
         neuesCanvas.addEventListener("click", (_event) => {
@@ -46,28 +105,20 @@ var AS_Zauberbild;
             let format1 = document.getElementById("Format1");
             let format2 = document.getElementById("Format2");
             let format3 = document.getElementById("Format3");
-            let Canvas1 = document.getElementById("canvas1");
-            let Canvas2 = document.getElementById("canvas2");
-            let Canvas3 = document.getElementById("canvas3");
-            Canvas1.style.height = "500px";
             if (format1.checked == true) {
-                Canvas1.hidden = false;
-                Canvas2.hidden = true;
-                Canvas3.hidden = true;
+                canvas.style.height = "500px";
                 console.log("Canvas-Format 500 x 500 Pixel wird generiert");
             }
             else if (format2.checked == true) {
-                Canvas1.hidden = true;
-                Canvas2.hidden = false;
-                Canvas3.hidden = true;
-                console.log("Canvas-Format 500 x 00 Pixel wird generiert");
+                canvas.style.height = "400px";
+                console.log("Canvas-Format 500 x 400 Pixel wird generiert");
             }
             else if (format3.checked == true) {
-                Canvas1.hidden = true;
-                Canvas2.hidden = true;
-                Canvas3.hidden = false;
+                canvas.style.height = "300px";
                 console.log("Canvas-Format 500 x 300 Pixel wird generiert");
             }
+            //Funktion, die die Canvasfläche in die ausgewählte Farbe einfärbt
+            // function changeCanvasColor(_event: MouseEvent): void {}
             // Asynchrone Funktion, die die Daten des gemalten Canvas an den Server schickt 
             function sendInOrder(_event) {
                 return __awaiter(this, void 0, void 0, function* () {
@@ -80,12 +131,16 @@ var AS_Zauberbild;
                 });
             }
             //Funktion, die das alte/gezeichnete Canvas löscht 
-            function createNewCanvas(_data, _event) {
-                let deleteOldCanvas = _event.target;
-                let getparentdiv = deleteOldCanvas.parentNode;
-                let getgrandparentdiv = getparentdiv.parentNode;
-                getgrandparentdiv.removeChild(getparentdiv);
-            }
+            //function createNewCanvas (_data: number, _event: any): void {
+            //    let context: canvas.getContext('2d'); 
+            //    let buttonNew: HTMLButtonElement = <HTMLButtonElement>document.getElementById("neuCanvas")
+            //    if (buttonNew.click == true) {
+            //        context.clearRect(0, 0, canvas.width, canvas.height);
+            //    }
+            //    else if (buttonNew.click == false) {
+            //        console.log("alles bleibt so wie es ist!");
+            //    }
+            // } 
         }
     }
 })(AS_Zauberbild || (AS_Zauberbild = {}));
