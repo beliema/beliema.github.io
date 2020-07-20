@@ -61,7 +61,7 @@ body {
 }
 
 #SaveSymbol {
-    width: 300px;
+    width: 350px;
 }
 
 #neuCanvas {
@@ -80,7 +80,7 @@ body {
 
 #alteBilder { 
     text-align: center;
-    width: 300px;
+    width: 350px;
     margin: 2%; 
     border-width: 3px;
     border-style: outset;
@@ -88,11 +88,11 @@ body {
     border-radius: 5px;
     float: right; 
     position: relative; 
-    top: -850px; 
+    top: -780px; 
 }
 
 #Submit { 
-    width: 300px; 
+    width: 350px; 
 }
 
 button {

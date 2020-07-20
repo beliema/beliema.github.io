@@ -19,7 +19,7 @@ function handleLoad (_event: Event): void {
         let format: HTMLSpanElement = <HTMLSpanElement>document.querySelector("#Zeichenfläche");
         let farbe: HTMLInputElement = <HTMLInputElement>document.querySelector("#Farbauswahl");
         let symbol: HTMLInputElement =  <HTMLInputElement>document.querySelector("#Symbol");
-        let canvas: HTMLCanvasElement = <HTMLCanvasElement>document.getElementById("canvas");
+        let canvas: HTMLCanvasElement = <HTMLCanvasElement>document.querySelector(".canvas");
 
         //Button-Elemente 
         let symbolspeichern: HTMLButtonElement = <HTMLButtonElement>document.querySelector("#SaveSymbol");
@@ -38,7 +38,7 @@ function handleLoad (_event: Event): void {
         format.addEventListener("click", generateCanvasSize);
 
         farbe.addEventListener("click", (_event: Event) => {
-            let farbe1: HTMLInputElement = <HTMLInputElement>document.getElementById("Farbe1"); 
+                let farbe1: HTMLInputElement = <HTMLInputElement>document.getElementById("Farbe1"); 
                 let farbe2: HTMLInputElement = <HTMLInputElement>document.getElementById("Farbe2"); 
                 let farbe3: HTMLInputElement = <HTMLInputElement>document.getElementById("Farbe3"); 
                 let farbe4: HTMLInputElement = <HTMLInputElement>document.getElementById("Farbe4"); 
@@ -57,66 +57,119 @@ function handleLoad (_event: Event): void {
                 let farbe17: HTMLInputElement = <HTMLInputElement>document.getElementById("Farbe17"); 
                 let farbe18: HTMLInputElement = <HTMLInputElement>document.getElementById("Farbe18"); 
 
-
-
                 if (farbe1.checked == true) {
-                    canvas.style.backgroundColor = "#F2F5A9";
+                    crc2.fillStyle = "#F2F5A9";
+                    crc2.fillRect(0,0, crc2.canvas.width, crc2.canvas.height);
                 }
 
                 else if (farbe2.checked == true) {
-                    canvas.style.backgroundColor = "#F5A9A9";
+                    crc2.fillStyle = "#F5A9A9";
+                    crc2.fillRect(0,0, crc2.canvas.width, crc2.canvas.height);
                 }
 
                 else if (farbe3.checked == true) {
-                    canvas.style.backgroundColor = "#D0A9F5";
+                    crc2.fillStyle = "#D0A9F5";
+                    crc2.fillRect(0,0, crc2.canvas.width, crc2.canvas.height);
                 }
 
                 else if (farbe4.checked == true) {
-                    canvas.style.backgroundColor = "#A9BCF5";
+                    crc2.fillStyle = "#A9BCF5";
+                    crc2.fillRect(0,0, crc2.canvas.width, crc2.canvas.height);
                 }
 
                 else if (farbe5.checked == true) {
-                    canvas.style.backgroundColor = "#A9F5D0";
+                    crc2.fillStyle = "#A9F5D0";
+                    crc2.fillRect(0,0, crc2.canvas.width, crc2.canvas.height);
                 }
 
                 else if (farbe6.checked == true) {
-                    canvas.style.backgroundColor ="#FACC2E"
+                    crc2.fillStyle = "#FACC2E";
+                    crc2.fillRect(0,0, crc2.canvas.width, crc2.canvas.height);
                 }
 
                 else if (farbe7.checked == true) {
-                    canvas.style.backgroundColor ="#FE2E2E"
+                    crc2.fillStyle = "#FE2E2E";
+                    crc2.fillRect(0,0, crc2.canvas.width, crc2.canvas.height);
                 }
 
                 else if (farbe8.checked == true) {
-                    canvas.style.backgroundColor ="#A901DB"
+                    crc2.fillStyle = "#A901DB";
+                    crc2.fillRect(0,0, crc2.canvas.width, crc2.canvas.height);
                 }
 
                 else if (farbe9.checked == true) {
-                    canvas.style.backgroundColor ="#0174DF"
+                    crc2.fillStyle = "#0174DF";
+                    crc2.fillRect(0,0, crc2.canvas.width, crc2.canvas.height);
                 }
 
                 else if (farbe10.checked == true) {
-                    canvas.style.backgroundColor ="#04B431"
+                    crc2.fillStyle = "#04B431";
+                    crc2.fillRect(0,0, crc2.canvas.width, crc2.canvas.height);
                 }
 
                 else if (farbe16.checked == true) {
-                    canvas.style.backgroundColor ="white"
+                    crc2.fillStyle = "white";
+                    crc2.fillRect(0,0, crc2.canvas.width, crc2.canvas.height);
                 }
 
                 else if (farbe17.checked == true) {
-                    canvas.style.backgroundColor ="black"
-                }
+                    crc2.fillStyle = "black";
+                    crc2.fillRect(0,0, crc2.canvas.width, crc2.canvas.height);
+                }             
 
                 else if (farbe11.checked == true) {
-                    canvas.style.backgroundColor ="#F2F5A9"
-                    canvas.style.backgroundImage ="#D0A9F5, #A901DB"
+                    let gradient: CanvasGradient = crc2.createLinearGradient(0,0, 0, crc2.canvas.height);
+                    gradient.addColorStop(0, "#F2F5A9");
+                    gradient.addColorStop(1, "#FACC2E");
+        
+                    crc2.fillStyle = gradient;
+                    crc2.fillRect(0,0, crc2.canvas.width, crc2.canvas.height);
                 }
 
-                
-                
+                else if (farbe12.checked == true) {
+                    let gradient: CanvasGradient = crc2.createLinearGradient(0,0, 0, crc2.canvas.height);
+                    gradient.addColorStop(0, "#F5A9A9");
+                    gradient.addColorStop(1, "#FE2E2E");
+        
+                    crc2.fillStyle = gradient;
+                    crc2.fillRect(0,0, crc2.canvas.width, crc2.canvas.height);
+                }
 
+                else if (farbe13.checked == true) {
+                    let gradient: CanvasGradient = crc2.createLinearGradient(0,0, 0, crc2.canvas.height);
+                    gradient.addColorStop(0, "#D0A9F5");
+                    gradient.addColorStop(1, "#A901DB");
+        
+                    crc2.fillStyle = gradient;
+                    crc2.fillRect(0,0, crc2.canvas.width, crc2.canvas.height);
+                }
 
-                
+                else if (farbe14.checked == true) {
+                    let gradient: CanvasGradient = crc2.createLinearGradient(0,0, 0, crc2.canvas.height);
+                    gradient.addColorStop(0, "#A9BCF5");
+                    gradient.addColorStop(1, "#0174DF");
+        
+                    crc2.fillStyle = gradient;
+                    crc2.fillRect(0,0, crc2.canvas.width, crc2.canvas.height);
+                }
+
+                else if (farbe15.checked == true) {
+                    let gradient: CanvasGradient = crc2.createLinearGradient(0,0, 0, crc2.canvas.height);
+                    gradient.addColorStop(0, "#A9F5D0");
+                    gradient.addColorStop(1, "#04B431");
+        
+                    crc2.fillStyle = gradient;
+                    crc2.fillRect(0,0, crc2.canvas.width, crc2.canvas.height);
+                }
+                else if (farbe18.checked == true) {
+                    let gradient: CanvasGradient = crc2.createLinearGradient(0,0, 0, crc2.canvas.height);
+                    gradient.addColorStop(0, "white");
+                    gradient.addColorStop(1, "black");
+        
+                    crc2.fillStyle = gradient;
+                    crc2.fillRect(0,0, crc2.canvas.width, crc2.canvas.height);
+                }
+
         });
 
        // symbol.addEventListener("click", chooseSymbol);

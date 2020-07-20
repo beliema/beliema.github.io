@@ -6,7 +6,7 @@ namespace AS_Zauberbild {
         public expendable: boolean = false; 
         public size: number; 
         public color: string;
-    }
+    
 
     
 
@@ -43,6 +43,6 @@ namespace AS_Zauberbild {
 
         }
 
-
+    }
 
 }

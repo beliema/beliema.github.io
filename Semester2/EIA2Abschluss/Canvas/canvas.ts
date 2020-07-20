@@ -3,6 +3,7 @@ namespace AS_Zauberbild {
 
     export let crc2: CanvasRenderingContext2D;
     export let drawing: boolean = true; 
+    export let farbe: HTMLInputElement = <HTMLInputElement>document.querySelector("#Farbauswahl");
 
     let symbols: Symbol [] = [];
 
@@ -22,7 +23,6 @@ namespace AS_Zauberbild {
         
         crc2 = <CanvasRenderingContext2D>canvas.getContext("2d");
 
-       // createBackground();
     createSymbols(); 
 
        // window.setInterval(animate, 20); 
@@ -30,11 +30,20 @@ namespace AS_Zauberbild {
         
     }
 
+   
+
+
+
+
+
+
+
     function createSymbols(): void {
 
         let x: number;
         let y: number;
-        let click: Event; 
+        let mouseClick: MouseEvent; 
+
         
     }
 
