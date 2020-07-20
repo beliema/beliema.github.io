@@ -32,6 +32,7 @@ var AS_Zauberbild;
         }
         if (raute.checked == true) {
             console.log("Herz wird gezeichnet");
+            // function drawRaute(); 
         }
     }
 })(AS_Zauberbild || (AS_Zauberbild = {}));

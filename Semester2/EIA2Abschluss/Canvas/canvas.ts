@@ -42,7 +42,7 @@ namespace AS_Zauberbild {
 
         if (raute.checked == true) {
             console.log("Herz wird gezeichnet"); 
-            function drawRaute(); 
+            // function drawRaute(); 
             
         }
 

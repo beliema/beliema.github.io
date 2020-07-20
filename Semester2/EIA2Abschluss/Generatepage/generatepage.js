@@ -29,6 +29,7 @@ var AS_Zauberbild;
         console.log("Daten werden an den Server übermittelt");
         // Installation der Listener 
         format.addEventListener("click", generateCanvasSize);
+        // Funktion ChangeCanvasColor: Die Farbe des Canvas wird dadurhc bestimmt, welches Input Element in der Div Farbenfläche ausgewählt wurde 
         farbe.addEventListener("click", (_event) => {
             let farbe1 = document.getElementById("Farbe1");
             let farbe2 = document.getElementById("Farbe2");
@@ -144,8 +145,8 @@ var AS_Zauberbild;
         neuesCanvas.addEventListener("click", (_event) => {
             AS_Zauberbild.crc2.clearRect(0, 0, canvas.width, canvas.height);
         });
-        //  speichern.addEventListener("click", saveCanvasData);
-        // submit.addEventListener("click", sendInOrder);    
+        // speichern.addEventListener("click", saveCanvasData);
+        //submit.addEventListener("click", sendInOrder);    
         //Funktion 1: Je nachdem welches Format ausgewählt wurde, generieret sich ein Canvas in vordefinierter Größe. 
         function generateCanvasSize(_event) {
             let format1 = document.getElementById("Format1");
@@ -163,8 +164,6 @@ var AS_Zauberbild;
                 canvas.style.height = "300px";
                 console.log("Canvas-Format 500 x 300 Pixel wird generiert");
             }
-            //Funktion, die die Canvasfläche in die ausgewählte Farbe einfärbt
-            // function changeCanvasColor(_event: MouseEvent): void {}
             // Asynchrone Funktion, die die Daten des gemalten Canvas an den Server schickt 
             function sendInOrder(_event) {
                 return __awaiter(this, void 0, void 0, function* () {
@@ -176,17 +175,6 @@ var AS_Zauberbild;
                     alert(responseText);
                 });
             }
-            //Funktion, die das alte/gezeichnete Canvas löscht 
-            //function createNewCanvas (_data: number, _event: any): void {
-            //    let context: canvas.getContext('2d'); 
-            //    let buttonNew: HTMLButtonElement = <HTMLButtonElement>document.getElementById("neuCanvas")
-            //    if (buttonNew.click == true) {
-            //        context.clearRect(0, 0, canvas.width, canvas.height);
-            //    }
-            //    else if (buttonNew.click == false) {
-            //        console.log("alles bleibt so wie es ist!");
-            //    }
-            // } 
         }
     }
 })(AS_Zauberbild || (AS_Zauberbild = {}));

@@ -36,7 +36,7 @@ function handleLoad (_event: Event): void {
         // Installation der Listener 
 
         format.addEventListener("click", generateCanvasSize);
-
+    // Funktion ChangeCanvasColor: Die Farbe des Canvas wird dadurhc bestimmt, welches Input Element in der Div Farbenfläche ausgewählt wurde 
         farbe.addEventListener("click", (_event: Event) => {
                 let farbe1: HTMLInputElement = <HTMLInputElement>document.getElementById("Farbe1"); 
                 let farbe2: HTMLInputElement = <HTMLInputElement>document.getElementById("Farbe2"); 
@@ -180,11 +180,10 @@ function handleLoad (_event: Event): void {
                 crc2.clearRect(0,0, canvas.width, canvas.height)
             } 
         ); 
-
         
-       //  speichern.addEventListener("click", saveCanvasData);
+       // speichern.addEventListener("click", saveCanvasData);
 
-        // submit.addEventListener("click", sendInOrder);    
+        //submit.addEventListener("click", sendInOrder);    
 
         //Funktion 1: Je nachdem welches Format ausgewählt wurde, generieret sich ein Canvas in vordefinierter Größe. 
 
@@ -209,8 +208,6 @@ function handleLoad (_event: Event): void {
                     console.log("Canvas-Format 500 x 300 Pixel wird generiert"); 
                 }
 
-            //Funktion, die die Canvasfläche in die ausgewählte Farbe einfärbt
-             // function changeCanvasColor(_event: MouseEvent): void {}
 
 
             // Asynchrone Funktion, die die Daten des gemalten Canvas an den Server schickt 
@@ -226,25 +223,7 @@ function handleLoad (_event: Event): void {
 
             }
 
-            //Funktion, die das alte/gezeichnete Canvas löscht 
-            
-            //function createNewCanvas (_data: number, _event: any): void {
 
-            //    let context: canvas.getContext('2d'); 
-            //    let buttonNew: HTMLButtonElement = <HTMLButtonElement>document.getElementById("neuCanvas")
-
-            //    if (buttonNew.click == true) {
-
-            //        context.clearRect(0, 0, canvas.width, canvas.height);
-
-            //    }
-                
-            //    else if (buttonNew.click == false) {
-
-            //        console.log("alles bleibt so wie es ist!");
-            //    }
-
-            // } 
 
             
 
