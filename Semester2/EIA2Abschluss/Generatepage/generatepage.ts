@@ -177,15 +177,11 @@ function handleLoad (_event: Event): void {
        // symbolspeichern.addEventListener("click", saveSymbolValue);
      
         neuesCanvas.addEventListener("click", (_event: Event) => {
-
-            let deleteOldCanvas: Node = <Node>_event.target;
-            let getparentdiv: Node = <Node>deleteOldCanvas.parentNode;
-            let getgrandparentdiv: Node = <Node>getparentdiv.parentNode;
-            getgrandparentdiv.removeChild(getparentdiv); 
-            console.log(" Button 'Neu' wurde geklickt, Canvasdaten werden gelöscht"); 
-
+                crc2.clearRect(0,0, canvas.width, canvas.height)
             } 
         ); 
+
+        
        //  speichern.addEventListener("click", saveCanvasData);
 
         // submit.addEventListener("click", sendInOrder);    

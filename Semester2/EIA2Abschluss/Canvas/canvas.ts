@@ -13,22 +13,44 @@ namespace AS_Zauberbild {
     //let kreis: Kreis [] = [];
     //let raute: Raute [] = [];
     let background: ImageData;
+    let symbole: HTMLInputElement = <HTMLInputElement>document.getElementById("Symbol");
     
-    window.addEventListener("load", handleLoad);
+    window.addEventListener("load", handleLoadCanvas);
+    symbole.addEventListener("click", createSymbols); 
 
-    export function handleLoad(_event: Event): void {
+    export function handleLoadCanvas(_event: Event): void {
         let canvas: HTMLCanvasElement = <HTMLCanvasElement> document.querySelector("canvas");
         if (!canvas)
             return; 
         
-        crc2 = <CanvasRenderingContext2D>canvas.getContext("2d");
+        crc2 = <CanvasRenderingContext2D>canvas.getContext("2d") 
+    }
 
-    createSymbols(); 
+    function createSymbols(_event: Event): void { 
 
-       // window.setInterval(animate, 20); 
+        let herz: HTMLInputElement = <HTMLInputElement>document.getElementById("Herz"); 
+        let raute: HTMLInputElement = <HTMLInputElement>document.getElementById("Raute");
+        let halbkreis: HTMLInputElement = <HTMLInputElement>document.getElementById("Halbkreis");
+        let kreis: HTMLInputElement = <HTMLInputElement>document.getElementById("Kreis");
+        let hexagon: HTMLInputElement = <HTMLInputElement>document.getElementById("Hexagon");
+        
+        if (herz.checked == true) {
+            console.log("Herz wird gezeichnet"); 
+           // function drawHerz(); 
+            
+        }
+
+        if (raute.checked == true) {
+            console.log("Herz wird gezeichnet"); 
+            function drawRaute(); 
+            
+        }
+
 
         
+
     }
+   
 
    
 
@@ -38,14 +60,7 @@ namespace AS_Zauberbild {
 
 
 
-    function createSymbols(): void {
-
-        let x: number;
-        let y: number;
-        let mouseClick: MouseEvent; 
-
-        
-    }
+   
 
 
 }

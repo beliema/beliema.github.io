@@ -142,11 +142,7 @@ var AS_Zauberbild;
         // symbol.addEventListener("click", chooseSymbol);
         // symbolspeichern.addEventListener("click", saveSymbolValue);
         neuesCanvas.addEventListener("click", (_event) => {
-            let deleteOldCanvas = _event.target;
-            let getparentdiv = deleteOldCanvas.parentNode;
-            let getgrandparentdiv = getparentdiv.parentNode;
-            getgrandparentdiv.removeChild(getparentdiv);
-            console.log(" Button 'Neu' wurde geklickt, Canvasdaten werden gelöscht");
+            AS_Zauberbild.crc2.clearRect(0, 0, canvas.width, canvas.height);
         });
         //  speichern.addEventListener("click", saveCanvasData);
         // submit.addEventListener("click", sendInOrder);    
