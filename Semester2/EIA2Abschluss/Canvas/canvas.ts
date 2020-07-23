@@ -7,13 +7,16 @@ namespace AS_Zauberbild {
 
     let symbols: Symbol [] = [];
 
-    //let halbkreis: Halbkreis[] = [];
-    //let herz: Herz [] = [];
-    //let hexagon: Hexagon [] = []; 
-    //let kreis: Kreis [] = [];
-    //let raute: Raute [] = [];
+    export let moveables: Moveable [] = []; 
+
+    
+    let halbkreis: Halbkreis[] = [];
+    let herz: Herz [] = [];
+    let hexagon: Hexagon [] = []; 
+    let kreis: Kreis [] = [];
+    let raute: Raute [] = [];
     let background: ImageData;
-    let symbole: HTMLInputElement = <HTMLInputElement>document.getElementById("Symbol");
+    let symbole: HTMLDivElement = <HTMLDivElement>document.getElementById("Symbol");
     
     window.addEventListener("load", handleLoadCanvas);
     symbole.addEventListener("click", createSymbols); 
@@ -25,6 +28,8 @@ namespace AS_Zauberbild {
         
         crc2 = <CanvasRenderingContext2D>canvas.getContext("2d") 
     }
+
+    
 
     function createSymbols(_event: Event): void { 
 
@@ -50,6 +55,10 @@ namespace AS_Zauberbild {
         
 
     }
+
+    function animation() {
+        return setInterval(createSymbols, 50);
+    }
    
 
    
@@ -57,7 +66,14 @@ namespace AS_Zauberbild {
 
 
 
-
+    // function shootLaser(_event: MouseEvent): void {
+    //    console.log("Symbol wird an dieser Stelle erstellt");
+    //    let hotspot: Vector = new Vector(_event.clientX - crc2.canvas.offsetLeft, _event.clientY - crc2.canvas.offsetTop);
+    //    let asteroidHit: Asteroid | null = getAsteroidHit(hotspot);
+    //    console.log(asteroidHit);
+    //    if (asteroidHit)
+    //        breakAsteroid(asteroidHit);
+    // }
 
 
    

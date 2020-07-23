@@ -18,11 +18,9 @@ function handleLoad (_event: Event): void {
 
         let format: HTMLSpanElement = <HTMLSpanElement>document.querySelector("#Zeichenfläche");
         let farbe: HTMLInputElement = <HTMLInputElement>document.querySelector("#Farbauswahl");
-        let symbol: HTMLInputElement =  <HTMLInputElement>document.querySelector("#Symbol");
         let canvas: HTMLCanvasElement = <HTMLCanvasElement>document.querySelector(".canvas");
 
         //Button-Elemente 
-        let symbolspeichern: HTMLButtonElement = <HTMLButtonElement>document.querySelector("#SaveSymbol");
         let neuesCanvas: HTMLButtonElement = <HTMLButtonElement>document.getElementById("neuCanvas");
         let speichern: HTMLButtonElement = <HTMLButtonElement>document.getElementById("speichern");
 
@@ -171,19 +169,13 @@ function handleLoad (_event: Event): void {
                 }
 
         });
-
-       // symbol.addEventListener("click", chooseSymbol);
-
-       // symbolspeichern.addEventListener("click", saveSymbolValue);
      
         neuesCanvas.addEventListener("click", (_event: Event) => {
                 crc2.clearRect(0,0, canvas.width, canvas.height)
             } 
         ); 
         
-       // speichern.addEventListener("click", saveCanvasData);
-
-        //submit.addEventListener("click", sendInOrder);    
+       // speichern.addEventListener("click", saveCanvasData);    
 
         //Funktion 1: Je nachdem welches Format ausgewählt wurde, generieret sich ein Canvas in vordefinierter Größe. 
 

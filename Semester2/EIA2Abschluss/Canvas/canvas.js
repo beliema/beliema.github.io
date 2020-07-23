@@ -4,11 +4,12 @@ var AS_Zauberbild;
     AS_Zauberbild.drawing = true;
     AS_Zauberbild.farbe = document.querySelector("#Farbauswahl");
     let symbols = [];
-    //let halbkreis: Halbkreis[] = [];
-    //let herz: Herz [] = [];
-    //let hexagon: Hexagon [] = []; 
-    //let kreis: Kreis [] = [];
-    //let raute: Raute [] = [];
+    AS_Zauberbild.moveables = [];
+    let halbkreis = [];
+    let herz = [];
+    let hexagon = [];
+    let kreis = [];
+    let raute = [];
     let background;
     let symbole = document.getElementById("Symbol");
     window.addEventListener("load", handleLoadCanvas);
@@ -35,5 +36,16 @@ var AS_Zauberbild;
             // function drawRaute(); 
         }
     }
+    function animation() {
+        return setInterval(createSymbols, 50);
+    }
+    // function shootLaser(_event: MouseEvent): void {
+    //    console.log("Symbol wird an dieser Stelle erstellt");
+    //    let hotspot: Vector = new Vector(_event.clientX - crc2.canvas.offsetLeft, _event.clientY - crc2.canvas.offsetTop);
+    //    let asteroidHit: Asteroid | null = getAsteroidHit(hotspot);
+    //    console.log(asteroidHit);
+    //    if (asteroidHit)
+    //        breakAsteroid(asteroidHit);
+    // }
 })(AS_Zauberbild || (AS_Zauberbild = {}));
 //# sourceMappingURL=canvas.js.map

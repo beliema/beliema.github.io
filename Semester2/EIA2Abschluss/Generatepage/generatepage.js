@@ -18,10 +18,8 @@ var AS_Zauberbild;
         //Festlegung Variablen in Verbindung mit HTML-Elementen 
         let format = document.querySelector("#Zeichenfläche");
         let farbe = document.querySelector("#Farbauswahl");
-        let symbol = document.querySelector("#Symbol");
         let canvas = document.querySelector(".canvas");
         //Button-Elemente 
-        let symbolspeichern = document.querySelector("#SaveSymbol");
         let neuesCanvas = document.getElementById("neuCanvas");
         let speichern = document.getElementById("speichern");
         //Submit-Button 
@@ -140,13 +138,10 @@ var AS_Zauberbild;
                 AS_Zauberbild.crc2.fillRect(0, 0, AS_Zauberbild.crc2.canvas.width, AS_Zauberbild.crc2.canvas.height);
             }
         });
-        // symbol.addEventListener("click", chooseSymbol);
-        // symbolspeichern.addEventListener("click", saveSymbolValue);
         neuesCanvas.addEventListener("click", (_event) => {
             AS_Zauberbild.crc2.clearRect(0, 0, canvas.width, canvas.height);
         });
-        // speichern.addEventListener("click", saveCanvasData);
-        //submit.addEventListener("click", sendInOrder);    
+        // speichern.addEventListener("click", saveCanvasData);    
         //Funktion 1: Je nachdem welches Format ausgewählt wurde, generieret sich ein Canvas in vordefinierter Größe. 
         function generateCanvasSize(_event) {
             let format1 = document.getElementById("Format1");

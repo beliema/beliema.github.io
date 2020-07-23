@@ -8,7 +8,6 @@ var AS_Zauberbild;
                 this.position = _position.copy();
             else
                 this.velocity = new AS_Zauberbild.Vector(0, 0);
-            this.radius = 5;
             this.velocity = new AS_Zauberbild.Vector(0, 0);
         }
         move(_timeslice) {
