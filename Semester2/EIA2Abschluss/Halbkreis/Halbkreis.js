@@ -18,6 +18,8 @@ var AS_Zauberbild;
             AS_Zauberbild.crc2.strokeStyle = "#F6C135";
             AS_Zauberbild.crc2.stroke();
         }
+        rotate() {
+        }
     }
     AS_Zauberbild.Halbkreis = Halbkreis;
 })(AS_Zauberbild || (AS_Zauberbild = {}));

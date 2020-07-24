@@ -36,6 +36,9 @@ var AS_Zauberbild;
             }
             function draw(radianAngle) {
                 AS_Zauberbild.crc2.clearRect(0, 0, canvas.width, canvas.height);
+                AS_Zauberbild.crc2.beginPath();
+                AS_Zauberbild.crc2.fillStyle = "white";
+                AS_Zauberbild.crc2.rect(p1.x, p1.y, 80, 80);
             }
         }
     }

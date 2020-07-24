@@ -51,6 +51,10 @@ namespace AS_Zauberbild {
 
             function draw(radianAngle){
                 crc2.clearRect(0,0, canvas.width, canvas.height); 
+                crc2.beginPath();
+                crc2.fillStyle = "white";
+                crc2.rect(p1.x, p1.y, 80, 80);
+
 
             }
 

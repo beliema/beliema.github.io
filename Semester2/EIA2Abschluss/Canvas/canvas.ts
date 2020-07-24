@@ -16,10 +16,10 @@ namespace AS_Zauberbild {
     let kreis: Kreis [] = [];
     let raute: Raute [] = [];
     let background: ImageData;
-    let symbole: HTMLDivElement = <HTMLDivElement>document.getElementById("Symbol");
+    
     
     window.addEventListener("load", handleLoadCanvas);
-    symbole.addEventListener("click", createSymbols); 
+   
 
     export function handleLoadCanvas(_event: Event): void {
         let canvas: HTMLCanvasElement = <HTMLCanvasElement> document.querySelector("canvas");
@@ -27,39 +27,176 @@ namespace AS_Zauberbild {
             return; 
         
         crc2 = <CanvasRenderingContext2D>canvas.getContext("2d") 
+        let symbole: HTMLDivElement = <HTMLDivElement>document.getElementById("Symbol");
+        
+
+
+        symbole.addEventListener("click", saveSymbol); 
+        createSymbols(new Vector(0,0), 1);
+        setInterval(frame, 100); 
+
     }
 
-    
+    function saveSymbol(_event: Event): void {
 
-    function createSymbols(_event: Event): void { 
-
-        let herz: HTMLInputElement = <HTMLInputElement>document.getElementById("Herz"); 
-        let raute: HTMLInputElement = <HTMLInputElement>document.getElementById("Raute");
-        let halbkreis: HTMLInputElement = <HTMLInputElement>document.getElementById("Halbkreis");
-        let kreis: HTMLInputElement = <HTMLInputElement>document.getElementById("Kreis");
-        let hexagon: HTMLInputElement = <HTMLInputElement>document.getElementById("Hexagon");
-        
-        if (herz.checked == true) {
+        let herzIn: HTMLInputElement = <HTMLInputElement>document.getElementById("Herz"); 
+        let rauteIn: HTMLInputElement = <HTMLInputElement>document.getElementById("Raute");
+        let halbkreisIn: HTMLInputElement = <HTMLInputElement>document.getElementById("Halbkreis");
+        let kreisIn: HTMLInputElement = <HTMLInputElement>document.getElementById("Kreis");
+        let hexagonIn: HTMLInputElement = <HTMLInputElement>document.getElementById("Hexagon");
+     
+        if (herzIn.checked == true) {
             console.log("Herz wird gezeichnet"); 
-           // function drawHerz(); 
+
+                function drawHerz(_event: MouseEvent): void {
+                    let canvas: HTMLCanvasElement = <HTMLCanvasElement>document.querySelector(".canvas");
+                    let x: number = Math.random() * canvas.width;
+                    let y: number = Math.random() * canvas.height;
+                    let position: Vector = new Vector(x, y);
+                    let herz: Herz = new Herz(position);
+                    herz.draw();
+                    symbols.push(herz);
+                }; 
             
         }
 
-        if (raute.checked == true) {
-            console.log("Herz wird gezeichnet"); 
-            // function drawRaute(); 
+        if (rauteIn.checked == true) {
+            console.log("Raute wird gezeichnet"); 
+                function drawRaute(_event: MouseEvent): void {
+                    let canvas: HTMLCanvasElement = <HTMLCanvasElement>document.querySelector(".canvas");
+                    let x: number = Math.random() * canvas.width;
+                    let y: number = Math.random() * canvas.height;
+                    let position: Vector = new Vector(x, y);
+                    let raute: Raute = new Raute(position);
+                    raute.draw();
+                    symbols.push(raute);
+                };
             
         }
 
+        if (halbkreisIn.checked == true) {
+            console.log("Halbkreis wird gezeichnet"); 
+            
+            function drawHalbkreis(_event: MouseEvent): void {
+                let canvas: HTMLCanvasElement = <HTMLCanvasElement>document.querySelector(".canvas");
+                let x: number = Math.random() * canvas.width;
+                let y: number = Math.random() * canvas.height;
+                let position: Vector = new Vector(x, y);
+                let halbkreis: Halbkreis = new Halbkreis(position);
+                halbkreis.draw();
+                symbols.push(halbkreis);
+            };
+            
+        }
 
-        
+        if (kreisIn.checked == true) {
+            console.log("Kreis wird gezeichnet"); 
+            function drawKreis(_event: MouseEvent): void {
+                let canvas: HTMLCanvasElement = <HTMLCanvasElement>document.querySelector(".canvas");
+                let x: number = Math.random() * canvas.width;
+                let y: number = Math.random() * canvas.height;
+                let position: Vector = new Vector(x, y);
+                let kreis: Kreis = new Kreis(position);
+                kreis.draw();
+                symbols.push(kreis);
+            };
+            
+        }
 
+        if (hexagonIn.checked == true) {
+            console.log("Hexagon wird gezeichnet"); 
+            function drawHexagon(_event:MouseEvent) {
+                let canvas: HTMLCanvasElement = <HTMLCanvasElement>document.querySelector(".canvas");
+                let x: number = Math.random() * canvas.width;
+                let y: number = Math.random() * canvas.height;
+                let position: Vector = new Vector(x, y);
+                let hexagon: Hexagon = new Hexagon(position);
+                hexagon.draw();
+                symbols.push(hexagon);
+            }; 
+            
+        }
+
+    }
+
+
+
+    function createSymbols(_position: Vector, _symbol: number): void { 
+       
+        //Kreis 
+        for (let i: number = 0; i < _symbol; i++) {
+            let x: number = 50;
+            let y: number = 70;
+            let position: Vector = new Vector(x, y);
+            let kreis: Kreis = new Kreis(position);
+            kreis.draw();
+            //symbols.push(circle);
+            console.log(symbols);
+
+        //Halbkreis 
+        for (let i: number = 0; i < _symbol; i++) {
+            let x: number = 340;
+            let y: number = 20;
+            let position: Vector = new Vector(x, y);
+            let halbkreis: Halbkreis = new Halbkreis(position);
+            halbkreis.draw();
+            
+            console.log(symbols);
+
+        }
+
+        //Raute
+        for (let i: number = 0; i < _symbol; i++) {
+            let x: number = 40;
+            let y: number = 240;
+            let position: Vector = new Vector(x, y);
+            let raute: Raute = new Raute(position);
+            raute.draw();
+            
+            console.log(symbols);
+
+        }
+
+        //Herz 
+        for (let i: number = 0; i < _symbol; i++) {
+            let x: number = 360;
+            let y: number = 210;
+            let position: Vector = new Vector(x, y);
+            let herz: Herz = new Herz(position);
+            herz.draw();
+            
+            console.log(symbols);
+
+        }
+
+        //Hexagon 
+        for (let i: number = 0; i < _symbol; i++) {
+            let x: number = 350;
+            let y: number = 250;
+            let position: Vector = new Vector(x, y);
+            let herz: Herz = new Herz(position);
+            herz.draw();
+            
+            console.log(symbols);
+
+        }
     }
 
     function animation() {
-        return setInterval(createSymbols, 50);
+        return setInterval(createSymbols, 100);
     }
    
+    
+
+
+    
+
+
+
+    
+
+
+
 
    
 
@@ -78,5 +215,5 @@ namespace AS_Zauberbild {
 
    
 
-
+    }
 }

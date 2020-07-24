@@ -23,6 +23,10 @@ namespace AS_Zauberbild {
             crc2.rotate(Math.PI / 2);
             crc2.strokeStyle = "#F6C135";
             crc2.stroke();
-            }
+        }
+
+        public rotate(): void {
+            
+        }
     }
 }
