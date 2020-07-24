@@ -3,13 +3,13 @@ var AS_Zauberbild;
     console.log("Canvas wird geladen");
     AS_Zauberbild.drawing = true;
     AS_Zauberbild.farbe = document.querySelector("#Farbauswahl");
-    let symbols = [];
-    AS_Zauberbild.moveables = [];
-    let halbkreis = [];
-    let herz = [];
+    let shapes = [];
+    //   let moveables: Moveable [] = []; 
+    let semicircle = [];
+    let heart = [];
     let hexagon = [];
-    let kreis = [];
-    let raute = [];
+    let circle = [];
+    let rhombus = [];
     let background;
     window.addEventListener("load", handleLoadCanvas);
     function handleLoadCanvas(_event) {
@@ -19,69 +19,70 @@ var AS_Zauberbild;
         AS_Zauberbild.crc2 = canvas.getContext("2d");
         let symbole = document.getElementById("Symbol");
         symbole.addEventListener("click", saveSymbol);
+        //   canvas.addEventListener("mouseup", createSymbols);
         createSymbols(new AS_Zauberbild.Vector(0, 0), 1);
-        setInterval(frame, 100);
+        //    setInterval(frame, 100); 
     }
     AS_Zauberbild.handleLoadCanvas = handleLoadCanvas;
     function saveSymbol(_event) {
-        let herzIn = document.getElementById("Herz");
-        let rauteIn = document.getElementById("Raute");
-        let halbkreisIn = document.getElementById("Halbkreis");
-        let kreisIn = document.getElementById("Kreis");
+        let heartIn = document.getElementById("Herz");
+        let rhombusIn = document.getElementById("Raute");
+        let semicircleIn = document.getElementById("Halbkreis");
+        let circleIn = document.getElementById("Kreis");
         let hexagonIn = document.getElementById("Hexagon");
-        if (herzIn.checked == true) {
+        if (heartIn.checked == true) {
             console.log("Herz wird gezeichnet");
-            function drawHerz(_event) {
+            function drawHeart(_event) {
                 let canvas = document.querySelector(".canvas");
                 let x = Math.random() * canvas.width;
                 let y = Math.random() * canvas.height;
                 let position = new AS_Zauberbild.Vector(x, y);
-                let herz = new AS_Zauberbild.Herz(position);
-                herz.draw();
-                symbols.push(herz);
+                let heart = new AS_Zauberbild.Heart(position);
+                heart.draw();
+                shapes.push(heart);
             }
             ;
         }
-        if (rauteIn.checked == true) {
+        else if (rhombusIn.checked == true) {
             console.log("Raute wird gezeichnet");
-            function drawRaute(_event) {
+            function drawRhombus(_event) {
                 let canvas = document.querySelector(".canvas");
                 let x = Math.random() * canvas.width;
                 let y = Math.random() * canvas.height;
                 let position = new AS_Zauberbild.Vector(x, y);
-                let raute = new AS_Zauberbild.Raute(position);
-                raute.draw();
-                symbols.push(raute);
+                let rhombus = new AS_Zauberbild.Rhombus(position);
+                rhombus.draw();
+                shapes.push(rhombus);
             }
             ;
         }
-        if (halbkreisIn.checked == true) {
+        else if (semicircleIn.checked == true) {
             console.log("Halbkreis wird gezeichnet");
             function drawHalbkreis(_event) {
                 let canvas = document.querySelector(".canvas");
                 let x = Math.random() * canvas.width;
                 let y = Math.random() * canvas.height;
                 let position = new AS_Zauberbild.Vector(x, y);
-                let halbkreis = new AS_Zauberbild.Halbkreis(position);
-                halbkreis.draw();
-                symbols.push(halbkreis);
+                let semicircle = new AS_Zauberbild.Semicircle(position);
+                semicircle.draw();
+                shapes.push(semicircle);
             }
             ;
         }
-        if (kreisIn.checked == true) {
+        else if (circleIn.checked == true) {
             console.log("Kreis wird gezeichnet");
             function drawKreis(_event) {
                 let canvas = document.querySelector(".canvas");
                 let x = Math.random() * canvas.width;
                 let y = Math.random() * canvas.height;
                 let position = new AS_Zauberbild.Vector(x, y);
-                let kreis = new AS_Zauberbild.Kreis(position);
-                kreis.draw();
-                symbols.push(kreis);
+                let circle = new AS_Zauberbild.Circle(position);
+                circle.draw();
+                shapes.push(circle);
             }
             ;
         }
-        if (hexagonIn.checked == true) {
+        else if (hexagonIn.checked == true) {
             console.log("Hexagon wird gezeichnet");
             function drawHexagon(_event) {
                 let canvas = document.querySelector(".canvas");
@@ -90,7 +91,7 @@ var AS_Zauberbild;
                 let position = new AS_Zauberbild.Vector(x, y);
                 let hexagon = new AS_Zauberbild.Hexagon(position);
                 hexagon.draw();
-                symbols.push(hexagon);
+                shapes.push(hexagon);
             }
             ;
         }
@@ -101,58 +102,66 @@ var AS_Zauberbild;
             let x = 50;
             let y = 70;
             let position = new AS_Zauberbild.Vector(x, y);
-            let kreis = new AS_Zauberbild.Kreis(position);
-            kreis.draw();
+            let circle = new AS_Zauberbild.Circle(position);
+            circle.draw();
             //symbols.push(circle);
-            console.log(symbols);
+            console.log(shapes);
             //Halbkreis 
             for (let i = 0; i < _symbol; i++) {
                 let x = 340;
                 let y = 20;
                 let position = new AS_Zauberbild.Vector(x, y);
-                let halbkreis = new AS_Zauberbild.Halbkreis(position);
-                halbkreis.draw();
-                console.log(symbols);
+                let semicircle = new AS_Zauberbild.Semicircle(position);
+                semicircle.draw();
+                console.log(shapes);
             }
             //Raute
             for (let i = 0; i < _symbol; i++) {
                 let x = 40;
                 let y = 240;
                 let position = new AS_Zauberbild.Vector(x, y);
-                let raute = new AS_Zauberbild.Raute(position);
-                raute.draw();
-                console.log(symbols);
+                let rhombus = new AS_Zauberbild.Rhombus(position);
+                rhombus.draw();
+                console.log(shapes);
             }
             //Herz 
             for (let i = 0; i < _symbol; i++) {
                 let x = 360;
                 let y = 210;
                 let position = new AS_Zauberbild.Vector(x, y);
-                let herz = new AS_Zauberbild.Herz(position);
-                herz.draw();
-                console.log(symbols);
+                let heart = new AS_Zauberbild.Heart(position);
+                heart.draw();
+                console.log(shapes);
             }
             //Hexagon 
             for (let i = 0; i < _symbol; i++) {
                 let x = 350;
                 let y = 250;
                 let position = new AS_Zauberbild.Vector(x, y);
-                let herz = new AS_Zauberbild.Herz(position);
-                herz.draw();
-                console.log(symbols);
+                let hexagon = new AS_Zauberbild.Hexagon(position);
+                hexagon.draw();
+                console.log(shapes);
             }
         }
         function animation() {
             return setInterval(createSymbols, 100);
         }
-        // function shootLaser(_event: MouseEvent): void {
-        //    console.log("Symbol wird an dieser Stelle erstellt");
-        //    let hotspot: Vector = new Vector(_event.clientX - crc2.canvas.offsetLeft, _event.clientY - crc2.canvas.offsetTop);
-        //    let asteroidHit: Asteroid | null = getAsteroidHit(hotspot);
-        //    console.log(asteroidHit);
-        //    if (asteroidHit)
-        //        breakAsteroid(asteroidHit);
-        // }
+        function frame() {
+            AS_Zauberbild.crc2.putImageData(background, 0, 0);
+            //drawTriangle();
+            for (let i = 0; i < shapes.length; i++) {
+                shapes[i].move(1 / 50);
+                shapes[i].draw();
+            }
+            // function shootLaser(_event: MouseEvent): void {
+            //    console.log("Symbol wird an dieser Stelle erstellt");
+            //    let hotspot: Vector = new Vector(_event.clientX - crc2.canvas.offsetLeft, _event.clientY - crc2.canvas.offsetTop);
+            //    let asteroidHit: Asteroid | null = getAsteroidHit(hotspot);
+            //    console.log(asteroidHit);
+            //    if (asteroidHit)
+            //        breakAsteroid(asteroidHit);
+            // }
+        }
     }
 })(AS_Zauberbild || (AS_Zauberbild = {}));
 //# sourceMappingURL=canvas.js.map

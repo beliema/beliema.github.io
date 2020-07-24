@@ -1,6 +1,6 @@
 namespace AS_Zauberbild {
 
-    export class Hexagon extends Moveable {
+    export class Hexagon extends Shape {
 
         constructor(_position?: Vector) {
 
@@ -28,13 +28,6 @@ namespace AS_Zauberbild {
        
         public draw(): void {
 
-            let gradient: CanvasGradient = crc2.createLinearGradient(10,40, 100, 40 );
-
-            gradient.addColorStop(0, "#FB8D53" );
-            gradient.addColorStop(0.45, "#CA5D6");
-            gradient.addColorStop(1,"#93278F" );
-
-
             crc2.save(); 
             crc2.beginPath();
             crc2.translate(this.position.x, this.position.y);
@@ -47,9 +40,16 @@ namespace AS_Zauberbild {
             crc2.lineTo(10,40);
             crc2.stroke();
 
+            let gradient: CanvasGradient = crc2.createLinearGradient(0,0, 100, 40 );
+
+            gradient.addColorStop(0, "#FB8D53" );
+            gradient.addColorStop(0.45, "#CA5D6F");
+            gradient.addColorStop(1,"#93278F" );
+
             crc2.fillStyle = "gradient";
             crc2.fill();
             crc2.restore();
+            
 
         }
     }

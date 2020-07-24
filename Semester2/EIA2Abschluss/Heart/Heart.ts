@@ -1,27 +1,15 @@
 namespace AS_Zauberbild {
 
-    export class Herz {
-
-        position: Vector; 
-        type: number; 
-        size: number;
-        velocity: Vector; 
+    export class Heart extends Shape {
         
     
+        constructor(_position?: Vector) {
 
-    constructor(_position: Vector) {
+            super(_position);
 
-            if (_position)
-            this.position = _position;
-            else
-                this.position = new Vector(0, 0);
-                
-            this.velocity = new Vector(0, 0);
-            this.velocity.getRandom(100, 200);
+            this.velocity = new Vector ( 0,0); 
 
-            this.type = Math.floor(Math.random() * 4);
-            
-    }
+        }
 
         draw(): void {       
                 crc2.beginPath();

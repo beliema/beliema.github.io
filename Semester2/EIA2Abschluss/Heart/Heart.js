@@ -1,14 +1,9 @@
 var AS_Zauberbild;
 (function (AS_Zauberbild) {
-    class Herz {
+    class Heart extends AS_Zauberbild.Shape {
         constructor(_position) {
-            if (_position)
-                this.position = _position;
-            else
-                this.position = new AS_Zauberbild.Vector(0, 0);
+            super(_position);
             this.velocity = new AS_Zauberbild.Vector(0, 0);
-            this.velocity.getRandom(100, 200);
-            this.type = Math.floor(Math.random() * 4);
         }
         draw() {
             AS_Zauberbild.crc2.beginPath();
@@ -22,6 +17,6 @@ var AS_Zauberbild;
             AS_Zauberbild.crc2.fill();
         }
     }
-    AS_Zauberbild.Herz = Herz;
+    AS_Zauberbild.Heart = Heart;
 })(AS_Zauberbild || (AS_Zauberbild = {}));
-//# sourceMappingURL=Herz.js.map
+//# sourceMappingURL=Heart.js.map

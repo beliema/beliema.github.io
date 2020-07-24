@@ -1,6 +1,6 @@
 namespace AS_Zauberbild {
 
-    export class Halbkreis extends Rotation {
+    export class Semicircle extends Shape {
 
         constructor(_position?: Vector) {
 

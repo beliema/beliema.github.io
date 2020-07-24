@@ -1,6 +1,6 @@
 var AS_Zauberbild;
 (function (AS_Zauberbild) {
-    class Halbkreis extends AS_Zauberbild.Rotation {
+    class Semicircle extends AS_Zauberbild.Shape {
         constructor(_position) {
             super(_position);
             this.velocity = new AS_Zauberbild.Vector(0, 0);
@@ -21,6 +21,6 @@ var AS_Zauberbild;
         rotate() {
         }
     }
-    AS_Zauberbild.Halbkreis = Halbkreis;
+    AS_Zauberbild.Semicircle = Semicircle;
 })(AS_Zauberbild || (AS_Zauberbild = {}));
-//# sourceMappingURL=Halbkreis.js.map
+//# sourceMappingURL=Semicircle.js.map

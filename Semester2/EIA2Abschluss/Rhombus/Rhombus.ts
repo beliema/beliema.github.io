@@ -1,6 +1,6 @@
 namespace AS_Zauberbild {
 
-    export class Raute extends Rotation {
+    export class Rhombus extends Shape {
 
 
 
@@ -33,7 +33,7 @@ namespace AS_Zauberbild {
 
         public rotate(): void {
 
-            let time: number; 
+           
             let canvas = document.getElementsByClassName(".canvas"); 
             let p1={ x: 0, y: 40};  //Ecke links    
             let p2={x: 80, y: 40};  //Ecke rechts
@@ -45,7 +45,7 @@ namespace AS_Zauberbild {
             draw(angle); 
             requestAnimationFrame(animate); 
 
-            function animate(time){
+            function animate(/*time*/){
                 requestAnimationFrame(animate);
                 draw(angle);
                 angle += Math.PI/60;
@@ -53,10 +53,12 @@ namespace AS_Zauberbild {
             }
 
             function draw(radianAngle){
+
+
                 crc2.clearRect(0,0, canvas.width, canvas.height); 
                 crc2.beginPath();
                 crc2.fillStyle = "white";
-                crc2.rect(p1.x, p1.y, 80, 80);
+                crc2.rect(p1.x, p1.y, 80, 80); 
 
 
             }

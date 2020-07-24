@@ -1,18 +1,21 @@
 var AS_Zauberbild;
 (function (AS_Zauberbild) {
-    class Kreis extends AS_Zauberbild.Moveable {
+    class Circle extends AS_Zauberbild.Shape {
         constructor(_position) {
             super(_position);
             this.velocity = new AS_Zauberbild.Vector(0, 0);
         }
         move(_timeslice) {
-            super.move(_timeslice);
+            let offset = this.velocity.copy();
+            offset.x *= _timeslice * 0.5;
+            offset.y *= _timeslice;
+            this.position.add(offset);
             if (this.position.x < 0)
-                this.position.x += AS_Zauberbild.crc2.canvas.width;
+                this.position.x += (AS_Zauberbild.crc2.canvas.width);
             if (this.position.y < 0)
                 this.position.y += AS_Zauberbild.crc2.canvas.height;
-            if (this.position.x > AS_Zauberbild.crc2.canvas.width)
-                this.position.x -= AS_Zauberbild.crc2.canvas.width;
+            if (this.position.x > (AS_Zauberbild.crc2.canvas.width))
+                this.position.x -= (AS_Zauberbild.crc2.canvas.width);
             if (this.position.y > AS_Zauberbild.crc2.canvas.height)
                 this.position.y -= AS_Zauberbild.crc2.canvas.height;
         }
@@ -28,6 +31,6 @@ var AS_Zauberbild;
             AS_Zauberbild.crc2.restore();
         }
     }
-    AS_Zauberbild.Kreis = Kreis;
+    AS_Zauberbild.Circle = Circle;
 })(AS_Zauberbild || (AS_Zauberbild = {}));
-//# sourceMappingURL=Kreis.js.map
+//# sourceMappingURL=Circle.js.map

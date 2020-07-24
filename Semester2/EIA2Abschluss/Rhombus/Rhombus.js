@@ -1,6 +1,6 @@
 var AS_Zauberbild;
 (function (AS_Zauberbild) {
-    class Raute extends AS_Zauberbild.Rotation {
+    class Rhombus extends AS_Zauberbild.Shape {
         constructor(_position) {
             super(_position);
             this.velocity = new AS_Zauberbild.Vector(0, 0);
@@ -20,7 +20,6 @@ var AS_Zauberbild;
             AS_Zauberbild.crc2.restore();
         }
         rotate() {
-            let time;
             let canvas = document.getElementsByClassName(".canvas");
             let p1 = { x: 0, y: 40 }; //Ecke links    
             let p2 = { x: 80, y: 40 }; //Ecke rechts
@@ -30,7 +29,7 @@ var AS_Zauberbild;
             let angle = Math.atan2(dy, dx);
             draw(angle);
             requestAnimationFrame(animate);
-            function animate(time) {
+            function animate( /*time*/) {
                 requestAnimationFrame(animate);
                 draw(angle);
                 angle += Math.PI / 60;
@@ -43,6 +42,6 @@ var AS_Zauberbild;
             }
         }
     }
-    AS_Zauberbild.Raute = Raute;
+    AS_Zauberbild.Rhombus = Rhombus;
 })(AS_Zauberbild || (AS_Zauberbild = {}));
-//# sourceMappingURL=Raute.js.map
+//# sourceMappingURL=Rhombus.js.map

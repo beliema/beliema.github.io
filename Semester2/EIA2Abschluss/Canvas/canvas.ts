@@ -5,17 +5,15 @@ namespace AS_Zauberbild {
     export let drawing: boolean = true; 
     export let farbe: HTMLInputElement = <HTMLInputElement>document.querySelector("#Farbauswahl");
 
-    let symbols: Symbol [] = [];
-
-    export let moveables: Moveable [] = []; 
-
-    
-    let halbkreis: Halbkreis[] = [];
-    let herz: Herz [] = [];
+    let shapes: Shape [] = [];
+ //   let moveables: Moveable [] = []; 
+    let semicircle: Semicircle[] = [];
+    let heart: Heart [] = [];
     let hexagon: Hexagon [] = []; 
-    let kreis: Kreis [] = [];
-    let raute: Raute [] = [];
+    let circle: Circle [] = [];
+    let rhombus: Rhombus [] = [];
     let background: ImageData;
+
     
     
     window.addEventListener("load", handleLoadCanvas);
@@ -32,49 +30,50 @@ namespace AS_Zauberbild {
 
 
         symbole.addEventListener("click", saveSymbol); 
+    //   canvas.addEventListener("mouseup", createSymbols);
         createSymbols(new Vector(0,0), 1);
-        setInterval(frame, 100); 
+    //    setInterval(frame, 100); 
 
-    }
+    } 
 
     function saveSymbol(_event: Event): void {
-
-        let herzIn: HTMLInputElement = <HTMLInputElement>document.getElementById("Herz"); 
-        let rauteIn: HTMLInputElement = <HTMLInputElement>document.getElementById("Raute");
-        let halbkreisIn: HTMLInputElement = <HTMLInputElement>document.getElementById("Halbkreis");
-        let kreisIn: HTMLInputElement = <HTMLInputElement>document.getElementById("Kreis");
+  
+        let heartIn: HTMLInputElement = <HTMLInputElement>document.getElementById("Herz"); 
+        let rhombusIn: HTMLInputElement = <HTMLInputElement>document.getElementById("Raute");
+        let semicircleIn: HTMLInputElement = <HTMLInputElement>document.getElementById("Halbkreis");
+        let circleIn: HTMLInputElement = <HTMLInputElement>document.getElementById("Kreis");
         let hexagonIn: HTMLInputElement = <HTMLInputElement>document.getElementById("Hexagon");
-     
-        if (herzIn.checked == true) {
+
+        if (heartIn.checked == true) {
             console.log("Herz wird gezeichnet"); 
 
-                function drawHerz(_event: MouseEvent): void {
+                function drawHeart(_event: MouseEvent): void {
                     let canvas: HTMLCanvasElement = <HTMLCanvasElement>document.querySelector(".canvas");
                     let x: number = Math.random() * canvas.width;
                     let y: number = Math.random() * canvas.height;
                     let position: Vector = new Vector(x, y);
-                    let herz: Herz = new Herz(position);
-                    herz.draw();
-                    symbols.push(herz);
+                    let heart: Heart = new Heart(position);
+                    heart.draw();
+                    shapes.push(heart);
                 }; 
             
         }
 
-        if (rauteIn.checked == true) {
+        else if (rhombusIn.checked == true) {
             console.log("Raute wird gezeichnet"); 
-                function drawRaute(_event: MouseEvent): void {
+                function drawRhombus(_event: MouseEvent): void {
                     let canvas: HTMLCanvasElement = <HTMLCanvasElement>document.querySelector(".canvas");
                     let x: number = Math.random() * canvas.width;
                     let y: number = Math.random() * canvas.height;
                     let position: Vector = new Vector(x, y);
-                    let raute: Raute = new Raute(position);
-                    raute.draw();
-                    symbols.push(raute);
+                    let rhombus: Rhombus = new Rhombus(position);
+                    rhombus.draw();
+                    shapes.push(rhombus);
                 };
             
         }
 
-        if (halbkreisIn.checked == true) {
+        else if (semicircleIn.checked == true) {
             console.log("Halbkreis wird gezeichnet"); 
             
             function drawHalbkreis(_event: MouseEvent): void {
@@ -82,28 +81,28 @@ namespace AS_Zauberbild {
                 let x: number = Math.random() * canvas.width;
                 let y: number = Math.random() * canvas.height;
                 let position: Vector = new Vector(x, y);
-                let halbkreis: Halbkreis = new Halbkreis(position);
-                halbkreis.draw();
-                symbols.push(halbkreis);
+                let semicircle: Semicircle = new Semicircle(position);
+                semicircle.draw();
+                shapes.push(semicircle);
             };
             
         }
 
-        if (kreisIn.checked == true) {
+        else if (circleIn.checked == true) {
             console.log("Kreis wird gezeichnet"); 
             function drawKreis(_event: MouseEvent): void {
                 let canvas: HTMLCanvasElement = <HTMLCanvasElement>document.querySelector(".canvas");
                 let x: number = Math.random() * canvas.width;
                 let y: number = Math.random() * canvas.height;
                 let position: Vector = new Vector(x, y);
-                let kreis: Kreis = new Kreis(position);
-                kreis.draw();
-                symbols.push(kreis);
+                let circle: Circle = new Circle(position);
+                circle.draw();
+                shapes.push(circle);
             };
             
         }
 
-        if (hexagonIn.checked == true) {
+        else if (hexagonIn.checked == true) {
             console.log("Hexagon wird gezeichnet"); 
             function drawHexagon(_event:MouseEvent) {
                 let canvas: HTMLCanvasElement = <HTMLCanvasElement>document.querySelector(".canvas");
@@ -112,7 +111,7 @@ namespace AS_Zauberbild {
                 let position: Vector = new Vector(x, y);
                 let hexagon: Hexagon = new Hexagon(position);
                 hexagon.draw();
-                symbols.push(hexagon);
+                shapes.push(hexagon);
             }; 
             
         }
@@ -128,20 +127,20 @@ namespace AS_Zauberbild {
             let x: number = 50;
             let y: number = 70;
             let position: Vector = new Vector(x, y);
-            let kreis: Kreis = new Kreis(position);
-            kreis.draw();
+            let circle: Circle = new Circle(position);
+            circle.draw();
             //symbols.push(circle);
-            console.log(symbols);
+            console.log(shapes);
 
         //Halbkreis 
         for (let i: number = 0; i < _symbol; i++) {
             let x: number = 340;
             let y: number = 20;
             let position: Vector = new Vector(x, y);
-            let halbkreis: Halbkreis = new Halbkreis(position);
-            halbkreis.draw();
+            let semicircle: Semicircle = new Semicircle(position);
+            semicircle.draw();
             
-            console.log(symbols);
+            console.log(shapes);
 
         }
 
@@ -150,10 +149,10 @@ namespace AS_Zauberbild {
             let x: number = 40;
             let y: number = 240;
             let position: Vector = new Vector(x, y);
-            let raute: Raute = new Raute(position);
-            raute.draw();
+            let rhombus: Rhombus = new Rhombus(position);
+            rhombus.draw();
             
-            console.log(symbols);
+            console.log(shapes);
 
         }
 
@@ -162,10 +161,10 @@ namespace AS_Zauberbild {
             let x: number = 360;
             let y: number = 210;
             let position: Vector = new Vector(x, y);
-            let herz: Herz = new Herz(position);
-            herz.draw();
+            let heart: Heart = new Heart(position);
+            heart.draw();
             
-            console.log(symbols);
+            console.log(shapes);
 
         }
 
@@ -174,10 +173,10 @@ namespace AS_Zauberbild {
             let x: number = 350;
             let y: number = 250;
             let position: Vector = new Vector(x, y);
-            let herz: Herz = new Herz(position);
-            herz.draw();
+            let hexagon: Hexagon = new Hexagon(position);
+            hexagon.draw();
             
-            console.log(symbols);
+            console.log(shapes);
 
         }
     }
@@ -185,6 +184,16 @@ namespace AS_Zauberbild {
     function animation() {
         return setInterval(createSymbols, 100);
     }
+
+    function frame(): void {
+
+        crc2.putImageData(background, 0, 0);
+        //drawTriangle();
+
+        for (let i: number = 0; i < shapes.length; i++) {
+            shapes[i].move(1 / 50);
+            shapes[i].draw();
+        }
    
     
 
@@ -214,6 +223,6 @@ namespace AS_Zauberbild {
 
 
    
-
+        }
     }
 }
