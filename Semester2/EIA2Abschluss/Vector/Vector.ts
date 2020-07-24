@@ -29,7 +29,7 @@ namespace AS_Zauberbild {
             return new Vector(this.x, this.y); 
         }
 
-        public static getRandom(_minLength: number, _maxLength: number): Vector {
+        public getRandom(_minLength: number, _maxLength: number): Vector {
            let vector: Vector = new Vector(0,0);
            let length: number = _minLength + Math.random() * (_maxLength - _minLength);
            let direction: number = Math.random() * 2 * Math.PI;

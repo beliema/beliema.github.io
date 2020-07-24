@@ -20,7 +20,7 @@ var AS_Zauberbild;
         copy() {
             return new Vector(this.x, this.y);
         }
-        static getRandom(_minLength, _maxLength) {
+        getRandom(_minLength, _maxLength) {
             let vector = new Vector(0, 0);
             let length = _minLength + Math.random() * (_maxLength - _minLength);
             let direction = Math.random() * 2 * Math.PI;

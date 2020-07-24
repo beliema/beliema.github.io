@@ -2,6 +2,8 @@ namespace AS_Zauberbild {
 
     export class Raute extends Rotation {
 
+
+
         constructor(_position?: Vector) {
 
             super(_position);
@@ -31,6 +33,7 @@ namespace AS_Zauberbild {
 
         public rotate(): void {
 
+            let time: number; 
             let canvas = document.getElementsByClassName(".canvas"); 
             let p1={ x: 0, y: 40};  //Ecke links    
             let p2={x: 80, y: 40};  //Ecke rechts

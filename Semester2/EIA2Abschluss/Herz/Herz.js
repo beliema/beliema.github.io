@@ -1,9 +1,14 @@
 var AS_Zauberbild;
 (function (AS_Zauberbild) {
-    class Herz extends AS_Zauberbild.Vector {
+    class Herz {
         constructor(_position) {
-            super(_position);
+            if (_position)
+                this.position = _position;
+            else
+                this.position = new AS_Zauberbild.Vector(0, 0);
             this.velocity = new AS_Zauberbild.Vector(0, 0);
+            this.velocity.getRandom(100, 200);
+            this.type = Math.floor(Math.random() * 4);
         }
         draw() {
             AS_Zauberbild.crc2.beginPath();

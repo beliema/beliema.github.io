@@ -20,6 +20,7 @@ var AS_Zauberbild;
             AS_Zauberbild.crc2.restore();
         }
         rotate() {
+            let time;
             let canvas = document.getElementsByClassName(".canvas");
             let p1 = { x: 0, y: 40 }; //Ecke links    
             let p2 = { x: 80, y: 40 }; //Ecke rechts
