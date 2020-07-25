@@ -1,32 +1,26 @@
-var AS_Zauberbild;
-(function (AS_Zauberbild) {
+var AS_Zauberbild2;
+(function (AS_Zauberbild2) {
     console.log("Canvas wird geladen");
-    AS_Zauberbild.farbe = document.querySelector("#Farbauswahl");
-    // Arrays der Klassen 
-    let shapes = [];
-    /*let semicircle: Semicircle[] = [];
-        let heart: Heart[] = [];
-        let hexagon: Hexagon[] = [];
-        let circle: Circle[] = [];
-        let rhombus: Rhombus[] = [];*/
-    let background;
+    AS_Zauberbild2.farbe = document.querySelector("#Farbauswahl");
     let canvas;
+    let shapes = [];
+    let background;
     window.addEventListener("load", handleLoadCanvas);
     function handleLoadCanvas(_event) {
-        let canvas = document.querySelector("canvas");
+        let canvas = document.querySelector(".canvas");
         if (!canvas)
             return;
-        AS_Zauberbild.crc2 = canvas.getContext("2d");
+        AS_Zauberbild2.crc2 = canvas.getContext("2d");
         let symbole = document.getElementById("Symbol");
         symbole.addEventListener("click", saveSymbol);
         canvas.addEventListener("mousedown", createSymbols);
-        createSymbols(new AS_Zauberbild.Vector(0, 0), 1);
+        createSymbols(new Vector(0, 0), 1);
         // setInterval(frame, 100); 
     }
-    AS_Zauberbild.handleLoadCanvas = handleLoadCanvas;
+    AS_Zauberbild2.handleLoadCanvas = handleLoadCanvas;
     function BackgroundData(_event) {
         let canvas = document.querySelector("canvas");
-        background = AS_Zauberbild.crc2.getImageData(0, 0, canvas.width, canvas.height);
+        background = AS_Zauberbild2.crc2.getImageData(0, 0, canvas.width, canvas.height);
     }
     function saveSymbol(_event) {
         let heartIn = document.getElementById("Herz");
@@ -59,8 +53,8 @@ var AS_Zauberbild;
         let canvas = document.querySelector("canvas");
         let x = Math.random() * canvas.width;
         let y = Math.random() * canvas.height;
-        let position = new AS_Zauberbild.Vector(x, y);
-        let heart = new AS_Zauberbild.Heart(position);
+        let position = new Vector(x, y);
+        let heart = new Heart(position);
         heart.draw();
         shapes.push(heart);
     }
@@ -69,8 +63,8 @@ var AS_Zauberbild;
         let canvas = document.querySelector("canvas");
         let x = Math.random() * canvas.width;
         let y = Math.random() * canvas.height;
-        let position = new AS_Zauberbild.Vector(x, y);
-        let rhombus = new AS_Zauberbild.Rhombus(position);
+        let position = new Vector(x, y);
+        let rhombus = new Rhombus(position);
         rhombus.draw();
         shapes.push(rhombus);
     }
@@ -79,8 +73,8 @@ var AS_Zauberbild;
         let canvas = document.querySelector("canvas");
         let x = Math.random() * canvas.width;
         let y = Math.random() * canvas.height;
-        let position = new AS_Zauberbild.Vector(x, y);
-        let semicircle = new AS_Zauberbild.Semicircle(position);
+        let position = new Vector(x, y);
+        let semicircle = new Semicircle(position);
         semicircle.draw();
         shapes.push(semicircle);
     }
@@ -89,8 +83,8 @@ var AS_Zauberbild;
         let canvas = document.querySelector("canvas");
         let x = Math.random() * canvas.width;
         let y = Math.random() * canvas.height;
-        let position = new AS_Zauberbild.Vector(x, y);
-        let circle = new AS_Zauberbild.Circle(position);
+        let position = new Vector(x, y);
+        let circle = new Circle(position);
         circle.draw();
         shapes.push(circle);
     }
@@ -99,8 +93,8 @@ var AS_Zauberbild;
         let canvas = document.querySelector("canvas");
         let x = Math.random() * canvas.width;
         let y = Math.random() * canvas.height;
-        let position = new AS_Zauberbild.Vector(x, y);
-        let hexagon = new AS_Zauberbild.Hexagon(position);
+        let position = new Vector(x, y);
+        let hexagon = new Hexagon(position);
         hexagon.draw();
         shapes.push(hexagon);
     }
@@ -110,8 +104,8 @@ var AS_Zauberbild;
         for (let i = 0; i < _shape; i++) {
             let x = 50;
             let y = 70;
-            let position = new AS_Zauberbild.Vector(x, y);
-            let circle = new AS_Zauberbild.Circle(position);
+            let position = new Vector(x, y);
+            let circle = new Circle(position);
             circle.draw();
             //shapes.push(circle);
             console.log(shapes);
@@ -119,8 +113,8 @@ var AS_Zauberbild;
             for (let i = 0; i < _shape; i++) {
                 let x = 340;
                 let y = 20;
-                let position = new AS_Zauberbild.Vector(x, y);
-                let semicircle = new AS_Zauberbild.Semicircle(position);
+                let position = new Vector(x, y);
+                let semicircle = new Semicircle(position);
                 semicircle.draw();
                 console.log(shapes);
             }
@@ -128,8 +122,8 @@ var AS_Zauberbild;
             for (let i = 0; i < _shape; i++) {
                 let x = 40;
                 let y = 240;
-                let position = new AS_Zauberbild.Vector(x, y);
-                let rhombus = new AS_Zauberbild.Rhombus(position);
+                let position = new Vector(x, y);
+                let rhombus = new Rhombus(position);
                 rhombus.draw();
                 console.log(shapes);
             }
@@ -137,8 +131,8 @@ var AS_Zauberbild;
             for (let i = 0; i < _shape; i++) {
                 let x = 50;
                 let y = 20;
-                let position = new AS_Zauberbild.Vector(x, y);
-                let heart = new AS_Zauberbild.Heart(position);
+                let position = new Vector(x, y);
+                let heart = new Heart(position);
                 heart.draw();
                 console.log(shapes);
             }
@@ -146,8 +140,8 @@ var AS_Zauberbild;
             for (let i = 0; i < _shape; i++) {
                 let x = 350;
                 let y = 250;
-                let position = new AS_Zauberbild.Vector(x, y);
-                let hexagon = new AS_Zauberbild.Hexagon(position);
+                let position = new Vector(x, y);
+                let hexagon = new Hexagon(position);
                 hexagon.draw();
                 console.log(shapes);
             }
@@ -156,7 +150,7 @@ var AS_Zauberbild;
             return setInterval(createSymbols, 100);
         }
         function frame() {
-            AS_Zauberbild.crc2.putImageData(background, 0, 0);
+            AS_Zauberbild2.crc2.putImageData(background, 0, 0);
             //drawTriangle();
             for (let i = 0; i < shapes.length; i++) {
                 shapes[i].move(1 / 50);
@@ -172,5 +166,5 @@ var AS_Zauberbild;
             // }
         }
     }
-})(AS_Zauberbild || (AS_Zauberbild = {}));
+})(AS_Zauberbild2 || (AS_Zauberbild2 = {}));
 //# sourceMappingURL=canvas.js.map

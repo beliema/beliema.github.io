@@ -6,15 +6,12 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-var AS_Zauberbild;
-(function (AS_Zauberbild) {
+var AS_Zauberbild2;
+(function (AS_Zauberbild2) {
     console.log("Zauberbild-Editor wird geladen");
     window.addEventListener("load", handleLoad);
     let url = "zauberbild.html";
     function handleLoad(_event) {
-        // let response: Response = await fetch(""); 
-        //  let offer: string = await response.text();
-        //  let data: Data = JSON.parse(offer);
         //Festlegung Variablen in Verbindung mit HTML-Elementen 
         let format = document.querySelector("#Zeichenfläche");
         let farbe = document.querySelector("#Farbauswahl");
@@ -48,98 +45,98 @@ var AS_Zauberbild;
             let farbe17 = document.getElementById("Farbe17");
             let farbe18 = document.getElementById("Farbe18");
             if (farbe1.checked == true) {
-                AS_Zauberbild.crc2.fillStyle = "#F2F5A9";
-                AS_Zauberbild.crc2.fillRect(0, 0, AS_Zauberbild.crc2.canvas.width, AS_Zauberbild.crc2.canvas.height);
+                AS_Zauberbild2.crc2.fillStyle = "#F2F5A9";
+                AS_Zauberbild2.crc2.fillRect(0, 0, AS_Zauberbild2.crc2.canvas.width, AS_Zauberbild2.crc2.canvas.height);
             }
             else if (farbe2.checked == true) {
-                AS_Zauberbild.crc2.fillStyle = "#F5A9A9";
-                AS_Zauberbild.crc2.fillRect(0, 0, AS_Zauberbild.crc2.canvas.width, AS_Zauberbild.crc2.canvas.height);
+                AS_Zauberbild2.crc2.fillStyle = "#F5A9A9";
+                AS_Zauberbild2.crc2.fillRect(0, 0, AS_Zauberbild2.crc2.canvas.width, AS_Zauberbild2.crc2.canvas.height);
             }
             else if (farbe3.checked == true) {
-                AS_Zauberbild.crc2.fillStyle = "#D0A9F5";
-                AS_Zauberbild.crc2.fillRect(0, 0, AS_Zauberbild.crc2.canvas.width, AS_Zauberbild.crc2.canvas.height);
+                AS_Zauberbild2.crc2.fillStyle = "#D0A9F5";
+                AS_Zauberbild2.crc2.fillRect(0, 0, AS_Zauberbild2.crc2.canvas.width, AS_Zauberbild2.crc2.canvas.height);
             }
             else if (farbe4.checked == true) {
-                AS_Zauberbild.crc2.fillStyle = "#A9BCF5";
-                AS_Zauberbild.crc2.fillRect(0, 0, AS_Zauberbild.crc2.canvas.width, AS_Zauberbild.crc2.canvas.height);
+                AS_Zauberbild2.crc2.fillStyle = "#A9BCF5";
+                AS_Zauberbild2.crc2.fillRect(0, 0, AS_Zauberbild2.crc2.canvas.width, AS_Zauberbild2.crc2.canvas.height);
             }
             else if (farbe5.checked == true) {
-                AS_Zauberbild.crc2.fillStyle = "#A9F5D0";
-                AS_Zauberbild.crc2.fillRect(0, 0, AS_Zauberbild.crc2.canvas.width, AS_Zauberbild.crc2.canvas.height);
+                AS_Zauberbild2.crc2.fillStyle = "#A9F5D0";
+                AS_Zauberbild2.crc2.fillRect(0, 0, AS_Zauberbild2.crc2.canvas.width, AS_Zauberbild2.crc2.canvas.height);
             }
             else if (farbe6.checked == true) {
-                AS_Zauberbild.crc2.fillStyle = "#FACC2E";
-                AS_Zauberbild.crc2.fillRect(0, 0, AS_Zauberbild.crc2.canvas.width, AS_Zauberbild.crc2.canvas.height);
+                AS_Zauberbild2.crc2.fillStyle = "#FACC2E";
+                AS_Zauberbild2.crc2.fillRect(0, 0, AS_Zauberbild2.crc2.canvas.width, AS_Zauberbild2.crc2.canvas.height);
             }
             else if (farbe7.checked == true) {
-                AS_Zauberbild.crc2.fillStyle = "#FE2E2E";
-                AS_Zauberbild.crc2.fillRect(0, 0, AS_Zauberbild.crc2.canvas.width, AS_Zauberbild.crc2.canvas.height);
+                AS_Zauberbild2.crc2.fillStyle = "#FE2E2E";
+                AS_Zauberbild2.crc2.fillRect(0, 0, AS_Zauberbild2.crc2.canvas.width, AS_Zauberbild2.crc2.canvas.height);
             }
             else if (farbe8.checked == true) {
-                AS_Zauberbild.crc2.fillStyle = "#A901DB";
-                AS_Zauberbild.crc2.fillRect(0, 0, AS_Zauberbild.crc2.canvas.width, AS_Zauberbild.crc2.canvas.height);
+                AS_Zauberbild2.crc2.fillStyle = "#A901DB";
+                AS_Zauberbild2.crc2.fillRect(0, 0, AS_Zauberbild2.crc2.canvas.width, AS_Zauberbild2.crc2.canvas.height);
             }
             else if (farbe9.checked == true) {
-                AS_Zauberbild.crc2.fillStyle = "#0174DF";
-                AS_Zauberbild.crc2.fillRect(0, 0, AS_Zauberbild.crc2.canvas.width, AS_Zauberbild.crc2.canvas.height);
+                AS_Zauberbild2.crc2.fillStyle = "#0174DF";
+                AS_Zauberbild2.crc2.fillRect(0, 0, AS_Zauberbild2.crc2.canvas.width, AS_Zauberbild2.crc2.canvas.height);
             }
             else if (farbe10.checked == true) {
-                AS_Zauberbild.crc2.fillStyle = "#04B431";
-                AS_Zauberbild.crc2.fillRect(0, 0, AS_Zauberbild.crc2.canvas.width, AS_Zauberbild.crc2.canvas.height);
+                AS_Zauberbild2.crc2.fillStyle = "#04B431";
+                AS_Zauberbild2.crc2.fillRect(0, 0, AS_Zauberbild2.crc2.canvas.width, AS_Zauberbild2.crc2.canvas.height);
             }
             else if (farbe16.checked == true) {
-                AS_Zauberbild.crc2.fillStyle = "white";
-                AS_Zauberbild.crc2.fillRect(0, 0, AS_Zauberbild.crc2.canvas.width, AS_Zauberbild.crc2.canvas.height);
+                AS_Zauberbild2.crc2.fillStyle = "white";
+                AS_Zauberbild2.crc2.fillRect(0, 0, AS_Zauberbild2.crc2.canvas.width, AS_Zauberbild2.crc2.canvas.height);
             }
             else if (farbe17.checked == true) {
-                AS_Zauberbild.crc2.fillStyle = "black";
-                AS_Zauberbild.crc2.fillRect(0, 0, AS_Zauberbild.crc2.canvas.width, AS_Zauberbild.crc2.canvas.height);
+                AS_Zauberbild2.crc2.fillStyle = "black";
+                AS_Zauberbild2.crc2.fillRect(0, 0, AS_Zauberbild2.crc2.canvas.width, AS_Zauberbild2.crc2.canvas.height);
             }
             else if (farbe11.checked == true) {
-                let gradient = AS_Zauberbild.crc2.createLinearGradient(0, 0, 0, AS_Zauberbild.crc2.canvas.height);
+                let gradient = AS_Zauberbild2.crc2.createLinearGradient(0, 0, 0, AS_Zauberbild2.crc2.canvas.height);
                 gradient.addColorStop(0, "#F2F5A9");
                 gradient.addColorStop(1, "#FACC2E");
-                AS_Zauberbild.crc2.fillStyle = gradient;
-                AS_Zauberbild.crc2.fillRect(0, 0, AS_Zauberbild.crc2.canvas.width, AS_Zauberbild.crc2.canvas.height);
+                AS_Zauberbild2.crc2.fillStyle = gradient;
+                AS_Zauberbild2.crc2.fillRect(0, 0, AS_Zauberbild2.crc2.canvas.width, AS_Zauberbild2.crc2.canvas.height);
             }
             else if (farbe12.checked == true) {
-                let gradient = AS_Zauberbild.crc2.createLinearGradient(0, 0, 0, AS_Zauberbild.crc2.canvas.height);
+                let gradient = AS_Zauberbild2.crc2.createLinearGradient(0, 0, 0, AS_Zauberbild2.crc2.canvas.height);
                 gradient.addColorStop(0, "#F5A9A9");
                 gradient.addColorStop(1, "#FE2E2E");
-                AS_Zauberbild.crc2.fillStyle = gradient;
-                AS_Zauberbild.crc2.fillRect(0, 0, AS_Zauberbild.crc2.canvas.width, AS_Zauberbild.crc2.canvas.height);
+                AS_Zauberbild2.crc2.fillStyle = gradient;
+                AS_Zauberbild2.crc2.fillRect(0, 0, AS_Zauberbild2.crc2.canvas.width, AS_Zauberbild2.crc2.canvas.height);
             }
             else if (farbe13.checked == true) {
-                let gradient = AS_Zauberbild.crc2.createLinearGradient(0, 0, 0, AS_Zauberbild.crc2.canvas.height);
+                let gradient = AS_Zauberbild2.crc2.createLinearGradient(0, 0, 0, AS_Zauberbild2.crc2.canvas.height);
                 gradient.addColorStop(0, "#D0A9F5");
                 gradient.addColorStop(1, "#A901DB");
-                AS_Zauberbild.crc2.fillStyle = gradient;
-                AS_Zauberbild.crc2.fillRect(0, 0, AS_Zauberbild.crc2.canvas.width, AS_Zauberbild.crc2.canvas.height);
+                AS_Zauberbild2.crc2.fillStyle = gradient;
+                AS_Zauberbild2.crc2.fillRect(0, 0, AS_Zauberbild2.crc2.canvas.width, AS_Zauberbild2.crc2.canvas.height);
             }
             else if (farbe14.checked == true) {
-                let gradient = AS_Zauberbild.crc2.createLinearGradient(0, 0, 0, AS_Zauberbild.crc2.canvas.height);
+                let gradient = AS_Zauberbild2.crc2.createLinearGradient(0, 0, 0, AS_Zauberbild2.crc2.canvas.height);
                 gradient.addColorStop(0, "#A9BCF5");
                 gradient.addColorStop(1, "#0174DF");
-                AS_Zauberbild.crc2.fillStyle = gradient;
-                AS_Zauberbild.crc2.fillRect(0, 0, AS_Zauberbild.crc2.canvas.width, AS_Zauberbild.crc2.canvas.height);
+                AS_Zauberbild2.crc2.fillStyle = gradient;
+                AS_Zauberbild2.crc2.fillRect(0, 0, AS_Zauberbild2.crc2.canvas.width, AS_Zauberbild2.crc2.canvas.height);
             }
             else if (farbe15.checked == true) {
-                let gradient = AS_Zauberbild.crc2.createLinearGradient(0, 0, 0, AS_Zauberbild.crc2.canvas.height);
+                let gradient = AS_Zauberbild2.crc2.createLinearGradient(0, 0, 0, AS_Zauberbild2.crc2.canvas.height);
                 gradient.addColorStop(0, "#A9F5D0");
                 gradient.addColorStop(1, "#04B431");
-                AS_Zauberbild.crc2.fillStyle = gradient;
-                AS_Zauberbild.crc2.fillRect(0, 0, AS_Zauberbild.crc2.canvas.width, AS_Zauberbild.crc2.canvas.height);
+                AS_Zauberbild2.crc2.fillStyle = gradient;
+                AS_Zauberbild2.crc2.fillRect(0, 0, AS_Zauberbild2.crc2.canvas.width, AS_Zauberbild2.crc2.canvas.height);
             }
             else if (farbe18.checked == true) {
-                let gradient = AS_Zauberbild.crc2.createLinearGradient(0, 0, 0, AS_Zauberbild.crc2.canvas.height);
+                let gradient = AS_Zauberbild2.crc2.createLinearGradient(0, 0, 0, AS_Zauberbild2.crc2.canvas.height);
                 gradient.addColorStop(0, "white");
                 gradient.addColorStop(1, "black");
-                AS_Zauberbild.crc2.fillStyle = gradient;
-                AS_Zauberbild.crc2.fillRect(0, 0, AS_Zauberbild.crc2.canvas.width, AS_Zauberbild.crc2.canvas.height);
+                AS_Zauberbild2.crc2.fillStyle = gradient;
+                AS_Zauberbild2.crc2.fillRect(0, 0, AS_Zauberbild2.crc2.canvas.width, AS_Zauberbild2.crc2.canvas.height);
             }
         });
         neuesCanvas.addEventListener("click", (_event) => {
-            AS_Zauberbild.crc2.clearRect(0, 0, canvas.width, canvas.height);
+            AS_Zauberbild2.crc2.clearRect(0, 0, canvas.width, canvas.height);
         });
         // speichern.addEventListener("click", saveCanvasData);    
         //Funktion 1: Je nachdem welches Format ausgewählt wurde, generieret sich ein Canvas in vordefinierter Größe. 
@@ -172,5 +169,5 @@ var AS_Zauberbild;
             }
         }
     }
-})(AS_Zauberbild || (AS_Zauberbild = {}));
+})(AS_Zauberbild2 || (AS_Zauberbild2 = {}));
 //# sourceMappingURL=generatepage.js.map

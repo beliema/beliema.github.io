@@ -1,4 +1,4 @@
-namespace AS_Zauberbild {
+namespace AS_Zauberbild2 {
 
     console.log("Zauberbild-Editor wird geladen");
 
@@ -10,9 +10,6 @@ namespace AS_Zauberbild {
 
 function handleLoad (_event: Event): void {
 
-       // let response: Response = await fetch(""); 
-      //  let offer: string = await response.text();
-      //  let data: Data = JSON.parse(offer);
 
         //Festlegung Variablen in Verbindung mit HTML-Elementen 
 

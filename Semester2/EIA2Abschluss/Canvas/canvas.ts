@@ -1,19 +1,16 @@
-namespace AS_Zauberbild {
+ namespace AS_Zauberbild2 {
     console.log("Canvas wird geladen");
 
     export let crc2: CanvasRenderingContext2D;
     export let farbe: HTMLInputElement = <HTMLInputElement>document.querySelector("#Farbauswahl");
+ 
+    let canvas: HTMLCanvasElement;
     
-// Arrays der Klassen 
+
     let shapes: Shape[] = [];
-/*let semicircle: Semicircle[] = [];
-    let heart: Heart[] = [];
-    let hexagon: Hexagon[] = [];
-    let circle: Circle[] = [];
-    let rhombus: Rhombus[] = [];*/
 
     let background: ImageData;
-    let canvas: HTMLCanvasElement;
+   
 
 
     window.addEventListener("load", handleLoadCanvas);
@@ -21,7 +18,7 @@ namespace AS_Zauberbild {
 
 
     export function handleLoadCanvas(_event: Event): void {
-        let canvas: HTMLCanvasElement = <HTMLCanvasElement>document.querySelector("canvas");
+        let canvas: HTMLCanvasElement = <HTMLCanvasElement>document.querySelector(".canvas");
         if (!canvas)
             return;
 
