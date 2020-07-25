@@ -132,14 +132,14 @@ namespace AS_Zauberbild {
     function createSymbols(_position: Vector, _shape: number): void {
 
         //Kreis 
-        for (let i: number = 0; i < _shape; i++) {
-            let x: number = 50;
-            let y: number = 70;
-            let position: Vector = new Vector(x, y);
-            let circle: Circle = new Circle(position);
-            circle.draw();
-            //shapes.push(circle);
-            console.log(shapes);
+            for (let i: number = 0; i < _shape; i++) {
+                let x: number = 50;
+                let y: number = 70;
+                let position: Vector = new Vector(x, y);
+                let circle: Circle = new Circle(position);
+                circle.draw();
+                //shapes.push(circle);
+                console.log(shapes);
 
             //Halbkreis 
             for (let i: number = 0; i < _shape; i++) {
