@@ -2,12 +2,13 @@ var AS_Zauberbild;
 (function (AS_Zauberbild) {
     console.log("Canvas wird geladen");
     AS_Zauberbild.farbe = document.querySelector("#Farbauswahl");
+    // Arrays der Klassen 
     let shapes = [];
-    let semicircle = [];
-    let heart = [];
-    let hexagon = [];
-    let circle = [];
-    let rhombus = [];
+    /*let semicircle: Semicircle[] = [];
+        let heart: Heart[] = [];
+        let hexagon: Hexagon[] = [];
+        let circle: Circle[] = [];
+        let rhombus: Rhombus[] = [];*/
     let background;
     let canvas;
     window.addEventListener("load", handleLoadCanvas);

@@ -4,13 +4,14 @@ namespace AS_Zauberbild {
     export let crc2: CanvasRenderingContext2D;
     export let farbe: HTMLInputElement = <HTMLInputElement>document.querySelector("#Farbauswahl");
     
-
+// Arrays der Klassen 
     let shapes: Shape[] = [];
-    let semicircle: Semicircle[] = [];
+/*let semicircle: Semicircle[] = [];
     let heart: Heart[] = [];
     let hexagon: Hexagon[] = [];
     let circle: Circle[] = [];
-    let rhombus: Rhombus[] = [];
+    let rhombus: Rhombus[] = [];*/
+
     let background: ImageData;
     let canvas: HTMLCanvasElement;
 
