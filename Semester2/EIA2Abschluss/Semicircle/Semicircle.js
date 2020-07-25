@@ -9,7 +9,7 @@ var AS_Zauberbild;
             AS_Zauberbild.crc2.save();
             AS_Zauberbild.crc2.beginPath();
             AS_Zauberbild.crc2.translate(this.position.x, this.position.y);
-            AS_Zauberbild.crc2.arc(300, 300, 40, 0, 1 * Math.PI);
+            AS_Zauberbild.crc2.arc(0, 0, 20, 0, 1 * Math.PI);
             AS_Zauberbild.crc2.closePath();
             AS_Zauberbild.crc2.lineWidth = 1;
             AS_Zauberbild.crc2.fillStyle = "#F6C135";

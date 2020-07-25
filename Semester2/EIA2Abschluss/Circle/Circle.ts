@@ -12,20 +12,20 @@ namespace AS_Zauberbild {
 
         move(_timeslice: number): void {
             
-        let offset: Vector = this.velocity.copy();
-            
-        offset.x *= _timeslice * 0.5;
-        offset.y *= _timeslice;
-        this.position.add(offset);
-
-        if (this.position.x < 0)
-            this.position.x += (crc2.canvas.width);
-        if (this.position.y < 0)
-            this.position.y += crc2.canvas.height;
-        if (this.position.x > (crc2.canvas.width))
-            this.position.x -= (crc2.canvas.width);
-        if (this.position.y > crc2.canvas.height)
-            this.position.y -= crc2.canvas.height;
+            let offset: Vector = this.velocity.copy();
+           
+            offset.x *= _timeslice * 0.5;
+            offset.y *= _timeslice;
+            this.position.add(offset);
+     
+            if (this.position.x < 0)
+                this.position.x += (crc2.canvas.width);
+            if (this.position.y < 0)
+                this.position.y += crc2.canvas.height;
+            if (this.position.x > (crc2.canvas.width))
+                this.position.x -= (crc2.canvas.width);
+            if (this.position.y > crc2.canvas.height)
+                this.position.y -= crc2.canvas.height;
 
         }
     
@@ -34,7 +34,7 @@ namespace AS_Zauberbild {
         
         public draw(): void {
             
-            let r: number = 50;
+            let r: number = 20;
 
             crc2.save();
             crc2.beginPath();

@@ -20,7 +20,7 @@ var AS_Zauberbild;
                 this.position.y -= AS_Zauberbild.crc2.canvas.height;
         }
         draw() {
-            let r = 50;
+            let r = 20;
             AS_Zauberbild.crc2.save();
             AS_Zauberbild.crc2.beginPath();
             AS_Zauberbild.crc2.arc(0, 0, r, 0, 2 * Math.PI);

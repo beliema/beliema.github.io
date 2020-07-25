@@ -1,16 +1,15 @@
 var AS_Zauberbild;
 (function (AS_Zauberbild) {
     console.log("Canvas wird geladen");
-    AS_Zauberbild.drawing = true;
     AS_Zauberbild.farbe = document.querySelector("#Farbauswahl");
     let shapes = [];
-    //   let moveables: Moveable [] = []; 
     let semicircle = [];
     let heart = [];
     let hexagon = [];
     let circle = [];
     let rhombus = [];
     let background;
+    let canvas;
     window.addEventListener("load", handleLoadCanvas);
     function handleLoadCanvas(_event) {
         let canvas = document.querySelector("canvas");
@@ -19,11 +18,15 @@ var AS_Zauberbild;
         AS_Zauberbild.crc2 = canvas.getContext("2d");
         let symbole = document.getElementById("Symbol");
         symbole.addEventListener("click", saveSymbol);
-        //   canvas.addEventListener("mouseup", createSymbols);
+        canvas.addEventListener("mouseup", createSymbols);
         createSymbols(new AS_Zauberbild.Vector(0, 0), 1);
-        //    setInterval(frame, 100); 
+        setInterval(frame, 100);
     }
     AS_Zauberbild.handleLoadCanvas = handleLoadCanvas;
+    function BackgroundData(_event) {
+        let canvas = document.querySelector("canvas");
+        background = AS_Zauberbild.crc2.getImageData(0, 0, canvas.width, canvas.height);
+    }
     function saveSymbol(_event) {
         let heartIn = document.getElementById("Herz");
         let rhombusIn = document.getElementById("Raute");
@@ -32,82 +35,87 @@ var AS_Zauberbild;
         let hexagonIn = document.getElementById("Hexagon");
         if (heartIn.checked == true) {
             console.log("Herz wird gezeichnet");
-            function drawHeart(_event) {
-                let canvas = document.querySelector(".canvas");
-                let x = Math.random() * canvas.width;
-                let y = Math.random() * canvas.height;
-                let position = new AS_Zauberbild.Vector(x, y);
-                let heart = new AS_Zauberbild.Heart(position);
-                heart.draw();
-                shapes.push(heart);
-            }
-            ;
+            heartIn.addEventListener("click", drawHeart);
         }
         else if (rhombusIn.checked == true) {
             console.log("Raute wird gezeichnet");
-            function drawRhombus(_event) {
-                let canvas = document.querySelector(".canvas");
-                let x = Math.random() * canvas.width;
-                let y = Math.random() * canvas.height;
-                let position = new AS_Zauberbild.Vector(x, y);
-                let rhombus = new AS_Zauberbild.Rhombus(position);
-                rhombus.draw();
-                shapes.push(rhombus);
-            }
-            ;
+            rhombusIn.addEventListener("click", drawRhombus);
         }
         else if (semicircleIn.checked == true) {
             console.log("Halbkreis wird gezeichnet");
-            function drawHalbkreis(_event) {
-                let canvas = document.querySelector(".canvas");
-                let x = Math.random() * canvas.width;
-                let y = Math.random() * canvas.height;
-                let position = new AS_Zauberbild.Vector(x, y);
-                let semicircle = new AS_Zauberbild.Semicircle(position);
-                semicircle.draw();
-                shapes.push(semicircle);
-            }
-            ;
+            semicircleIn.addEventListener("click", drawSemicircle);
         }
         else if (circleIn.checked == true) {
             console.log("Kreis wird gezeichnet");
-            function drawKreis(_event) {
-                let canvas = document.querySelector(".canvas");
-                let x = Math.random() * canvas.width;
-                let y = Math.random() * canvas.height;
-                let position = new AS_Zauberbild.Vector(x, y);
-                let circle = new AS_Zauberbild.Circle(position);
-                circle.draw();
-                shapes.push(circle);
-            }
-            ;
+            circleIn.addEventListener("click", drawCircle);
         }
         else if (hexagonIn.checked == true) {
             console.log("Hexagon wird gezeichnet");
-            function drawHexagon(_event) {
-                let canvas = document.querySelector(".canvas");
-                let x = Math.random() * canvas.width;
-                let y = Math.random() * canvas.height;
-                let position = new AS_Zauberbild.Vector(x, y);
-                let hexagon = new AS_Zauberbild.Hexagon(position);
-                hexagon.draw();
-                shapes.push(hexagon);
-            }
-            ;
+            hexagonIn.addEventListener("click", drawHexagon);
         }
     }
-    function createSymbols(_position, _symbol) {
+    function drawHeart(_event) {
+        let canvas = document.querySelector(".canvas");
+        let x = Math.random() * canvas.width;
+        let y = Math.random() * canvas.height;
+        let position = new AS_Zauberbild.Vector(x, y);
+        let heart = new AS_Zauberbild.Heart(position);
+        heart.draw();
+        shapes.push(heart);
+    }
+    ;
+    function drawRhombus(_event) {
+        let canvas = document.querySelector(".canvas");
+        let x = Math.random() * canvas.width;
+        let y = Math.random() * canvas.height;
+        let position = new AS_Zauberbild.Vector(x, y);
+        let rhombus = new AS_Zauberbild.Rhombus(position);
+        rhombus.draw();
+        shapes.push(rhombus);
+    }
+    ;
+    function drawSemicircle(_event) {
+        let canvas = document.querySelector(".canvas");
+        let x = Math.random() * canvas.width;
+        let y = Math.random() * canvas.height;
+        let position = new AS_Zauberbild.Vector(x, y);
+        let semicircle = new AS_Zauberbild.Semicircle(position);
+        semicircle.draw();
+        shapes.push(semicircle);
+    }
+    ;
+    function drawCircle(_event) {
+        let canvas = document.querySelector(".canvas");
+        let x = Math.random() * canvas.width;
+        let y = Math.random() * canvas.height;
+        let position = new AS_Zauberbild.Vector(x, y);
+        let circle = new AS_Zauberbild.Circle(position);
+        circle.draw();
+        shapes.push(circle);
+    }
+    ;
+    function drawHexagon(_event) {
+        let canvas = document.querySelector(".canvas");
+        let x = Math.random() * canvas.width;
+        let y = Math.random() * canvas.height;
+        let position = new AS_Zauberbild.Vector(x, y);
+        let hexagon = new AS_Zauberbild.Hexagon(position);
+        hexagon.draw();
+        shapes.push(hexagon);
+    }
+    ;
+    function createSymbols(_position, _shape) {
         //Kreis 
-        for (let i = 0; i < _symbol; i++) {
+        for (let i = 0; i < _shape; i++) {
             let x = 50;
             let y = 70;
             let position = new AS_Zauberbild.Vector(x, y);
             let circle = new AS_Zauberbild.Circle(position);
             circle.draw();
-            //symbols.push(circle);
+            //shapes.push(circle);
             console.log(shapes);
             //Halbkreis 
-            for (let i = 0; i < _symbol; i++) {
+            for (let i = 0; i < _shape; i++) {
                 let x = 340;
                 let y = 20;
                 let position = new AS_Zauberbild.Vector(x, y);
@@ -116,7 +124,7 @@ var AS_Zauberbild;
                 console.log(shapes);
             }
             //Raute
-            for (let i = 0; i < _symbol; i++) {
+            for (let i = 0; i < _shape; i++) {
                 let x = 40;
                 let y = 240;
                 let position = new AS_Zauberbild.Vector(x, y);
@@ -125,7 +133,7 @@ var AS_Zauberbild;
                 console.log(shapes);
             }
             //Herz 
-            for (let i = 0; i < _symbol; i++) {
+            for (let i = 0; i < _shape; i++) {
                 let x = 360;
                 let y = 210;
                 let position = new AS_Zauberbild.Vector(x, y);
@@ -134,7 +142,7 @@ var AS_Zauberbild;
                 console.log(shapes);
             }
             //Hexagon 
-            for (let i = 0; i < _symbol; i++) {
+            for (let i = 0; i < _shape; i++) {
                 let x = 350;
                 let y = 250;
                 let position = new AS_Zauberbild.Vector(x, y);
