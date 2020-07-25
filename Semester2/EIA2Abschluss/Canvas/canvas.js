@@ -134,8 +134,8 @@ var AS_Zauberbild;
             }
             //Herz 
             for (let i = 0; i < _shape; i++) {
-                let x = 360;
-                let y = 210;
+                let x = 50;
+                let y = 20;
                 let position = new AS_Zauberbild.Vector(x, y);
                 let heart = new AS_Zauberbild.Heart(position);
                 heart.draw();

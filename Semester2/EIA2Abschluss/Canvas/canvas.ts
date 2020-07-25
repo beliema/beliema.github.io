@@ -166,8 +166,8 @@ namespace AS_Zauberbild {
 
             //Herz 
             for (let i: number = 0; i < _shape; i++) {
-                let x: number = 360;
-                let y: number = 210;
+                let x: number = 50;
+                let y: number = 20;
                 let position: Vector = new Vector(x, y);
                 let heart: Heart = new Heart(position);
                 heart.draw();

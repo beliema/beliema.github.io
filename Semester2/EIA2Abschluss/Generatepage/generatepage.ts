@@ -33,9 +33,9 @@ function handleLoad (_event: Event): void {
 
         // Installation der Listener 
 
-        format.addEventListener("click", generateCanvasSize);
+        format.addEventListener("change", generateCanvasSize);
     // Funktion ChangeCanvasColor: Die Farbe des Canvas wird dadurhc bestimmt, welches Input Element in der Div Farbenfläche ausgewählt wurde 
-        farbe.addEventListener("click", (_event: Event) => {
+        farbe.addEventListener("change", (_event: Event) => {
                 let farbe1: HTMLInputElement = <HTMLInputElement>document.getElementById("Farbe1"); 
                 let farbe2: HTMLInputElement = <HTMLInputElement>document.getElementById("Farbe2"); 
                 let farbe3: HTMLInputElement = <HTMLInputElement>document.getElementById("Farbe3"); 
