@@ -39,20 +39,19 @@ namespace AS_Zauberbild {
             let p2={x: 80, y: 40};  //Ecke rechts
             let dx= p2.x-p1.x;
             let dy= p2.y-p1.y; 
-            let length = Math.sqrt(dx*dx+dy+dy); 
             let angle = Math.atan2(dy, dx); 
 
-            draw(angle); 
+            draw(); 
             requestAnimationFrame(animate); 
 
             function animate(/*time*/){
                 requestAnimationFrame(animate);
-                draw(angle);
+                draw();
                 angle += Math.PI/60;
 
             }
 
-            function draw(radianAngle){
+            function draw(): void {
 
 
                 crc2.clearRect(0,0, canvas.width, canvas.height); 

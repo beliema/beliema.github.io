@@ -1,12 +1,16 @@
 namespace AS_Zauberbild {
 
     export class Semicircle extends Shape {
+        rotation: number; 
+        Velocity: Vector; 
+    
 
         constructor(_position?: Vector) {
 
             super(_position);
 
             this.velocity = new Vector ( 0,0); 
+            this.rotation = 0; 
 
         }
 
@@ -25,8 +29,9 @@ namespace AS_Zauberbild {
             crc2.stroke();
         }
 
-        public rotate(): void {
+        public move(): void {
             
+            this.rotation += 5; 
         }
     }
 }

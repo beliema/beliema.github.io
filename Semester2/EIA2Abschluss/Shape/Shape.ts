@@ -6,7 +6,6 @@ namespace AS_Zauberbild {
         public velocity: Vector; 
         public expendable: boolean = false; 
         public size: number; 
-        public color: string;
         public radius: Vector; 
 
         constructor(_position: Vector) {

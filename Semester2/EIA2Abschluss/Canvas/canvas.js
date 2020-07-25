@@ -18,9 +18,9 @@ var AS_Zauberbild;
         AS_Zauberbild.crc2 = canvas.getContext("2d");
         let symbole = document.getElementById("Symbol");
         symbole.addEventListener("click", saveSymbol);
-        canvas.addEventListener("mouseup", createSymbols);
+        canvas.addEventListener("mousedown", createSymbols);
         createSymbols(new AS_Zauberbild.Vector(0, 0), 1);
-        setInterval(frame, 100);
+        // setInterval(frame, 100); 
     }
     AS_Zauberbild.handleLoadCanvas = handleLoadCanvas;
     function BackgroundData(_event) {
@@ -55,7 +55,7 @@ var AS_Zauberbild;
         }
     }
     function drawHeart(_event) {
-        let canvas = document.querySelector(".canvas");
+        let canvas = document.querySelector("canvas");
         let x = Math.random() * canvas.width;
         let y = Math.random() * canvas.height;
         let position = new AS_Zauberbild.Vector(x, y);
@@ -65,7 +65,7 @@ var AS_Zauberbild;
     }
     ;
     function drawRhombus(_event) {
-        let canvas = document.querySelector(".canvas");
+        let canvas = document.querySelector("canvas");
         let x = Math.random() * canvas.width;
         let y = Math.random() * canvas.height;
         let position = new AS_Zauberbild.Vector(x, y);
@@ -75,7 +75,7 @@ var AS_Zauberbild;
     }
     ;
     function drawSemicircle(_event) {
-        let canvas = document.querySelector(".canvas");
+        let canvas = document.querySelector("canvas");
         let x = Math.random() * canvas.width;
         let y = Math.random() * canvas.height;
         let position = new AS_Zauberbild.Vector(x, y);
@@ -85,7 +85,7 @@ var AS_Zauberbild;
     }
     ;
     function drawCircle(_event) {
-        let canvas = document.querySelector(".canvas");
+        let canvas = document.querySelector("canvas");
         let x = Math.random() * canvas.width;
         let y = Math.random() * canvas.height;
         let position = new AS_Zauberbild.Vector(x, y);
@@ -95,7 +95,7 @@ var AS_Zauberbild;
     }
     ;
     function drawHexagon(_event) {
-        let canvas = document.querySelector(".canvas");
+        let canvas = document.querySelector("canvas");
         let x = Math.random() * canvas.width;
         let y = Math.random() * canvas.height;
         let position = new AS_Zauberbild.Vector(x, y);

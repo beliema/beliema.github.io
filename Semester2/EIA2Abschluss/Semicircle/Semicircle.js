@@ -4,6 +4,7 @@ var AS_Zauberbild;
         constructor(_position) {
             super(_position);
             this.velocity = new AS_Zauberbild.Vector(0, 0);
+            this.rotation = 0;
         }
         draw() {
             AS_Zauberbild.crc2.save();
@@ -18,7 +19,8 @@ var AS_Zauberbild;
             AS_Zauberbild.crc2.strokeStyle = "#F6C135";
             AS_Zauberbild.crc2.stroke();
         }
-        rotate() {
+        move() {
+            this.rotation += 5;
         }
     }
     AS_Zauberbild.Semicircle = Semicircle;

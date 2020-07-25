@@ -12,7 +12,7 @@ namespace AS_Zauberbild {
     let circle: Circle[] = [];
     let rhombus: Rhombus[] = [];
     let background: ImageData;
-    let canvas: HTMLCanvasElement; 
+    let canvas: HTMLCanvasElement;
 
 
     window.addEventListener("load", handleLoadCanvas);
@@ -30,9 +30,9 @@ namespace AS_Zauberbild {
 
 
         symbole.addEventListener("click", saveSymbol);
-        canvas.addEventListener("mouseup", createSymbols);
+        canvas.addEventListener("mousedown", createSymbols);
         createSymbols(new Vector(0, 0), 1);
-        setInterval(frame, 100); 
+       // setInterval(frame, 100); 
 
     }
 
@@ -78,7 +78,7 @@ namespace AS_Zauberbild {
     }
 
     function drawHeart(_event: MouseEvent): void {
-        let canvas: HTMLCanvasElement = <HTMLCanvasElement>document.querySelector(".canvas");
+        let canvas: HTMLCanvasElement = <HTMLCanvasElement>document.querySelector("canvas");
         let x: number = Math.random() * canvas.width;
         let y: number = Math.random() * canvas.height;
         let position: Vector = new Vector(x, y);
@@ -88,7 +88,7 @@ namespace AS_Zauberbild {
     };
 
     function drawRhombus(_event: MouseEvent): void {
-        let canvas: HTMLCanvasElement = <HTMLCanvasElement>document.querySelector(".canvas");
+        let canvas: HTMLCanvasElement = <HTMLCanvasElement>document.querySelector("canvas");
         let x: number = Math.random() * canvas.width;
         let y: number = Math.random() * canvas.height;
         let position: Vector = new Vector(x, y);
@@ -98,7 +98,7 @@ namespace AS_Zauberbild {
     };
 
     function drawSemicircle(_event: MouseEvent): void {
-        let canvas: HTMLCanvasElement = <HTMLCanvasElement>document.querySelector(".canvas");
+        let canvas: HTMLCanvasElement = <HTMLCanvasElement>document.querySelector("canvas");
         let x: number = Math.random() * canvas.width;
         let y: number = Math.random() * canvas.height;
         let position: Vector = new Vector(x, y);
@@ -108,7 +108,7 @@ namespace AS_Zauberbild {
     };
 
     function drawCircle(_event: MouseEvent): void {
-        let canvas: HTMLCanvasElement = <HTMLCanvasElement>document.querySelector(".canvas");
+        let canvas: HTMLCanvasElement = <HTMLCanvasElement>document.querySelector("canvas");
         let x: number = Math.random() * canvas.width;
         let y: number = Math.random() * canvas.height;
         let position: Vector = new Vector(x, y);
@@ -118,7 +118,7 @@ namespace AS_Zauberbild {
     };
 
     function drawHexagon(_event: MouseEvent) {
-        let canvas: HTMLCanvasElement = <HTMLCanvasElement>document.querySelector(".canvas");
+        let canvas: HTMLCanvasElement = <HTMLCanvasElement>document.querySelector("canvas");
         let x: number = Math.random() * canvas.width;
         let y: number = Math.random() * canvas.height;
         let position: Vector = new Vector(x, y);
