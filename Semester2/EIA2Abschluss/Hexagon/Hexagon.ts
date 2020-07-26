@@ -33,6 +33,7 @@ namespace AS_Zauberbild {
         public draw(): void {
 
             crc2.save(); 
+            crc2.scale(0.3, 0.3); 
             crc2.beginPath();
             crc2.translate(this.position.x, this.position.y);
             crc2.moveTo(10,40);
@@ -42,19 +43,11 @@ namespace AS_Zauberbild {
             crc2.lineTo(80,80);
             crc2.lineTo(30,80);
             crc2.lineTo(10,40);
-            crc2.stroke();
+            crc2.closePath(); 
 
-            let gradient: CanvasGradient = crc2.createLinearGradient(0,0, 100, 40 );
-
-            gradient.addColorStop(0, "#FB8D53" );
-            gradient.addColorStop(0.45, "#CA5D6F");
-            gradient.addColorStop(1,"#93278F" );
-
-            crc2.fillStyle = "gradient";
+            crc2.fillStyle = "#93278F";
             crc2.fill();
-            crc2.restore();
-            
-
+            crc2.stroke(); 
         }
     }
 }

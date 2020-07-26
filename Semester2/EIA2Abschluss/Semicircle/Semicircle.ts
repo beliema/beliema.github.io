@@ -25,7 +25,7 @@ namespace AS_Zauberbild {
             crc2.fillStyle = "#F6C135";
             crc2.fill();
             crc2.rotate(Math.PI / 2);
-            crc2.strokeStyle = "#F6C135";
+            crc2.strokeStyle = "black";
             crc2.stroke();
         }
 
@@ -34,4 +34,4 @@ namespace AS_Zauberbild {
             this.rotation += 5; 
         }
     }
-}
+}   

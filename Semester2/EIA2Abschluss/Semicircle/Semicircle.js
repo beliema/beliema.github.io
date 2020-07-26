@@ -16,7 +16,7 @@ var AS_Zauberbild;
             AS_Zauberbild.crc2.fillStyle = "#F6C135";
             AS_Zauberbild.crc2.fill();
             AS_Zauberbild.crc2.rotate(Math.PI / 2);
-            AS_Zauberbild.crc2.strokeStyle = "#F6C135";
+            AS_Zauberbild.crc2.strokeStyle = "black";
             AS_Zauberbild.crc2.stroke();
         }
         move() {
