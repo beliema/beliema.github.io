@@ -27,6 +27,8 @@ namespace AS_Zauberbild {
                 crc2.fillStyle = "#F5A9A9";
                 crc2.fill();
                 crc2.stroke(); 
+
+                crc2.restore(); 
         }
     }
 

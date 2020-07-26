@@ -20,6 +20,7 @@ var AS_Zauberbild;
             AS_Zauberbild.crc2.fillStyle = "#F5A9A9";
             AS_Zauberbild.crc2.fill();
             AS_Zauberbild.crc2.stroke();
+            AS_Zauberbild.crc2.restore();
         }
     }
     AS_Zauberbild.Heart = Heart;

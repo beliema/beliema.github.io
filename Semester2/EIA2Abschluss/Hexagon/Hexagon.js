@@ -35,6 +35,7 @@ var AS_Zauberbild;
             AS_Zauberbild.crc2.fillStyle = "#93278F";
             AS_Zauberbild.crc2.fill();
             AS_Zauberbild.crc2.stroke();
+            AS_Zauberbild.crc2.restore();
         }
     }
     AS_Zauberbild.Hexagon = Hexagon;

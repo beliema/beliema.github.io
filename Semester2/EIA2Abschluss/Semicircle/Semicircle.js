@@ -18,6 +18,7 @@ var AS_Zauberbild;
             AS_Zauberbild.crc2.rotate(Math.PI / 2);
             AS_Zauberbild.crc2.strokeStyle = "black";
             AS_Zauberbild.crc2.stroke();
+            AS_Zauberbild.crc2.restore();
         }
         move() {
             this.rotation += 5;

@@ -26,6 +26,7 @@ namespace AS_Zauberbild {
 
             crc2.fillStyle = "white";
             crc2.fill();
+            
             crc2.restore();
 
 

@@ -50,7 +50,7 @@ namespace AS_Zauberbild {
 
         // Installation der Listener 
 
-        format.addEventListener("change", (_event: Event): => {
+        format.addEventListener("change", (_event: Event): any => {
 
             let format1: HTMLInputElement = <HTMLInputElement>document.getElementById("Format1");
             let format2: HTMLInputElement = <HTMLInputElement>document.getElementById("Format2");
@@ -223,8 +223,8 @@ namespace AS_Zauberbild {
         symbole.addEventListener("change", (_event: MouseEvent) => {
             console.log("Symbol wird gezeichnet");
 
-                let x: number = 70;
-                let y: number = 90; 
+                let x: number = 100;
+                let y: number = 120; 
 
                 if (semicircleIn.checked == true) { 
                     let positionSemicircle: Vector = new Vector(x,y);

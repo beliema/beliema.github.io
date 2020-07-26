@@ -170,8 +170,8 @@ var AS_Zauberbild;
         //  setInterval(animate, 100);
         symbole.addEventListener("change", (_event) => {
             console.log("Symbol wird gezeichnet");
-            let x = 70;
-            let y = 90;
+            let x = 100;
+            let y = 120;
             if (semicircleIn.checked == true) {
                 let positionSemicircle = new AS_Zauberbild.Vector(x, y);
                 let semicircle = new AS_Zauberbild.Semicircle(positionSemicircle);

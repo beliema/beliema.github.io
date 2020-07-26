@@ -27,6 +27,8 @@ namespace AS_Zauberbild {
             crc2.rotate(Math.PI / 2);
             crc2.strokeStyle = "black";
             crc2.stroke();
+
+            crc2.restore(); 
         }
 
         public move(): void {
