@@ -212,6 +212,8 @@ namespace AS_Zauberbild {
                 crc2.fillRect(0, 0, crc2.canvas.width, crc2.canvas.height);
             }
 
+            backgroundImage = crc2.getImageData(0, 0, canvas.width, canvas.height);
+
         });
 
         newCanvas.addEventListener("click", (_event: Event) => {
@@ -330,16 +332,20 @@ namespace AS_Zauberbild {
         }
     }
 
-//Animationen über Funktion Update: Beispiel aus L09_Classes 
+//Animationen über Funktion Update: Orientierung an L09_Classes 
      function update(): void {
         console.log("Update");
         crc2.putImageData(backgroundImage, 0, 0); 
 
         for (let Shape of shapes) {
-           if  (Shape instanceof Circle || Shape instanceof Hexagon) 
+           if  (Shape instanceof Circle) 
            Shape.move(1 / 50);
-           else if  (Shape instanceof Semicircle || Shape instanceof Rhombus)
+           else if (Shape instanceof Hexagon) 
+           Shape.move(1/100); 
+           else if  (Shape instanceof Semicircle) 
            Shape.move(1/30);
+           else if (Shape instanceof Rhombus) 
+           Shape.move(1/80); 
            else if (Shape instanceof Heart)
            Shape.move(1/40); 
            Shape.draw();

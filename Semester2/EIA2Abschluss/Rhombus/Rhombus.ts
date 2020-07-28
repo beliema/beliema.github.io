@@ -16,6 +16,8 @@ namespace AS_Zauberbild {
 
         public draw(): void {
 
+    
+
             crc2.save();
             crc2.beginPath();
             crc2.translate(this.position.x, this.position.y);
