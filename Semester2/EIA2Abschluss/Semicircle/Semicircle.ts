@@ -31,7 +31,7 @@ namespace AS_Zauberbild {
             crc2.restore(); 
         }
 
-        public move(): void {
+        public move(_timeslice: number): void {
             
             this.rotation += 5; 
         }

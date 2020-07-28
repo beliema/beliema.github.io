@@ -7,7 +7,7 @@ var AS_Zauberbild;
         }
         draw() {
             AS_Zauberbild.crc2.save();
-            AS_Zauberbild.crc2.scale(0.2, 0.2);
+            AS_Zauberbild.crc2.scale(0.4, 0.4);
             AS_Zauberbild.crc2.beginPath();
             AS_Zauberbild.crc2.translate(this.position.x, this.position.y);
             AS_Zauberbild.crc2.bezierCurveTo(75, 40, 70, 25, 50, 25);
@@ -21,6 +21,8 @@ var AS_Zauberbild;
             AS_Zauberbild.crc2.fill();
             AS_Zauberbild.crc2.stroke();
             AS_Zauberbild.crc2.restore();
+        }
+        move(_timeslice) {
         }
     }
     AS_Zauberbild.Heart = Heart;

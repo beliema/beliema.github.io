@@ -22,6 +22,7 @@ namespace AS_Zauberbild {
 
     window.addEventListener("load", handleLoad);
 
+
     function handleLoad(_event: Event): void {
         console.log("handleLoad-Funktion wird aufgerufen");
 
@@ -43,8 +44,8 @@ namespace AS_Zauberbild {
         circleIn = <HTMLInputElement>document.getElementById("Circle");
         rhombusIn = <HTMLInputElement>document.getElementById("Rhombus");
         heartIn = <HTMLInputElement>document.getElementById("Heart");
-        hexagonIn= <HTMLInputElement>document.getElementById("Hexagon");
-    
+        hexagonIn = <HTMLInputElement>document.getElementById("Hexagon");
+
         newCanvas = <HTMLButtonElement>document.getElementById("neuCanvas");
         saveB = <HTMLButtonElement>document.getElementById("speichern");
 
@@ -218,54 +219,54 @@ namespace AS_Zauberbild {
         }
         );
 
-      //  setInterval(animate, 100);
+        window.setInterval(update, 100);
 
         symbole.addEventListener("change", (_event: MouseEvent) => {
             console.log("Symbol wird gezeichnet");
 
-                let x: number = 100;
-                let y: number = 120; 
+            let x: number = 100;
+            let y: number = 120;
 
-                if (semicircleIn.checked == true) { 
-                    let positionSemicircle: Vector = new Vector(x,y);
-                    let semicircle: Semicircle = new Semicircle(positionSemicircle);
+            if (semicircleIn.checked == true) {
+                let positionSemicircle: Vector = new Vector(x, y);
+                let semicircle: Semicircle = new Semicircle(positionSemicircle);
 
-                    semicircle.draw();
-                    shapes.push(semicircle);
-                }
+                semicircle.draw();
+                shapes.push(semicircle);
+            }
 
-                else if (circleIn.checked == true) { 
-                    let positionCircle: Vector = new Vector(x,y);
-                    let circle: Circle = new Circle(positionCircle);
+            else if (circleIn.checked == true) {
+                let positionCircle: Vector = new Vector(x, y);
+                let circle: Circle = new Circle(positionCircle);
 
-                    circle.draw();
-                    shapes.push(circle);           
-                }
+                circle.draw();
+                shapes.push(circle);
+            }
 
-                else if (rhombusIn.checked == true) { 
-                    let positionRhombus: Vector = new Vector(x,y);
-                    let rhombus: Rhombus = new Rhombus(positionRhombus);
+            else if (rhombusIn.checked == true) {
+                let positionRhombus: Vector = new Vector(x, y);
+                let rhombus: Rhombus = new Rhombus(positionRhombus);
 
-                    rhombus.draw();
-                    shapes.push(rhombus);           
-                }
+                rhombus.draw();
+                shapes.push(rhombus);
+            }
 
-                else if (heartIn.checked == true) { 
-                    let positionHeart: Vector = new Vector(x,y);
-                    let heart: Heart = new Heart(positionHeart);
+            else if (heartIn.checked == true) {
+                let positionHeart: Vector = new Vector(x, y);
+                let heart: Heart = new Heart(positionHeart);
 
-                    heart.draw();
-                    shapes.push(heart);           
-                }
+                heart.draw();
+                shapes.push(heart);
+            }
 
-                else if (hexagonIn.checked == true) { 
-                    let positionHexagon: Vector = new Vector(x,y);
-                    let hexagon: Hexagon = new Hexagon(positionHexagon);
+            else if (hexagonIn.checked == true) {
+                let positionHexagon: Vector = new Vector(x, y);
+                let hexagon: Hexagon = new Hexagon(positionHexagon);
 
-                    hexagon.draw();
-                    shapes.push(hexagon);           
-                }
-        }); 
+                hexagon.draw();
+                shapes.push(hexagon);
+            }
+        });
 
         createShapes();
     }
@@ -329,4 +330,21 @@ namespace AS_Zauberbild {
         }
     }
 
+//Animationen über Funktion Update: Beispiel aus L09_Classes 
+     function update(): void {
+        console.log("Update");
+        crc2.putImageData(backgroundImage, 0, 0); 
+
+        for (let Shape of shapes) {
+           if  (Shape instanceof Circle || Shape instanceof Hexagon) 
+           Shape.move(1 / 50);
+           else if  (Shape instanceof Semicircle || Shape instanceof Rhombus)
+           Shape.move(1/30);
+           else if (Shape instanceof Heart)
+           Shape.move(1/40); 
+           Shape.draw();
+        }
+    }
 }
+
+

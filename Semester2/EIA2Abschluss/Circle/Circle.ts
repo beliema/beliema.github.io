@@ -37,9 +37,9 @@ namespace AS_Zauberbild {
             let r: number = 20;
 
             crc2.save();
+            crc2.translate(this.position.x, this.position.y);
             crc2.beginPath();
             crc2.arc(0, 0, r, 0, 2 * Math.PI);
-            crc2.translate(this.position.x, this.position.y);
             crc2.stroke(); 
             
             crc2.fillStyle = "lightgrey";

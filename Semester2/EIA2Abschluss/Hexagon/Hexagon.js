@@ -21,7 +21,7 @@ var AS_Zauberbild;
         }
         draw() {
             AS_Zauberbild.crc2.save();
-            AS_Zauberbild.crc2.scale(0.3, 0.3);
+            AS_Zauberbild.crc2.scale(0.6, 0.55);
             AS_Zauberbild.crc2.beginPath();
             AS_Zauberbild.crc2.translate(this.position.x, this.position.y);
             AS_Zauberbild.crc2.moveTo(10, 40);
@@ -32,7 +32,7 @@ var AS_Zauberbild;
             AS_Zauberbild.crc2.lineTo(30, 80);
             AS_Zauberbild.crc2.lineTo(10, 40);
             AS_Zauberbild.crc2.closePath();
-            AS_Zauberbild.crc2.fillStyle = "#93278F";
+            AS_Zauberbild.crc2.fillStyle = "#9F81F7";
             AS_Zauberbild.crc2.fill();
             AS_Zauberbild.crc2.stroke();
             AS_Zauberbild.crc2.restore();

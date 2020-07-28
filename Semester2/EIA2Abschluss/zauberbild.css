@@ -50,8 +50,6 @@ body {
  canvas {
     left: 400px; 
     top: 60px; 
-    width: 500px;
-    height: 300px;  
     position: absolute;
     margin: 2%; 
     border-width: 3px; 

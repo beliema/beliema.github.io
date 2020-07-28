@@ -22,9 +22,9 @@ var AS_Zauberbild;
         draw() {
             let r = 20;
             AS_Zauberbild.crc2.save();
+            AS_Zauberbild.crc2.translate(this.position.x, this.position.y);
             AS_Zauberbild.crc2.beginPath();
             AS_Zauberbild.crc2.arc(0, 0, r, 0, 2 * Math.PI);
-            AS_Zauberbild.crc2.translate(this.position.x, this.position.y);
             AS_Zauberbild.crc2.stroke();
             AS_Zauberbild.crc2.fillStyle = "lightgrey";
             AS_Zauberbild.crc2.fill();

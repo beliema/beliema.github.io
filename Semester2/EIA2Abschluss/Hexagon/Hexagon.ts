@@ -33,7 +33,7 @@ namespace AS_Zauberbild {
         public draw(): void {
 
             crc2.save(); 
-            crc2.scale(0.3, 0.3); 
+            crc2.scale(0.6, 0.55); 
             crc2.beginPath();
             crc2.translate(this.position.x, this.position.y);
             crc2.moveTo(10,40);
@@ -45,7 +45,7 @@ namespace AS_Zauberbild {
             crc2.lineTo(10,40);
             crc2.closePath(); 
 
-            crc2.fillStyle = "#93278F";
+            crc2.fillStyle = "#9F81F7";
             crc2.fill();
             crc2.stroke(); 
             

@@ -167,7 +167,7 @@ var AS_Zauberbild;
         newCanvas.addEventListener("click", (_event) => {
             AS_Zauberbild.crc2.clearRect(0, 0, canvas.width, canvas.height);
         });
-        //  setInterval(animate, 100);
+        window.setInterval(update, 100);
         symbole.addEventListener("change", (_event) => {
             console.log("Symbol wird gezeichnet");
             let x = 100;
@@ -252,6 +252,20 @@ var AS_Zauberbild;
                 hexagon.draw();
                 console.log(shapes);
             }
+        }
+    }
+    //Animationen über Funktion Update: Beispiel aus L09_Classes 
+    function update() {
+        console.log("Update");
+        AS_Zauberbild.crc2.putImageData(backgroundImage, 0, 0);
+        for (let Shape of shapes) {
+            if (Shape instanceof AS_Zauberbild.Circle || Shape instanceof AS_Zauberbild.Hexagon)
+                Shape.move(1 / 50);
+            else if (Shape instanceof AS_Zauberbild.Semicircle || Shape instanceof AS_Zauberbild.Rhombus)
+                Shape.move(1 / 30);
+            else if (Shape instanceof AS_Zauberbild.Heart)
+                Shape.move(1 / 40);
+            Shape.draw();
         }
     }
 })(AS_Zauberbild || (AS_Zauberbild = {}));

@@ -20,7 +20,7 @@ var AS_Zauberbild;
             AS_Zauberbild.crc2.stroke();
             AS_Zauberbild.crc2.restore();
         }
-        move() {
+        move(_timeslice) {
             this.rotation += 5;
         }
     }
