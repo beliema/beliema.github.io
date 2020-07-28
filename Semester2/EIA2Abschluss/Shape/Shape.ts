@@ -7,6 +7,7 @@ namespace AS_Zauberbild {
         public expendable: boolean = false; 
         public size: number; 
         public radius: Vector; 
+        public rotation: number: 
 
         constructor(_position: Vector) {
             this.position = _position;
@@ -21,5 +22,9 @@ namespace AS_Zauberbild {
             let offset: Vector = new Vector(this.velocity.x, this.velocity.y);
             offset.scale(_timeslice);
             this.position.add(offset);
+        }
+
+        public rotate(_factor: number): void {
+            this.rotation = _factor;
         }
 }}

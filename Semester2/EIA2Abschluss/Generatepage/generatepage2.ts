@@ -1,3 +1,5 @@
+import { prototype } from "module";
+
 namespace AS_Zauberbild {
     console.log("Zauberbild-Editor wird geladen!");
 
@@ -19,6 +21,7 @@ namespace AS_Zauberbild {
 
     let shapes: Shape[] = [];
     let backgroundImage: ImageData;
+
 
     window.addEventListener("load", handleLoad);
 
@@ -49,6 +52,9 @@ namespace AS_Zauberbild {
         newCanvas = <HTMLButtonElement>document.getElementById("neuCanvas");
         saveB = <HTMLButtonElement>document.getElementById("speichern");
 
+        let backgroundImage = crc2.getImageData(0, 0, canvas.width, canvas.height); 
+        window.setInterval(update, 100);
+
         // Installation der Listener 
 
         format.addEventListener("change", (_event: Event): any => {
@@ -75,10 +81,13 @@ namespace AS_Zauberbild {
                 console.log("Canvas-Format 500 x 300 Pixel wird generiert");
             }
 
+            backgroundImage = crc2.getImageData(0, 0, canvas.width, canvas.height);
         });
 
 
         backgroundColor.addEventListener("change", (_event: Event) => {
+
+            console.log(shapes); 
 
             let farbe1: HTMLInputElement = <HTMLInputElement>document.getElementById("Farbe1");
             let farbe2: HTMLInputElement = <HTMLInputElement>document.getElementById("Farbe2");
@@ -221,7 +230,6 @@ namespace AS_Zauberbild {
         }
         );
 
-        window.setInterval(update, 100);
 
         symbole.addEventListener("change", (_event: MouseEvent) => {
             console.log("Symbol wird gezeichnet");
@@ -339,15 +347,15 @@ namespace AS_Zauberbild {
 
         for (let Shape of shapes) {
            if  (Shape instanceof Circle) 
-           Shape.move(1 / 50);
+           Shape.move(1 / 10);
            else if (Shape instanceof Hexagon) 
-           Shape.move(1/100); 
+           Shape.move(1/10); 
            else if  (Shape instanceof Semicircle) 
-           Shape.move(1/30);
+           Shape.move(1/10);
            else if (Shape instanceof Rhombus) 
-           Shape.move(1/80); 
+           Shape.move(1/10); 
            else if (Shape instanceof Heart)
-           Shape.move(1/40); 
+           Shape.move(1/10); 
            Shape.draw();
         }
     }
