@@ -12,8 +12,9 @@ var AS_Zauberbild;
     let hexagonIn;
     let deleteShape;
     let symbole;
-    let shapes = [];
     let backgroundImage;
+    let background;
+    let shapes = [];
     window.addEventListener("load", handleLoad);
     function handleLoad(_event) {
         console.log("handleLoad-Funktion wird aufgerufen");
@@ -21,7 +22,8 @@ var AS_Zauberbild;
         if (!canvas)
             return;
         AS_Zauberbild.crc2 = canvas.getContext("2d");
-        deleteShape = true;
+        createBackground();
+        // deleteShape = true;
         // Verknüfung der Variablen mit den jeweiligen HTML-Elementen 
         let format = document.querySelector("div#Zeichenfläche");
         backgroundColor = document.querySelector("#Farbauswahl");
@@ -33,6 +35,7 @@ var AS_Zauberbild;
         hexagonIn = document.getElementById("Hexagon");
         newCanvas = document.getElementById("neuCanvas");
         saveB = document.getElementById("speichern");
+        window.setInterval(update, 100);
         // Installation der Listener 
         format.addEventListener("change", (_event) => {
             let format1 = document.getElementById("Format1");
@@ -45,16 +48,17 @@ var AS_Zauberbild;
             }
             else if (format2.checked == true) {
                 canvas.style.height = "400px";
-                canvas.style.width = "500px";
-                console.log("Canvas-Format 500 x 400 Pixel wird generiert");
+                canvas.style.width = "400px";
+                console.log("Canvas-Format 400 x 400 Pixel wird generiert");
             }
             else if (format3.checked == true) {
-                canvas.style.height = "300px";
-                canvas.style.width = "500px";
-                console.log("Canvas-Format 500 x 300 Pixel wird generiert");
+                canvas.style.height = "600px";
+                canvas.style.width = "600px";
+                console.log("Canvas-Format 600 x 600 Pixel wird generiert");
             }
         });
         backgroundColor.addEventListener("change", (_event) => {
+            console.log(shapes);
             let farbe1 = document.getElementById("Farbe1");
             let farbe2 = document.getElementById("Farbe2");
             let farbe3 = document.getElementById("Farbe3");
@@ -163,11 +167,11 @@ var AS_Zauberbild;
                 AS_Zauberbild.crc2.fillStyle = gradient;
                 AS_Zauberbild.crc2.fillRect(0, 0, AS_Zauberbild.crc2.canvas.width, AS_Zauberbild.crc2.canvas.height);
             }
+            backgroundImage = AS_Zauberbild.crc2.getImageData(0, 0, canvas.width, canvas.height);
         });
         newCanvas.addEventListener("click", (_event) => {
             AS_Zauberbild.crc2.clearRect(0, 0, canvas.width, canvas.height);
         });
-        window.setInterval(update, 100);
         symbole.addEventListener("change", (_event) => {
             console.log("Symbol wird gezeichnet");
             let x = 100;
@@ -254,17 +258,27 @@ var AS_Zauberbild;
             }
         }
     }
-    //Animationen über Funktion Update: Beispiel aus L09_Classes 
+    function createBackground() {
+        let x = 0;
+        let y = 0;
+        let position = new AS_Zauberbild.Vector(x, y);
+        backgroundImage = AS_Zauberbild.crc2.getImageData(0, 0, AS_Zauberbild.crc2.canvas.width, AS_Zauberbild.crc2.canvas.height);
+    }
+    //Animationen über Funktion Update: Orientierung an L09_Classes 
     function update() {
         console.log("Update");
         AS_Zauberbild.crc2.putImageData(backgroundImage, 0, 0);
         for (let Shape of shapes) {
-            if (Shape instanceof AS_Zauberbild.Circle || Shape instanceof AS_Zauberbild.Hexagon)
+            if (Shape instanceof AS_Zauberbild.Circle)
+                Shape.move(1 / 10);
+            else if (Shape instanceof AS_Zauberbild.Hexagon)
+                Shape.move(1 / 20);
+            else if (Shape instanceof AS_Zauberbild.Semicircle)
+                Shape.move(1 / 10);
+            else if (Shape instanceof AS_Zauberbild.Rhombus)
                 Shape.move(1 / 50);
-            else if (Shape instanceof AS_Zauberbild.Semicircle || Shape instanceof AS_Zauberbild.Rhombus)
-                Shape.move(1 / 30);
             else if (Shape instanceof AS_Zauberbild.Heart)
-                Shape.move(1 / 40);
+                Shape.move(1 / 10);
             Shape.draw();
         }
     }

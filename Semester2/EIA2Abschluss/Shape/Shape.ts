@@ -7,7 +7,7 @@ namespace AS_Zauberbild {
         public expendable: boolean = false; 
         public size: number; 
         public radius: Vector; 
-        public rotation: number: 
+        public rotation: number;
 
         constructor(_position: Vector) {
             this.position = _position;

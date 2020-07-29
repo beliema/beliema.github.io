@@ -1,5 +1,3 @@
-import { prototype } from "module";
-
 namespace AS_Zauberbild {
     console.log("Zauberbild-Editor wird geladen!");
 
@@ -18,9 +16,14 @@ namespace AS_Zauberbild {
 
     let deleteShape: boolean;
     let symbole: HTMLDivElement;
+    let backgroundImage: ImageData;
+    let background: boolean;
+
+
+
 
     let shapes: Shape[] = [];
-    let backgroundImage: ImageData;
+
 
 
     window.addEventListener("load", handleLoad);
@@ -29,13 +32,17 @@ namespace AS_Zauberbild {
     function handleLoad(_event: Event): void {
         console.log("handleLoad-Funktion wird aufgerufen");
 
+
+
         let canvas: HTMLCanvasElement = <HTMLCanvasElement>document.querySelector(".canvas");
         if (!canvas)
             return;
 
         crc2 = <CanvasRenderingContext2D>canvas.getContext("2d")
 
-        deleteShape = true;
+        createBackground(); 
+
+        // deleteShape = true;
 
         // Verknüfung der Variablen mit den jeweiligen HTML-Elementen 
 
@@ -51,9 +58,9 @@ namespace AS_Zauberbild {
 
         newCanvas = <HTMLButtonElement>document.getElementById("neuCanvas");
         saveB = <HTMLButtonElement>document.getElementById("speichern");
-
-        let backgroundImage = crc2.getImageData(0, 0, canvas.width, canvas.height); 
         window.setInterval(update, 100);
+
+
 
         // Installation der Listener 
 
@@ -71,23 +78,21 @@ namespace AS_Zauberbild {
 
             else if (format2.checked == true) {
                 canvas.style.height = "400px";
-                canvas.style.width = "500px";
-                console.log("Canvas-Format 500 x 400 Pixel wird generiert");
+                canvas.style.width = "400px";
+                console.log("Canvas-Format 400 x 400 Pixel wird generiert");
             }
 
             else if (format3.checked == true) {
-                canvas.style.height = "300px";
-                canvas.style.width = "500px";
-                console.log("Canvas-Format 500 x 300 Pixel wird generiert");
+                canvas.style.height = "600px";
+                canvas.style.width = "600px";
+                console.log("Canvas-Format 600 x 600 Pixel wird generiert");
             }
-
-            backgroundImage = crc2.getImageData(0, 0, canvas.width, canvas.height);
         });
 
 
         backgroundColor.addEventListener("change", (_event: Event) => {
 
-            console.log(shapes); 
+            console.log(shapes);
 
             let farbe1: HTMLInputElement = <HTMLInputElement>document.getElementById("Farbe1");
             let farbe2: HTMLInputElement = <HTMLInputElement>document.getElementById("Farbe2");
@@ -340,25 +345,38 @@ namespace AS_Zauberbild {
         }
     }
 
-//Animationen über Funktion Update: Orientierung an L09_Classes 
-     function update(): void {
+    function createBackground(): void {
+
+
+        let x: number = 0;
+        let y: number = 0;
+        let position: Vector = new Vector(x, y);
+
+        backgroundImage = crc2.getImageData(0, 0, crc2.canvas.width, crc2.canvas.height);
+
+    }
+
+    //Animationen über Funktion Update: Orientierung an L09_Classes 
+    function update(): void {
         console.log("Update");
-        crc2.putImageData(backgroundImage, 0, 0); 
+        crc2.putImageData(backgroundImage, 0, 0);
 
         for (let Shape of shapes) {
-           if  (Shape instanceof Circle) 
-           Shape.move(1 / 10);
-           else if (Shape instanceof Hexagon) 
-           Shape.move(1/10); 
-           else if  (Shape instanceof Semicircle) 
-           Shape.move(1/10);
-           else if (Shape instanceof Rhombus) 
-           Shape.move(1/10); 
-           else if (Shape instanceof Heart)
-           Shape.move(1/10); 
-           Shape.draw();
+            if (Shape instanceof Circle)
+                Shape.move(1 / 10);
+            else if (Shape instanceof Hexagon)
+                Shape.move(1 / 20);
+            else if (Shape instanceof Semicircle)
+                Shape.move(1 / 10);
+            else if (Shape instanceof Rhombus)
+                Shape.move(1 / 50);
+            else if (Shape instanceof Heart)
+                Shape.move(1 / 10);
+            Shape.draw();
         }
     }
 }
+
+
 
 

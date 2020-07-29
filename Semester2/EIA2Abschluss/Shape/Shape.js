@@ -14,6 +14,9 @@ var AS_Zauberbild;
             offset.scale(_timeslice);
             this.position.add(offset);
         }
+        rotate(_factor) {
+            this.rotation = _factor;
+        }
     }
     AS_Zauberbild.Shape = Shape;
 })(AS_Zauberbild || (AS_Zauberbild = {}));
